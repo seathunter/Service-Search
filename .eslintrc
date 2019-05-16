@@ -25,7 +25,8 @@
 		"no-tabs": 0,
 		"indent": [2, "tab"],
 		"no-unused-vars": [1, {"vars": "local", "args": "none"}],
-		"comma-dangle": 0
+		"comma-dangle": 0,
+		"global-require": 0
 		
   },
   "extends": [

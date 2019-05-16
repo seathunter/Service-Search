@@ -43,17 +43,13 @@ Search.sync({ force: true })
 		];
 		for (let i = 1; i < 100; i++) {
 			const random = Math.floor(Math.random() * cuisines.length);
+			const restaurant = faker.lorem.word();
 			Search.create({
-				name: faker.lorem.word(),
+				name: restaurant.charAt(0).toUpperCase() + restaurant.slice(1),
 				location: `${faker.address.county()}, ${faker.address.city()}`,
 				cuisine: cuisines[random]
 			});
 		}
 	});
 
-// Search.create({
-// 	name: faker.company.companyName(),
-// 	location: faker.address.city()
-// }).then((entry) => {
-// 	console.log('successfully generated entry', entry.id);
-// });
+module.exports = Search;

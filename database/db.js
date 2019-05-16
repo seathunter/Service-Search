@@ -7,6 +7,7 @@ const sequelize = new Sequelize('search', 'root', 'student', {
 
 sequelize.authenticate().then(() => {
 	console.log('Connection has been established successfully');
+	require('./seeding');
 });
 
 module.exports = sequelize;
