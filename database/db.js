@@ -2,11 +2,12 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('search', 'root', 'student', {
 	host: 'localhost',
-	dialect: 'mysql'
+	dialect: 'mysql',
+	logging: false
 });
 
 sequelize.authenticate().then(() => {
-	console.log('Connection has been established successfully');
+	console.log('Connection Has Been Established Successfully');
 	require('./seeding');
 });
 

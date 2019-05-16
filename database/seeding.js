@@ -50,6 +50,10 @@ Search.sync({ force: true })
 				cuisine: cuisines[random]
 			});
 		}
+		console.log('Data Have Been Successfully Seeded To Database!');
+	})
+	.catch((err) => {
+		console.error('Error During Data Seeding');
 	});
 
 module.exports = Search;
