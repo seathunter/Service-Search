@@ -21,7 +21,17 @@ FreeSeats
 ## Usage
 
 > Some usage instructions
-just run npm start
+Please create a database called 'search' in mysql prior in running the scripts;
+The Instruction is as follows:
+In Terminal,
+1. type in command - $mysql -u -p root
+2. Enter your password if you have one
+3. type in command - show databases
+	to see your current databases.
+4. type in command - create database search
+5. type in command - use search
+6. After all of the steps mentioned above, go ahead and run npm install and run npm start
+
 
 ## Requirements
 

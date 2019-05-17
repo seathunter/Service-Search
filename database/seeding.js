@@ -56,4 +56,5 @@ Search.sync({ force: true })
 		console.error('Error During Data Seeding');
 	});
 
+
 module.exports = Search;

@@ -1,14 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
-// const Search = require('../database/seeding');
+// const Sequelize = require('sequelize');
+// const bodyParser = require('body-parser');
+const Search = require('../database/seeding');
 // const Axios = require('axios');
-
-const app = express();
-const port = 3030;
 
 // DB connection
 const sequelize = require('../database/db');
+
+// const Users = sequelize.import('../');
+
+const app = express();
+const port = 3030;
 
 app.use(morgan('dev'));
 app.use(express.static('public'));
@@ -19,9 +22,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-	sequelize.findOne({ search: { name: 'Kinjo' } }, (result) => {
-		console.log(result);
+	Search.findOne({ where: { name: 'Kinjo' } }).then((data) => {
+		console.log(data);
 	});
+	res.status(200);
+	res.send();
 });
 
 app.listen(port, () => {
