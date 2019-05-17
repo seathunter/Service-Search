@@ -30,7 +30,7 @@ In Terminal,
 	to see your current databases.
 4. type in command - create database search
 5. type in command - use search
-6. After all of the steps mentioned above, go ahead and run npm install and run npm start
+6. After all of the steps mentioned above, go ahead and install dependencies. 
 
 
 ## Requirements
