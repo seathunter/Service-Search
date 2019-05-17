@@ -3,14 +3,14 @@
 > Project description
 
 FreeSeats
+
 ## Related Projects
 
-  - https://github.com/freeseats/exzerone-search-bar
-  - https://github.com/freeseats/slhodak-reviews-and-impressions
-  - https://github.com/freeseats/Menu-Related-SideBar
-  - https://github.com/freeseats/matthewjdiaz1-photo-service
-	- https://github.com/freeseats/wfong-service-reservations
-
+- https://github.com/freeseats/exzerone-search-bar
+- https://github.com/freeseats/slhodak-reviews-and-impressions
+- https://github.com/freeseats/Menu-Related-SideBar
+- https://github.com/freeseats/matthewjdiaz1-photo-service
+  - https://github.com/freeseats/wfong-service-reservations
 
 ## Table of Contents
 
@@ -21,17 +21,19 @@ FreeSeats
 ## Usage
 
 > Some usage instructions
-Please create a database called 'search' in mysql prior in running the scripts;
-The Instruction is as follows:
-In Terminal,
-1. type in command - $mysql -u -p root
+> Please create a database called 'search' in mysql prior in running the scripts;
+> The Instruction is as follows:
+> In Terminal,
+
+1. type in command - \$mysql -u -p root
 2. Enter your password if you have one
 3. type in command - show databases
-	to see your current databases.
+   to see your current databases.
 4. type in command - create database search
 5. type in command - use search
-6. After all of the steps mentioned above, go ahead and install dependencies. 
-
+6. Under the server folder, go to db.js.
+7. On line 13, change the third parameter of the function to the password you have set up to your mysql (it is currently 'student');
+8. After all of the steps mentioned above, go ahead and install dependencies.
 
 ## Requirements
 
@@ -50,4 +52,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
