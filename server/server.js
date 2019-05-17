@@ -23,10 +23,9 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res) => {
 	Search.findOne({ where: { name: 'Kinjo' } }).then((data) => {
-		console.log(data);
+		res.status(200);
+		res.send(data);
 	});
-	res.status(200);
-	res.send();
 });
 
 app.listen(port, () => {
