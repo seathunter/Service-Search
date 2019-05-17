@@ -1,26 +1,27 @@
 const faker = require('faker');
-const Sequelize = require('sequelize');
-const sequelize = require('./db');
+const Search = require('./db');
+// const Sequelize = require('sequelize');
+// const sequelize = require('./db');
 
-const Search = sequelize.define(
-	'search',
-	{
-		id: {
-			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncrement: true,
-			allowNull: false
-		},
-		name: Sequelize.STRING,
-		location: Sequelize.STRING,
-		cuisine: Sequelize.STRING
-	},
-	{
-		freezeTableName: true,
-		tableName: 'search',
-		timestamps: false
-	}
-);
+// const Search = sequelize.define(
+// 	'search',
+// 	{
+// 		id: {
+// 			type: Sequelize.INTEGER,
+// 			primaryKey: true,
+// 			autoIncrement: true,
+// 			allowNull: false
+// 		},
+// 		name: Sequelize.STRING,
+// 		location: Sequelize.STRING,
+// 		cuisine: Sequelize.STRING
+// 	},
+// 	{
+// 		freezeTableName: true,
+// 		tableName: 'search',
+// 		timestamps: false
+// 	}
+// );
 
 Search.sync({ force: true })
 	.then(() => {
@@ -57,4 +58,4 @@ Search.sync({ force: true })
 	});
 
 
-module.exports = Search;
+// module.exports = Search;

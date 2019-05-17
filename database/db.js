@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const mysql = require('mysql');
+// const mysql = require('mysql');
 // const Search = require('./seeding');
 
 // const connection = mysql.createConnection({
@@ -20,11 +20,31 @@ sequelize
 	.authenticate()
 	.then(() => {
 		console.log('Connection Has Been Established Successfully');
-		require('./seeding');
 	})
 	.catch((err) => {
 		console.log(err);
 	});
 
-module.exports = sequelize;
+const Search = sequelize.define(
+	'search',
+	{
+		id: {
+			type: Sequelize.INTEGER,
+			primaryKey: true,
+			autoIncrement: true,
+			allowNull: false
+		},
+		name: Sequelize.STRING,
+		location: Sequelize.STRING,
+		cuisine: Sequelize.STRING
+	},
+	{
+		freezeTableName: true,
+		tableName: 'search',
+		timestamps: false
+	}
+);
+
+// module.exports = sequelize;
+module.exports = Search;
 // });

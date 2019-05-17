@@ -1,14 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+const Search = require('../database/db.js');
 // const Sequelize = require('sequelize');
 // const bodyParser = require('body-parser');
-const Search = require('../database/seeding');
 // const Axios = require('axios');
 
 // DB connection
-const sequelize = require('../database/db');
-
-// const Users = sequelize.import('../');
+require('../database/db');
 
 const app = express();
 const port = 3030;
