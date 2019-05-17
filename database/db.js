@@ -1,14 +1,29 @@
 const Sequelize = require('sequelize');
+const mysql = require('mysql');
 
-const sequelize = new Sequelize('search', 'root', 'student', {
+const connection = mysql.createConnection({
 	host: 'localhost',
-	dialect: 'mysql',
-	logging: false
+	user: 'root',
+	password: 'student'
 });
 
-sequelize.authenticate().then(() => {
-	console.log('Connection Has Been Established Successfully');
-	require('./seeding');
-});
+connection.query('DROP DATABASE IF EXISTS Search', () => {});
+connection.query('CREATE DATABASE Search', () => {
+	const sequelize = new Sequelize('search', 'root', 'student', {
+		host: 'localhost',
+		dialect: 'mysql',
+		logging: false
+	});
 
-module.exports = sequelize;
+	sequelize
+		.authenticate()
+		.then(() => {
+			console.log('Connection Has Been Established Successfully');
+			require('./seeding');
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+
+	module.exports = sequelize;
+});

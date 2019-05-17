@@ -21,7 +21,7 @@ FreeSeats
 ## Usage
 
 > Some usage instructions
-Please create a database in your mysql - 'search'
+just run npm start
 
 ## Requirements
 
