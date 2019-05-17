@@ -1,0 +1,31 @@
+const express = require('express');
+const morgan = require('morgan');
+const Search = require('../database/db.js');
+// const Sequelize = require('sequelize');
+// const bodyParser = require('body-parser');
+// const Axios = require('axios');
+
+// DB connection
+require('../database/db');
+
+const app = express();
+const port = 3030;
+
+app.use(morgan('dev'));
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+	res.status(200);
+	res.send();
+});
+
+app.get('/search', (req, res) => {
+	Search.findOne({ where: { name: 'Kinjo' } }).then((data) => {
+		res.status(200);
+		res.send(data);
+	});
+});
+
+app.listen(port, () => {
+	console.log(`Connected to ${port}`);
+});
