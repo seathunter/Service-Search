@@ -1,15 +1,20 @@
 import React from 'react';
+import moment from 'moment';
+import Calendar from './Calendar.jsx';
+
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			state: []
-		};
+		this.state = {};
 	}
 
 	render() {
-		return <div>{this.state.state}</div>;
+		return (
+			<div className="App">
+				<Calendar />
+			</div>
+		);
 	}
 }
 
