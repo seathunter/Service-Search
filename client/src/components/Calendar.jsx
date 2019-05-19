@@ -15,6 +15,10 @@ class Calendar extends React.Component {
 		return this.state.dateObject.format('MMMM');
 	}
 
+	currentDay() {
+		return this.state.dateObject.format('D');
+	}
+
 	firstDayOfMonth() {
 		const { dateObject } = this.state.dateObject;
 		const firstDay = moment(dateObject)
@@ -38,8 +42,9 @@ class Calendar extends React.Component {
 		}
 		const daysInMonth = [];
 		for (let d = 1; d < this.daysInMonth(); d++) {
+			const currentDay = d == this.currentDay() ? 'today' : '';
 			daysInMonth.push(
-				<td key={d} className="calendar-day">
+				<td key={d} className={`calendar-day ${currentDay}`}>
 					{d}
 				</td>
 			);
@@ -59,9 +64,11 @@ class Calendar extends React.Component {
 				rows.push(cells);
 			}
 		});
+
 		const daysinmonth = rows.map((d, i) => {
 			return <tr key={i}>{d}</tr>;
 		});
+
 		const weekdayshortname = this.state.weekdayshort.map((day) => {
 			return (
 				<th key={day} className="week-day">
@@ -69,6 +76,17 @@ class Calendar extends React.Component {
 				</th>
 			);
 		});
+
+		// const daysInMonth = [];
+		// for (let d = 1; d < this.daysInMonth(); d++) {
+		// 	let currentDay = d === this.currentDay() ? 'today' : '';
+		// 	daysInMonth.push(
+		// 		<td key={d} className={`calendar-day ${currentDay}`}>
+		// 			{d}
+		// 		</td>
+		// 	);
+		// }
+
 		return (
 			<div>
 				{this.month()}
