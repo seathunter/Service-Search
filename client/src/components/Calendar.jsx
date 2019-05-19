@@ -5,14 +5,18 @@ class Calendar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			weekdays: moment.weekdaysShort(),
+			weekdayshort: moment.weekdaysShort(),
 			firstDayOfMonth: moment(),
-			daysInMonth: moment()
+			dateObject: moment()
 		};
 	}
 
+	month() {
+		return this.state.dateObject.format('MMMM');
+	}
+
 	firstDayOfMonth() {
-		const dateObject = this.state.firstDayOfMonth;
+		const { dateObject } = this.state.dateObject;
 		const firstDay = moment(dateObject)
 			.startOf('month')
 			.format('d');
@@ -20,15 +24,17 @@ class Calendar extends React.Component {
 	}
 
 	daysInMonth() {
-		const dateObject = this.state.daysInMonth;
-		const monthDays = moment(dateObject).daysInMonth();
-		return monthDays;
+		return this.state.dateObject.daysInMonth();
 	}
 
 	render() {
 		const blanks = [];
 		for (let i = 0; i < this.firstDayOfMonth(); i++) {
-			blanks.push(<td className="calendar-day empty">{''}</td>);
+			blanks.push(
+				<td key={i * Math.random()} className="calendar-day empty">
+					{''}
+				</td>
+			);
 		}
 		const daysInMonth = [];
 		for (let d = 1; d < this.daysInMonth(); d++) {
@@ -39,7 +45,7 @@ class Calendar extends React.Component {
 			);
 		}
 		const totalSlots = [...blanks, ...daysInMonth];
-		let rows = [];
+		const rows = [];
 		let cells = [];
 		totalSlots.forEach((row, i) => {
 			if (i % 7 !== 0) {
@@ -54,21 +60,25 @@ class Calendar extends React.Component {
 			}
 		});
 		const daysinmonth = rows.map((d, i) => {
-			return <tr key={d}>{d}</tr>;
+			return <tr key={i}>{d}</tr>;
+		});
+		const weekdayshortname = this.state.weekdayshort.map((day) => {
+			return (
+				<th key={day} className="week-day">
+					{day}
+				</th>
+			);
 		});
 		return (
-			<table className="week">
-				<thead>
-					{this.state.weekdays.map((day) => {
-						return (
-							<th className="weekday" key={day}>
-								{day}
-							</th>
-						);
-					})}
-				</thead>
-				<tbody>{daysinmonth}</tbody>
-			</table>
+			<div>
+				{this.month()}
+				<table className="calendar-day">
+					<thead>
+						<tr>{weekdayshortname}</tr>
+					</thead>
+					<tbody>{daysinmonth}</tbody>
+				</table>
+			</div>
 		);
 	}
 }
