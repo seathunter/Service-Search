@@ -19,7 +19,8 @@ class Calendar extends React.Component {
 			weekdayshort: moment.weekdaysShort(),
 			firstDayOfMonth: moment(),
 			dateObject: moment(),
-			allmonths: moment.months()
+			allmonths: moment.months(),
+			showMonthTable: false
 		};
 		// this.setMonth = this.setMonth.bind(this);
 		this.MonthList = this.MonthList.bind(this);
@@ -98,6 +99,12 @@ class Calendar extends React.Component {
 		});
 	}
 
+	showMonth(e, month) {
+		this.setState({
+			showMonthTable: !this.state.showMonthTable
+		});
+	}
+
 	render() {
 		const blanks = [];
 		for (let i = 0; i < this.firstDayOfMonth(); i++) {
@@ -146,8 +153,19 @@ class Calendar extends React.Component {
 
 		return (
 			<div>
+				<div
+					onClick={(e) => {
+						this.showMonth();
+					}}
+					className="calendar-navi"
+				>
+					{' '}
+					{this.month()}
+				</div>
 				<div className="calendar-date">
-					<this.MonthList data={moment.months()} />
+					{this.state.showMonthTable && (
+						<this.MonthList data={moment.months()} />
+					)}
 				</div>
 				<CalendarDay>
 					<thead>
