@@ -25,3 +25,8 @@
 	background-color: red;
 	color: white;
 }
+
+.month{
+	position: relative;
+	left: 90px;
+}

@@ -1,5 +1,16 @@
 import React from 'react';
 import moment from 'moment';
+import styled from 'styled-components';
+
+const Month = styled.div`
+	color: lightblue;
+`;
+
+const Today = styled.td``;
+
+const CalendarDay = styled.table``;
+
+const Weekdays = styled.tr``;
 
 class Calendar extends React.Component {
 	constructor(props) {
@@ -7,8 +18,11 @@ class Calendar extends React.Component {
 		this.state = {
 			weekdayshort: moment.weekdaysShort(),
 			firstDayOfMonth: moment(),
-			dateObject: moment()
+			dateObject: moment(),
+			allmonths: moment.months()
 		};
+		// this.setMonth = this.setMonth.bind(this);
+		this.MonthList = this.MonthList.bind(this);
 	}
 
 	month() {
@@ -31,13 +45,66 @@ class Calendar extends React.Component {
 		return this.state.dateObject.daysInMonth();
 	}
 
+	MonthList(props) {
+		const months = [];
+		props.data.map((data) => {
+			return months.push(
+				<td
+					key={data}
+					onClick={(e) => {
+						this.setMonth(data);
+					}}
+					className="calendar-month"
+				>
+					<span>{data}</span>
+				</td>
+			);
+		});
+		const rows = [];
+		let cells = [];
+
+		months.forEach((row, i) => {
+			if (i % 3 !== 0 || i == 0) {
+				cells.push(row);
+			} else {
+				rows.push(cells);
+				cells = [];
+				cells.push(row);
+			}
+		});
+		rows.push(cells);
+		const monthlist = rows.map((d, i) => {
+			return <tr key={i}>{d}</tr>;
+		});
+
+		return (
+			<table className="calendar-month">
+				<thead>
+					<tr>
+						<th colSpan="4">Select a Month</th>
+					</tr>
+				</thead>
+				<tbody>{monthlist}</tbody>
+			</table>
+		);
+	}
+
+	setMonth(month) {
+		const monthNo = this.state.allmonths.indexOf(month); // get month number
+		let dateObject = Object.assign({}, this.state.dateObject);
+		dateObject = moment(dateObject).set('month', monthNo); // change month value
+		this.setState({
+			dateObject // add to state
+		});
+	}
+
 	render() {
 		const blanks = [];
 		for (let i = 0; i < this.firstDayOfMonth(); i++) {
 			blanks.push(
-				<td key={i * Math.random()} className="calendar-day empty">
+				<Today key={i * Math.random()} className="calendar-day empty">
 					{''}
-				</td>
+				</Today>
 			);
 		}
 		const daysInMonth = [];
@@ -77,25 +144,17 @@ class Calendar extends React.Component {
 			);
 		});
 
-		// const daysInMonth = [];
-		// for (let d = 1; d < this.daysInMonth(); d++) {
-		// 	let currentDay = d === this.currentDay() ? 'today' : '';
-		// 	daysInMonth.push(
-		// 		<td key={d} className={`calendar-day ${currentDay}`}>
-		// 			{d}
-		// 		</td>
-		// 	);
-		// }
-
 		return (
 			<div>
-				{this.month()}
-				<table className="calendar-day">
+				<div className="calendar-date">
+					<this.MonthList data={moment.months()} />
+				</div>
+				<CalendarDay>
 					<thead>
-						<tr>{weekdayshortname}</tr>
+						<Weekdays>{weekdayshortname}</Weekdays>
 					</thead>
 					<tbody>{daysinmonth}</tbody>
-				</table>
+				</CalendarDay>
 			</div>
 		);
 	}
