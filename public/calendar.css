@@ -100,7 +100,7 @@
 	margin-right: 6.733px;
 }
 
-.calendar-day:hover{
+.hoverDates:hover{
 	color: #da3843;
 	background-color: #f7d7d9;
 	border-bottom-left-radius: 100%;

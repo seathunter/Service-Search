@@ -1,25 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-// import moment from 'moment';
-// import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
 import dateFns from 'date-fns';
 import '../../../public/calendar.css';
 
-// Styled Components
-const Icon = styled.div`
-	/* @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-	font-family: 'Material Icons', serif;
-	font-weight: 400;
-	content: 0;
-	font-size: 16px;
-	height: 100%;
-	color: #da3743;
-	line-height: 16px;
-	font-style: normal;
-	display: inline; */
-`;
-
-// Calendar
 class Calendar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -68,8 +51,8 @@ class Calendar extends React.Component {
 				let currentDay = '';
 
 				if (
-					dateFns.format(this.state.currentMonth, 'MMMM') ===
-					dateFns.format(new Date(), 'MMMM')
+					dateFns.format(this.state.currentMonth, 'D') ===
+					dateFns.format(new Date(), 'D')
 				) {
 					currentDay = formattedDate === this.currentDay() ? 'today' : '';
 				}
@@ -98,11 +81,13 @@ class Calendar extends React.Component {
 				if (dateFns.compareDesc(day, dateFns.subDays(new Date(), 1)) === 1) {
 					pastDatesStyle = 'pastDatesStyle';
 				}
-
+				let hoverDates = '';
 				if (pastDatesStyle) {
 					pastMonthStyle = '';
+				} else {
+					hoverDates = 'hoverDates';
 				}
-				const classNames = `${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
+				const classNames = `${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
 				days.push(
 					<td key={i}>
