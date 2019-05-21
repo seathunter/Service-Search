@@ -1,211 +1,150 @@
-/* FONT IMPORTS */
-
-/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:300, 400, 700); */
-
-
-/* VARIABLES */
-
-:root {
-	--main-color: #1a8fff;
-	--text-color: #777;
-	--text-color-light: #ccc;
-	--border-color: #eee;
-	--bg-color: #f9f9f9;
-	--neutral-color: #fff;
-}
-
-/* GENERAL */
-
 * {
 	box-sizing: border-box;
 }
 
-body {
-	font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-	font-size: 1em;
-	font-weight: 300;
-	line-height: 1.5;
-	color: var(--text-color);
-	background: var(--bg-color);
-	position: relative;
-}
-
-header {
-	display: block;
-	width: 100%;
-	padding: 1.75em 0;
-	border-bottom: 1px solid var(--border-color);
-	background: var(--neutral-color);
-}
-
-header #logo {
-	font-size: 175%;
-	text-align: center;
-	color: var(--main-color);
-	line-height: 1;
-}
-
-header #logo .icon {
-	padding-right: 0.25em;
-}
-
-main {
-	display: block;
-	margin: 0 auto;
-	margin-top: 5em;
-	max-width: 50em;
-}
-
-/* GRID */
-
-.row {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: row;
+.calendar-wrapper {
+	height: 288px;
+	width: 352px;
 	flex-wrap: wrap;
-	width: 100%;
+	flex-direction: row;
+	padding: 16px 16px 16px 16px;
+	background-color: #fff;
 }
 
-.row-middle {
+.picker-box {
+	background-color: rgba(0, 0, 0, 0);
+	height: 300px;
+	width: 352px;
+	background-origin: padding-box;
+	border-radius: 3px 3px 3px 3px;
+	box-sizing: border-box;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+	padding: 16px 16px 16px 16px;
+	color: #333333;
+	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
+		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+}
+
+.calendar-header {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 16px;
+	text-size-adjust: 100%;
+	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
+		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	height: 15.454;
+	text-align: center;
+	display: flex;
 	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
-.col {
-	flex-grow: 1;
-	flex-basis: 0;
-	max-width: 100%;
+.picker-month {
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 0.25rem;
+	font-size: 16px;
+	font-weight: 400;
 }
 
-.col-start {
-	justify-content: flex-start;
-	text-align: left;
+.calendar-table {
+	position:relative;
+	right:15px;
+	margin-top: 16px;
+	margin-left: 0px;
+	margin-right: 0px;
+	position: relative;
+	width: 320px;
+	height: 224px;
 }
 
-.col-center {
-	justify-content: center;
+.weekdays-header {
+	width: 321px;
+	height: 21px;
+	color: #999999;
+	border-bottom-style: solid;
+	font-size: 0.875rem;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	text-transform: uppercase;
+}
+.weekday {
+	width: 14.285714286%;
+	padding-bottom: 0.5rem;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	font-weight: normal;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.calendar-day {
+	cursor: default;
+	height: 32px;
+	text-align: center;
+	width:50px;
+	line-height: 31.2px;
+	border-radius: 100%;
+	table-layout:fixed;
+	width: 32px;
+	padding-top:1px;
+	padding-bottom: 1px;
+	padding-left: 0px;
+	padding-right:0px;
+	font-weight: 500px;
+	font-size:16px;
+	margin-left: 6.733px;
+	margin-right: 6.733px;
+}
+
+.calendar-day:hover{
+	color: #da3843;
+	background-color: #f7d7d9;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 100%;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	margin-left: 6.733px;
+	margin-right: 6.733px;
+	width:32px;
+	box-sizing: border-box;
+	background-size:auto;
+	border-collapse: collapse;
 	text-align: center;
 }
 
-.col-end {
-	justify-content: flex-end;
-	text-align: right;
+.today{
+	background-color:rgb(218, 55, 67);
+	margin-block: 6.733px;
+	color: white;
 }
 
-/* Calendar */
-
-.calendar {
-	display: block;
-	position: relative;
-	width: 100%;
-	background: var(--neutral-color);
-	border: 1px solid var(--border-color);
+.pastDatesStyle {
+	color: rgba(0, 0, 0, 0.12);
+}
+.futureMonthStyle {
+	color: #999;
 }
 
-.calendar .header {
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 115%;
-	padding: 1.5em 0;
-	border-bottom: 1px solid var(--border-color);
+.pastMonthStyle {
+	color: #999;
 }
 
-.calendar .header .icon {
-	cursor: pointer;
-	transition: 0.15s ease-out;
+.chevron-left {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/left-chevron.svg');
+	width: 15px;
+	height: 15px;
+	filter: invert(18%) sepia(82%) saturate(3259%) hue-rotate(343deg)
+		brightness(107%) contrast(75%);
 }
 
-.calendar .header .icon:hover {
-	transform: scale(1.75);
-	transition: 0.25s ease-out;
-	color: var(--main-color);
-}
-
-.calendar .header .icon:first-of-type {
-	margin-left: 1em;
-}
-
-.calendar .header .icon:last-of-type {
-	margin-right: 1em;
-}
-
-.calendar .days {
-	text-transform: uppercase;
-	font-weight: 400;
-	color: var(--text-color-light);
-	font-size: 70%;
-	padding: 0.75em 0;
-	border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .body .cell {
-	position: relative;
-	height: 5em;
-	border-right: 1px solid var(--border-color);
-	overflow: hidden;
-	cursor: pointer;
-	background: var(--neutral-color);
-	transition: 0.25s ease-out;
-}
-
-.calendar .body .cell:hover {
-	background: var(--bg-color);
-	transition: 0.5s ease-out;
-}
-
-.calendar .body .selected {
-	border-left: 10px solid transparent;
-	border-image: linear-gradient(45deg, #1a8fff 0%, #53cbf1 40%);
-	border-image-slice: 1;
-}
-
-.calendar .body .row {
-	border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .body .row:last-child {
-	border-bottom: none;
-}
-
-.calendar .body .cell:last-child {
-	border-right: none;
-}
-
-.calendar .body .cell .number {
-	position: absolute;
-	font-size: 82.5%;
-	line-height: 1;
-	top: 0.75em;
-	right: 0.75em;
-	font-weight: 700;
-}
-
-.calendar .body .disabled {
-	color: var(--text-color-light);
-	pointer-events: none;
-}
-
-.calendar .body .cell .bg {
-	font-weight: 700;
-	line-height: 1;
-	color: var(--main-color);
-	opacity: 0;
-	font-size: 8em;
-	position: absolute;
-	top: -0.2em;
-	right: -0.05em;
-	transition: 0.25s ease-out;
-	letter-spacing: -0.07em;
-}
-
-.calendar .body .cell:hover .bg,
-.calendar .body .selected .bg {
-	opacity: 0.05;
-	transition: 0.5s ease-in;
-}
-
-.calendar .body .col {
-	flex-grow: 0;
-	flex-basis: calc(100% / 7);
-	width: calc(100% / 7);
+.chevron-right {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/right-chevron.svg');
+	width: 15px;
+	height: 15px;
+	filter: invert(18%) sepia(82%) saturate(3259%) hue-rotate(343deg)
+		brightness(107%) contrast(75%);
 }
