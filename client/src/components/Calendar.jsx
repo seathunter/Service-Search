@@ -1,178 +1,261 @@
 import React from 'react';
-import moment from 'moment';
 import styled from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import dateFns from 'date-fns';
+import '../../../public/calendar.css';
 
-const Month = styled.div`
-	color: lightblue;
+// Styled Components
+const Icon = styled.div`
+	@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+	font-family: icons;
+	speak: none;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: '0';
 `;
 
-const Today = styled.td``;
+const GlobalStyle = createGlobalStyle`
+	body {
+		font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+		font-size: 1em;
+		font-weight: 300;
+		line-height: 1.5;
+		color: var(--text-color);
+		background: var(--bg-color);
+		position: relative;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	header {
+  display: block;
+  width: 100%;
+  padding: 1.75em 0;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--neutral-color);
+}
 
-const CalendarDay = styled.table``;
+	header #logo {
+		font-size: 175%;
+		text-align: center;
+		color: var(--main-color);
+		line-height: 1;
+	}
 
-const Weekdays = styled.tr``;
+	header #logo .icon {
+		padding-right: .25em;
+	}
 
+	main {
+		display: block;
+		margin: 0 auto;
+		margin-top: 5em;
+		max-width: 50em;
+	}
+`;
+
+const Row = styled.div`
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+`;
+
+const ColStart = styled.div`
+	flex-grow: 1;
+	flex-basis: 0;
+	max-width: 100%;
+	justify-content: flex-start;
+	text-align: left;
+`;
+
+const ColEnd = styled.div`
+	flex-grow: 1;
+	flex-basis: 0;
+	max-width: 100%;
+	justify-content: flex-end;
+	text-align: right;
+`;
+
+const ColCenter = styled.div`
+	flex-grow: 1;
+	flex-basis: 0;
+	max-width: 100%;
+	justify-content: center;
+	text-align: center;
+`;
+
+const CalHeader = styled.div`
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 100%;
+	padding: 1.5em 0;
+	border-bottom: 1px solid var(--border-color);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+`;
+
+const Number = styled.span`
+	position: absolute;
+	font-size: 82.5%;
+	line-height: 1;
+	top: 0.75em;
+	right: 0.75em;
+	font-weight: 700;
+`;
+
+const Days = styled.div`
+	text-transform: uppercase;
+	font-weight: 400;
+	color: var(--text-color-light);
+	font-size: 70%;
+	padding: 0.75em 0;
+	border-bottom: 1px solid var(--border-color);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+`;
+
+// Calendar
 class Calendar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			weekdayshort: moment.weekdaysShort(),
-			firstDayOfMonth: moment(),
-			dateObject: moment(),
-			allmonths: moment.months(),
-			showMonthTable: false
+			currentMonth: new Date(),
+			currentDate: new Date()
 		};
-		// this.setMonth = this.setMonth.bind(this);
-		this.MonthList = this.MonthList.bind(this);
+		this.onDateClick = this.onDateClick.bind(this);
+		this.nextMonth = this.nextMonth.bind(this);
+		this.prevMonth = this.prevMonth.bind(this);
 	}
 
-	month() {
-		return this.state.dateObject.format('MMMM');
-	}
-
-	currentDay() {
-		return this.state.dateObject.format('D');
-	}
-
-	firstDayOfMonth() {
-		const { dateObject } = this.state.dateObject;
-		const firstDay = moment(dateObject)
-			.startOf('month')
-			.format('d');
-		return firstDay;
-	}
-
-	daysInMonth() {
-		return this.state.dateObject.daysInMonth();
-	}
-
-	MonthList(props) {
-		const months = [];
-		props.data.map((data) => {
-			return months.push(
-				<td
-					key={data}
-					onClick={(e) => {
-						this.setMonth(data);
-					}}
-					className="calendar-month"
-				>
-					<span>{data}</span>
-				</td>
-			);
-		});
-		const rows = [];
-		let cells = [];
-
-		months.forEach((row, i) => {
-			if (i % 3 !== 0 || i == 0) {
-				cells.push(row);
-			} else {
-				rows.push(cells);
-				cells = [];
-				cells.push(row);
-			}
-		});
-		rows.push(cells);
-		const monthlist = rows.map((d, i) => {
-			return <tr key={i}>{d}</tr>;
-		});
-
+	renderHeader() {
+		const date = 'MMMM YYYY';
 		return (
-			<table className="calendar-month">
-				<thead>
-					<tr>
-						<th colSpan="4">Select a Month</th>
-					</tr>
-				</thead>
-				<tbody>{monthlist}</tbody>
-			</table>
+			<CalHeader>
+				<ColStart>
+					<Icon onClick={this.prevMonth}>chevron_left</Icon>
+				</ColStart>
+				<ColCenter>
+					<span>{dateFns.format(this.state.currentMonth, date)}</span>
+				</ColCenter>
+				<ColEnd>
+					<Icon onClick={this.nextMonth}>chevron_right</Icon>
+				</ColEnd>
+			</CalHeader>
 		);
 	}
 
-	setMonth(month) {
-		const monthNo = this.state.allmonths.indexOf(month); // get month number
-		let dateObject = Object.assign({}, this.state.dateObject);
-		dateObject = moment(dateObject).set('month', monthNo); // change month value
+	renderDays() {
+		const day = 'ddd';
+		const days = [];
+		const firstDate = dateFns.startOfWeek(this.state.currentMonth);
+		for (let i = 0; i < 7; i++) {
+			days.push(
+				<ColCenter key={i}>
+					{dateFns.format(dateFns.addDays(firstDate, i), day)}
+				</ColCenter>
+			);
+		}
+		console.log('this is days', dateFns.format(new Date(), 'MMMM'));
+		return <Days>{days}</Days>;
+	}
+
+	renderCells() {
+		const { currentMonth, selectedDate } = this.state;
+		const monthStart = dateFns.startOfMonth(currentMonth);
+		const monthEnd = dateFns.endOfMonth(monthStart);
+		const startDate = dateFns.startOfWeek(monthStart);
+		const endDate = dateFns.endOfWeek(monthEnd);
+
+		const dateFormat = 'D';
+		const rows = [];
+
+		let days = [];
+		let day = startDate;
+		let formattedDate = '';
+
+		while (day <= endDate) {
+			for (let i = 0; i < 7; i++) {
+				formattedDate = dateFns.format(day, dateFormat);
+				const cloneDay = day;
+				days.push(
+					<div
+						className={`col cell ${
+							!dateFns.isSameMonth(day, monthStart)
+								? 'disabled'
+								: dateFns.isSameDay(day, selectedDate)
+								? 'selected'
+								: ''
+						}`}
+						key={day}
+						onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+					>
+						<span className="number">{formattedDate}</span>
+						<span className="bg">{formattedDate}</span>
+					</div>
+				);
+				day = dateFns.addDays(day, 1);
+			}
+			rows.push(
+				<div className="row" key={day}>
+					{days}
+				</div>
+			);
+			days = [];
+		}
+		return <div className="body">{rows}</div>;
+	}
+
+	onDateClick(day) {
+		this.setState({ selectedDate: day });
+	}
+
+	nextMonth() {
 		this.setState({
-			dateObject // add to state
+			currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
 		});
 	}
 
-	showMonth(e, month) {
-		this.setState({
-			showMonthTable: !this.state.showMonthTable
-		});
+	prevMonth() {
+		const currentMonth = dateFns.format(this.state.currentMonth, 'M');
+		const actualMonth = dateFns.format(new Date(), 'M');
+		const currentYear = dateFns.format(this.state.currentMonth, 'YYYY');
+		const actualYear = dateFns.format(new Date(), 'YYYY');
+
+		if (parseInt(currentYear, 10) === parseInt(actualYear, 10)) {
+			console.log('suc');
+			if (parseInt(currentMonth, 10) > parseInt(actualMonth, 10)) {
+				console.log('test');
+				this.setState({
+					currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
+				});
+			}
+		} else if (parseInt(currentYear, 10) >= parseInt(actualYear, 10)) {
+			this.setState({
+				currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
+			});
+		}
 	}
 
 	render() {
-		const blanks = [];
-		for (let i = 0; i < this.firstDayOfMonth(); i++) {
-			blanks.push(
-				<Today key={i * Math.random()} className="calendar-day empty">
-					{''}
-				</Today>
-			);
-		}
-		const daysInMonth = [];
-		for (let d = 1; d < this.daysInMonth(); d++) {
-			const currentDay = d == this.currentDay() ? 'today' : '';
-			daysInMonth.push(
-				<td key={d} className={`calendar-day ${currentDay}`}>
-					{d}
-				</td>
-			);
-		}
-		const totalSlots = [...blanks, ...daysInMonth];
-		const rows = [];
-		let cells = [];
-		totalSlots.forEach((row, i) => {
-			if (i % 7 !== 0) {
-				cells.push(row);
-			} else {
-				rows.push(cells);
-				cells = [];
-				cells.push(row);
-			}
-			if (i === totalSlots.length - 1) {
-				rows.push(cells);
-			}
-		});
-
-		const daysinmonth = rows.map((d, i) => {
-			return <tr key={i}>{d}</tr>;
-		});
-
-		const weekdayshortname = this.state.weekdayshort.map((day) => {
-			return (
-				<th key={day} className="week-day">
-					{day}
-				</th>
-			);
-		});
-
 		return (
-			<div>
-				<div
-					onClick={(e) => {
-						this.showMonth();
-					}}
-					className="calendar-navi"
-				>
-					{' '}
-					{this.month()}
-				</div>
-				<div className="calendar-date">
-					{this.state.showMonthTable && (
-						<this.MonthList data={moment.months()} />
-					)}
-				</div>
-				<CalendarDay>
-					<thead>
-						<Weekdays>{weekdayshortname}</Weekdays>
-					</thead>
-					<tbody>{daysinmonth}</tbody>
-				</CalendarDay>
+			<div className="calendar">
+				{this.renderHeader()}
+				{this.renderDays()}
+				{this.renderCells()}
 			</div>
 		);
 	}
