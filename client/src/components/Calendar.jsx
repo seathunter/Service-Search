@@ -7,7 +7,23 @@ import '../../../public/calendar.css';
 // Styled Components
 const Icon = styled.div`
 	@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-	font-family: icons;
+	font-family: 'Material Icons', serif;
+	font-style: normal;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga';
+	color: #da3743;
+	/* font-family: icons;
 	speak: none;
 	font-style: normal;
 	font-weight: 400;
@@ -17,6 +33,11 @@ const Icon = styled.div`
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: '0';
+	position: absolute;
+	top: 0;
+	color: #da3743;
+	display: block;
+	top: 0.1rem; */
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -173,12 +194,14 @@ class Calendar extends React.Component {
 		return <Days>{days}</Days>;
 	}
 
+	//
 	renderCells() {
 		const { currentMonth, selectedDate } = this.state;
 		const monthStart = dateFns.startOfMonth(currentMonth);
 		const monthEnd = dateFns.endOfMonth(monthStart);
 		const startDate = dateFns.startOfWeek(monthStart);
 		const endDate = dateFns.endOfWeek(monthEnd);
+		const newEndDate = dateFns.addWeeks(endDate, 1);
 
 		const dateFormat = 'D';
 		const rows = [];
@@ -187,7 +210,13 @@ class Calendar extends React.Component {
 		let day = startDate;
 		let formattedDate = '';
 
-		while (day <= endDate) {
+		console.log('monthstart', monthStart);
+		console.log('monthEnd', monthEnd);
+		console.log('startDate', startDate);
+		console.log('endDate', endDate);
+		console.log('new', newEndDate);
+
+		while (day <= newEndDate) {
 			for (let i = 0; i < 7; i++) {
 				formattedDate = dateFns.format(day, dateFormat);
 				const cloneDay = day;
@@ -204,7 +233,7 @@ class Calendar extends React.Component {
 						onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
 					>
 						<span className="number">{formattedDate}</span>
-						<span className="bg">{formattedDate}</span>
+						{/* <span className="bg">{formattedDate}</span> */}
 					</div>
 				);
 				day = dateFns.addDays(day, 1);
@@ -219,6 +248,7 @@ class Calendar extends React.Component {
 		return <div className="body">{rows}</div>;
 	}
 
+	//
 	onDateClick(day) {
 		this.setState({ selectedDate: day });
 	}
