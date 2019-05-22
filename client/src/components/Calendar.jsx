@@ -110,12 +110,14 @@ class Calendar extends React.Component {
 	}
 
 	onDateClick(day) {
-		if (
-			dateFns.format(day, 'D') === dateFns.format(this.state.selectedDay, 'D')
-		) {
-			this.setState({ selectedDay: '' });
-		} else {
-			this.setState({ selectedDay: day });
+		if (dateFns.compareAsc(day, dateFns.subDays(new Date(), 1)) === 1) {
+			if (
+				dateFns.format(day, 'D') === dateFns.format(this.state.selectedDay, 'D')
+			) {
+				this.setState({ selectedDay: '' });
+			} else {
+				this.setState({ selectedDay: day });
+			}
 		}
 	}
 

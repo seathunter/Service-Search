@@ -114,6 +114,7 @@
 	background-size: auto;
 	border-collapse: collapse;
 	text-align: center;
+	cursor: pointer;
 }
 
 .selectedDay {
@@ -140,6 +141,9 @@
 	filter: invert(18%) sepia(82%) saturate(3259%) hue-rotate(343deg)
 		brightness(107%) contrast(75%);
 }
+.chevron-left:hover {
+	cursor: pointer;
+}
 
 .chevron-right {
 	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/right-chevron.svg');
@@ -147,4 +151,7 @@
 	height: 15px;
 	filter: invert(18%) sepia(82%) saturate(3259%) hue-rotate(343deg)
 		brightness(107%) contrast(75%);
+}
+.chevron-right {
+	cursor: pointer;
 }
