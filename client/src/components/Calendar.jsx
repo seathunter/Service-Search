@@ -1,5 +1,4 @@
 import React from 'react';
-
 import dateFns from 'date-fns';
 import '../../../public/calendar.css';
 
@@ -50,16 +49,6 @@ class Calendar extends React.Component {
 				formattedDate = dateFns.format(day, 'D');
 				const cloneDay = day;
 				let currentDay = '';
-
-				// if (
-				// 	dateFns.format(this.state.currentMonth, 'MMMM') ===
-				// 	dateFns.format(new Date(), 'MMMM')
-				// ) {
-				// currentDay =
-				// 	formattedDate === dateFns.format(this.state.selectedDay, 'D')
-				// 		? 'selectedDay'
-				// 		: '';
-				// }
 
 				let pastMonthStyle = '';
 				const prevMonth = dateFns.format(
