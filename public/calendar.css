@@ -1,0 +1,157 @@
+* {
+	box-sizing: border-box;
+}
+
+.calendar-wrapper {
+	height: 288px;
+	width: 352px;
+	flex-wrap: wrap;
+	flex-direction: row;
+	padding: 16px 16px 16px 16px;
+	background-color: #fff;
+}
+
+.picker-box {
+	background-color: rgba(0, 0, 0, 0);
+	height: 300px;
+	width: 352px;
+	background-origin: padding-box;
+	border-radius: 3px 3px 3px 3px;
+	box-sizing: border-box;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+	padding: 16px 16px 16px 16px;
+	color: #333333;
+	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
+		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+}
+
+.calendar-header {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 16px;
+	text-size-adjust: 100%;
+	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
+		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	height: 15.454;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.picker-month {
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 0.25rem;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.calendar-table {
+	position: relative;
+	right: 15px;
+	margin-top: 16px;
+	margin-left: 0px;
+	margin-right: 0px;
+	position: relative;
+	width: 320px;
+	height: 224px;
+}
+
+.weekdays-header {
+	width: 321px;
+	height: 21px;
+	color: #999999;
+	border-bottom-style: solid;
+	font-size: 0.875rem;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	text-transform: uppercase;
+}
+.weekday {
+	width: 14.285714286%;
+	padding-bottom: 0.5rem;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	font-weight: normal;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.calendar-day {
+	cursor: default;
+	height: 32px;
+	text-align: center;
+	width: 50px;
+	line-height: 31.2px;
+	border-radius: 100%;
+	table-layout: fixed;
+	width: 32px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 0px;
+	padding-right: 0px;
+	font-weight: 500px;
+	font-size: 16px;
+	margin-left: 6.733px;
+	margin-right: 6.733px;
+}
+
+.hoverDates:hover {
+	color: #da3843;
+	background-color: #f7d7d9;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 100%;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	margin-left: 6.733px;
+	margin-right: 6.733px;
+	width: 32px;
+	box-sizing: border-box;
+	background-size: auto;
+	border-collapse: collapse;
+	text-align: center;
+	cursor: pointer;
+}
+
+.selectedDay {
+	background-color: rgb(218, 55, 67);
+	margin-block: 6.733px;
+	color: white;
+}
+
+.pastDatesStyle {
+	color: rgba(0, 0, 0, 0.12);
+}
+.futureMonthStyle {
+	color: #999;
+}
+
+.pastMonthStyle {
+	color: #999;
+}
+
+.chevron-left {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/left-chevron.svg');
+	width: 15px;
+	height: 15px;
+	filter: invert(18%) sepia(82%) saturate(3259%) hue-rotate(343deg)
+		brightness(107%) contrast(75%);
+}
+.chevron-left:hover {
+	cursor: pointer;
+}
+
+.chevron-right {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/right-chevron.svg');
+	width: 15px;
+	height: 15px;
+	filter: invert(18%) sepia(82%) saturate(3259%) hue-rotate(343deg)
+		brightness(107%) contrast(75%);
+}
+.chevron-right {
+	cursor: pointer;
+}
