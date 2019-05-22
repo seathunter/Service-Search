@@ -9,7 +9,8 @@ class Calendar extends React.Component {
 		this.state = {
 			currentMonth: new Date(),
 			currentDate: new Date(),
-			currentDay: new Date()
+			currentDay: new Date(),
+			selectedDay: new Date()
 		};
 		this.onDateClick = this.onDateClick.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
@@ -50,12 +51,15 @@ class Calendar extends React.Component {
 				const cloneDay = day;
 				let currentDay = '';
 
-				if (
-					dateFns.format(this.state.currentMonth, 'D') ===
-					dateFns.format(new Date(), 'D')
-				) {
-					currentDay = formattedDate === this.currentDay() ? 'today' : '';
-				}
+				// if (
+				// 	dateFns.format(this.state.currentMonth, 'MMMM') ===
+				// 	dateFns.format(new Date(), 'MMMM')
+				// ) {
+				// currentDay =
+				// 	formattedDate === dateFns.format(this.state.selectedDay, 'D')
+				// 		? 'selectedDay'
+				// 		: '';
+				// }
 
 				let pastMonthStyle = '';
 				const prevMonth = dateFns.format(
@@ -87,6 +91,14 @@ class Calendar extends React.Component {
 				} else {
 					hoverDates = 'hoverDates';
 				}
+
+				if (!pastDatesStyle && !pastMonthStyle) {
+					currentDay =
+						formattedDate === dateFns.format(this.state.selectedDay, 'D')
+							? 'selectedDay'
+							: '';
+				}
+
 				const classNames = `${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
 				days.push(
@@ -109,7 +121,13 @@ class Calendar extends React.Component {
 	}
 
 	onDateClick(day) {
-		this.setState({ selectedDate: day });
+		if (
+			dateFns.format(day, 'D') === dateFns.format(this.state.selectedDay, 'D')
+		) {
+			this.setState({ selectedDay: '' });
+		} else {
+			this.setState({ selectedDay: day });
+		}
 	}
 
 	nextMonth() {

@@ -51,8 +51,8 @@
 }
 
 .calendar-table {
-	position:relative;
-	right:15px;
+	position: relative;
+	right: 15px;
 	margin-top: 16px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -85,22 +85,22 @@
 	cursor: default;
 	height: 32px;
 	text-align: center;
-	width:50px;
+	width: 50px;
 	line-height: 31.2px;
 	border-radius: 100%;
-	table-layout:fixed;
+	table-layout: fixed;
 	width: 32px;
-	padding-top:1px;
+	padding-top: 1px;
 	padding-bottom: 1px;
 	padding-left: 0px;
-	padding-right:0px;
+	padding-right: 0px;
 	font-weight: 500px;
-	font-size:16px;
+	font-size: 16px;
 	margin-left: 6.733px;
 	margin-right: 6.733px;
 }
 
-.hoverDates:hover{
+.hoverDates:hover {
 	color: #da3843;
 	background-color: #f7d7d9;
 	border-bottom-left-radius: 100%;
@@ -109,15 +109,15 @@
 	border-top-right-radius: 100%;
 	margin-left: 6.733px;
 	margin-right: 6.733px;
-	width:32px;
+	width: 32px;
 	box-sizing: border-box;
-	background-size:auto;
+	background-size: auto;
 	border-collapse: collapse;
 	text-align: center;
 }
 
-.today{
-	background-color:rgb(218, 55, 67);
+.selectedDay {
+	background-color: rgb(218, 55, 67);
 	margin-block: 6.733px;
 	color: white;
 }
