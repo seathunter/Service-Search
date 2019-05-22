@@ -88,6 +88,10 @@ class Calendar extends React.Component {
 							: '';
 				}
 
+				if (currentDay === 'selectedDay') {
+					hoverDates = '';
+				}
+
 				const classNames = `${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
 				days.push(
