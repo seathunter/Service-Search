@@ -1,3 +1,65 @@
+.header-search-box {
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgba(153, 153, 153, 0.4) 0px 2px 8px 0px;
+	box-sizing: border-box;
+	color: rgb(0, 0, 0);
+	cursor: default;
+	display: block;
+	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
+		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	font-size: 16px;
+	font-weight: 500;
+	height: 288px;
+	line-height: 16px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	opacity: 1;
+	padding-bottom: 64px;
+	padding-left: 36px;
+	padding-right: 36px;
+	padding-top: 0px;
+	position: absolute;
+	text-size-adjust: 100%;
+	transform-origin: 800px 0px;
+	transition-delay: 0s;
+	transition-duration: 0.3s;
+	transition-property: opacity;
+	transition-timing-function: linear;
+	visibility: visible;
+	width: 99%;
+	z-index: 1;
+}
+
+.dtp-picker.dtp-lang-en.with-search.single-search.initialised {
+	background-color: rgb(255, 255, 255);
+	box-sizing: border-box;
+	color: rgb(0, 0, 0);
+	cursor: default;
+	display: block;
+	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
+		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	font-size: 16px;
+	font-weight: 500;
+	height: 48px;
+	line-height: 16px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	position: relative;
+	text-size-adjust: 100%;
+	visibility: visible;
+	width: 100%;
+}
+
 .content-block-header {
 	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
 		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -116,8 +178,7 @@
 	padding-top: 0px;
 	text-size-adjust: 100%;
 	visibility: visible;
-	width: 1140.8px;
-	-webkit-font-smoothing: antialiased;
+	width: 100%;
 }
 
 .picker-selectors-container {
@@ -640,6 +701,18 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.time-container::after {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/svgexport-20.svg');
+	display: block;
+	height: 24px;
+	width: 19.7px;
+	content: '';
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
 .time-selector {
 	align-items: center;
 	background-color: rgb(255, 255, 255);
@@ -767,6 +840,18 @@
 	visibility: visible;
 	width: 159.837px;
 	-webkit-font-smoothing: antialiased;
+}
+
+.date-container::after {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar-page-empty.svg');
+	display: block;
+	height: 24px;
+	width: 19.7px;
+	content: '';
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: inline-block;
 }
 
 .date-label {

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../public/search.css';
 import dateFns from 'date-fns';
+import Calendar from './Calendar.jsx';
 
 class Search extends React.Component {
 	constructor(props) {
@@ -8,16 +9,26 @@ class Search extends React.Component {
 		this.state = {
 			party: 2,
 			time: '7:00 PM',
-			date: 'May 22, 2019'
+			date: 'May 22, 2019',
+			calendar: true
 		};
 		this.timeSlotRender = this.timeSlotRender.bind(this);
+		this.calendarOper = this.calendarOper.bind(this);
 	}
 
 	timeSlotRender() {}
 
+	calendarOper() {
+		this.setState({ calendar: !this.state.calendar });
+	}
+
 	render() {
+		let calendar;
+		if (this.state.calendar) {
+			calendar = <div />;
+		}
 		return (
-			<div>
+			<div className="header-search-box">
 				<div className="close-button">
 					<a data-target="#header-search-box" className="js-toggle-search">
 						<i className="icon-close" />
@@ -28,7 +39,14 @@ class Search extends React.Component {
 						<span>Find your table for any occasion</span>
 					</h3>
 				</div>
-				<div>
+				<div
+					id="dtp-picker-59"
+					data-event-prefix="search-in-header::"
+					data-autocomplete-options='{"disableFreetext":false,"disableCuisines":false,"disableEmpty":false,"redirectSingleToMulti":true,"locationFormat":"C","domainId":"com","language":"en-US","latitude":37.77671,"longitude":-122.271608,"macroId":5,"metroId":4,"environment":"production"}'
+					data-search-selector=".dtp-picker-search-autocomplete"
+					data-test="search-in-header-dtp"
+					className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+				>
 					<form className="dtp-picker-form">
 						<div className="picker-selectors-container">
 							<div className="party-size-container">
@@ -59,12 +77,11 @@ class Search extends React.Component {
 									<option value="18">18 Person</option>
 									<option value="19">19 Person</option>
 									<option value="20">20 Person</option>
-									<option value="21">Large Party</option>
 								</select>
 							</div>
 							<div className="date-container">
 								<a className="dtp-picker-selector-link date-label dtp-picker-label">
-									May 22, 2019
+									{this.state.date}
 								</a>
 								<input
 									type="text"
@@ -79,8 +96,8 @@ class Search extends React.Component {
 									aria-readonly="false"
 									aria-owns="P1932029059_root submit_datepicker"
 									aria-label="date"
+									onClick={this.calendarOpner}
 								/>
-								<div />
 							</div>
 							<div className="time-container">
 								<a

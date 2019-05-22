@@ -144,25 +144,29 @@ class Calendar extends React.Component {
 
 	render() {
 		return (
-			<div className="calendar-wrapper">
-				<div className="picker-box">
-					<div className="calendar-header">
-						<div>
-							<div className="chevron-left" onClick={this.prevMonth} />
-						</div>
-						<div className="col-center">
-							<div className="picker-month">
-								{dateFns.format(this.state.currentMonth, 'MMMM YYYY')}
+			<div className="picker-holder">
+				<div className="picker-frame">
+					<div className="calendar-wrapper">
+						<div className="picker-box">
+							<div className="calendar-header">
+								<div>
+									<div className="chevron-left" onClick={this.prevMonth} />
+								</div>
+								<div className="col-center">
+									<div className="picker-month">
+										{dateFns.format(this.state.currentMonth, 'MMMM YYYY')}
+									</div>
+								</div>
+								<div>
+									<div className="chevron-right" onClick={this.nextMonth} />
+								</div>
 							</div>
-						</div>
-						<div>
-							<div className="chevron-right" onClick={this.nextMonth} />
+							<table className="calendar-table">
+								<thead>{this.renderDays()}</thead>
+								<tbody>{this.renderCells()}</tbody>
+							</table>
 						</div>
 					</div>
-					<table className="calendar-table">
-						<thead>{this.renderDays()}</thead>
-						<tbody>{this.renderCells()}</tbody>
-					</table>
 				</div>
 			</div>
 		);
