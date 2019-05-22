@@ -1,5 +1,6 @@
 import React from 'react';
-import Calendar from './Calendar.jsx';
+// import Calendar from './Calendar.jsx';
+import Search from './Search.jsx';
 
 
 class App extends React.Component {
@@ -12,7 +13,8 @@ class App extends React.Component {
 		return (
 			<div>
 				<div className="App">
-					<Calendar />
+					{/* <Calendar /> */}
+					<Search />
 				</div>
 			</div>
 		);
