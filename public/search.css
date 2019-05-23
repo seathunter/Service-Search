@@ -39,9 +39,6 @@
 	color: rgb(0, 0, 0);
 	cursor: default;
 	display: block;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -61,9 +58,6 @@
 }
 
 .content-block-header {
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	box-sizing: border-box;
 	color: rgb(0, 0, 0);
 	cursor: default;
@@ -106,9 +100,6 @@
 	cursor: pointer;
 	display: block;
 	float: none;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-stretch: 100%;
 	font-style: normal;
@@ -158,9 +149,6 @@
 	color: rgb(0, 0, 0);
 	cursor: default;
 	display: flex;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -184,9 +172,6 @@
 	color: rgb(0, 0, 0);
 	cursor: default;
 	display: flex;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -246,9 +231,6 @@
 	display: flex;
 	flex-shrink: 0;
 	float: none;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -277,9 +259,6 @@
 	cursor: default;
 	direction: ltr;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 46.4px;
@@ -326,9 +305,6 @@
 	cursor: text;
 	direction: ltr;
 	display: inline-block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-stretch: 100%;
 	font-style: normal;
@@ -378,9 +354,6 @@
 	color: rgb(153, 153, 153);
 	cursor: default;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 24px;
@@ -442,9 +415,6 @@
 	flex-basis: 33.3%;
 	flex-direction: row-reverse;
 	float: none;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -498,9 +468,6 @@
 	color: rgb(51, 51, 51);
 	cursor: pointer;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-stretch: 100%;
 	font-style: normal;
@@ -576,9 +543,6 @@
 	color: rgb(51, 51, 51);
 	cursor: pointer;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 500;
@@ -671,9 +635,6 @@
 	flex-basis: 33.3%;
 	flex-direction: row-reverse;
 	float: none;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -739,9 +700,6 @@
 	color: rgb(51, 51, 51);
 	cursor: pointer;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-stretch: 100%;
 	font-style: normal;
@@ -775,9 +733,7 @@
 }
 
 .date-container {
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	cursor: pointer;
 	align-items: center;
 	background-attachment: scroll;
 	background-clip: border-box;
@@ -839,6 +795,9 @@
 	width: 159.837px;
 	-webkit-font-smoothing: antialiased;
 }
+.date-container :hover {
+	cursor: pointer;
+}
 
 .date-container::after {
 	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar-pixel.svg');
@@ -853,6 +812,7 @@
 }
 
 .date-container-opened {
+	cursor: pointer;
 	align-items: center;
 	background-attachment: scroll;
 	background-clip: border-box;
@@ -890,9 +850,6 @@
 	flex-basis: 33.3%;
 	flex-direction: row-reverse;
 	float: none;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 48px;
@@ -931,9 +888,6 @@
 }
 
 .date-label-closed {
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	background-color: rgba(0, 0, 0, 0);
 	border-bottom-color: rgb(51, 51, 51);
 	border-bottom-left-radius: 0px;
@@ -984,6 +938,7 @@
 }
 
 .date-label-opened {
+	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0);
 	border-bottom-color: rgb(51, 51, 51);
 	border-bottom-left-radius: 0px;
@@ -1031,9 +986,11 @@
 	white-space: nowrap;
 	width: 131.113px;
 	z-index: 1;
-	-webkit-appearance: none;
-	-webkit-font-smoothing: antialiased;
 }
+
+/* .date-label-closed:hover{
+	cursor: pointer;
+} */
 
 .datepicker-closed {
 	background-color: rgb(255, 255, 255);
@@ -1102,9 +1059,6 @@
 	color: rgb(51, 51, 51);
 	cursor: default;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 0px;
@@ -1509,9 +1463,6 @@
 	color: rgb(51, 51, 51);
 	cursor: default;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
 	font-size: 16px;
 	font-weight: 500;
 	height: 288px;

@@ -242,6 +242,12 @@
 	cursor: pointer;
 }
 
+
+.today {
+	background-color: #f2f2f2;
+	color: #000000;
+}
+
 .selectedDay {
 	background-color: rgb(218, 55, 67);
 	margin-block: 6.733px;

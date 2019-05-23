@@ -14,6 +14,7 @@ class Calendar extends React.Component {
 		this.onDateClick = this.onDateClick.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
 		this.prevMonth = this.prevMonth.bind(this);
+		this.childClickHandler = this.childClickHandler.bind(this);
 	}
 
 	renderDays() {
@@ -70,6 +71,7 @@ class Calendar extends React.Component {
 					futureMonthStyle = 'futureMonthStyle';
 				}
 
+
 				let pastDatesStyle = '';
 				if (dateFns.compareDesc(day, dateFns.subDays(new Date(), 1)) === 1) {
 					pastDatesStyle = 'pastDatesStyle';
@@ -81,7 +83,7 @@ class Calendar extends React.Component {
 					hoverDates = 'hoverDates';
 				}
 
-				if (!pastDatesStyle && !pastMonthStyle) {
+				if (!pastDatesStyle && !pastMonthStyle && !futureMonthStyle) {
 					currentDay =
 						formattedDate === dateFns.format(this.state.selectedDay, 'D')
 							? 'selectedDay'
@@ -92,7 +94,15 @@ class Calendar extends React.Component {
 					hoverDates = '';
 				}
 
-				const classNames = `${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
+				let today = '';
+				if (
+					dateFns.format(day, 'MMMM D') === dateFns.format(new Date(), 'MMMM D')
+				) {
+					today = 'today';
+				}
+
+
+				const classNames = `${today} ${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
 				days.push(
 					<td key={i}>
@@ -126,14 +136,14 @@ class Calendar extends React.Component {
 	}
 
 	nextMonth(e) {
-		e.preventDefault();
+		e.stopPropagation();
 		this.setState({
 			currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
 		});
 	}
 
 	prevMonth(e) {
-		e.preventDefault();
+		e.stopPropagation();
 		if (
 			dateFns.format(new Date(), 'MMMM YYYY') !==
 			dateFns.format(this.state.currentMonth, 'MMMM YYYY')
@@ -144,9 +154,13 @@ class Calendar extends React.Component {
 		}
 	}
 
+	childClickHandler(e) {
+		e.stopPropagation();
+	}
+
 	render() {
 		return (
-			<div className="picker-holder">
+			<div onClick={this.childClickHandler} className="picker-holder">
 				<div className="picker-frame">
 					<div className="calendar-wrapper">
 						<div className="picker-box">

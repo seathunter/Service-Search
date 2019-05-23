@@ -20,7 +20,7 @@ class Search extends React.Component {
 	timeSlotRender() {}
 
 	calendarClickHandler(e) {
-		e.preventDefault();
+		e.stopPropagation();
 		this.setState({ calendar: !this.state.calendar });
 	}
 
@@ -44,7 +44,6 @@ class Search extends React.Component {
 						aria-label="date"
 					/>
 					<div className="datepicker-closed">
-						<Calendar />
 					</div>
 				</div>
 			);
