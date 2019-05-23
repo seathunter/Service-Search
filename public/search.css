@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Brandon;
+	src: url("./Brandon.otf") format("opentype");
+}
+
 .header-search-box {
 	background-color: rgb(255, 255, 255);
 	box-shadow: rgba(153, 153, 153, 0.4) 0px 2px 8px 0px;
@@ -5,9 +10,7 @@
 	color: rgb(0, 0, 0);
 	cursor: default;
 	display: block;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
 	height: 288px;
