@@ -125,13 +125,15 @@ class Calendar extends React.Component {
 		}
 	}
 
-	nextMonth() {
+	nextMonth(e) {
+		e.preventDefault();
 		this.setState({
 			currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
 		});
 	}
 
-	prevMonth() {
+	prevMonth(e) {
+		e.preventDefault();
 		if (
 			dateFns.format(new Date(), 'MMMM YYYY') !==
 			dateFns.format(this.state.currentMonth, 'MMMM YYYY')

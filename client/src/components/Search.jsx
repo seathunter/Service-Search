@@ -10,23 +10,71 @@ class Search extends React.Component {
 			party: 2,
 			time: '7:00 PM',
 			date: 'May 22, 2019',
-			calendar: true
+			calendar: false
 		};
 		this.timeSlotRender = this.timeSlotRender.bind(this);
-		this.calendarOper = this.calendarOper.bind(this);
+		this.calendarClickHandler = this.calendarClickHandler.bind(this);
+		this.calendarRender = this.calendarRender.bind(this);
 	}
 
 	timeSlotRender() {}
 
-	calendarOper() {
+	calendarClickHandler(e) {
+		e.preventDefault();
 		this.setState({ calendar: !this.state.calendar });
 	}
 
-	render() {
-		let calendar;
-		if (this.state.calendar) {
-			calendar = <div />;
+	calendarRender() {
+		let div = '';
+		if (this.state.calendar === false) {
+			div = (
+				<div onClick={this.calendarClickHandler} className="date-container">
+					<a className="dtp-picker-selector-link date-label-closed dtp-picker-label">
+						{this.state.date}
+					</a>
+					<input
+						className="datepicker-closed dtp-picker-select picker__input"
+						data-value="2019-05-22"
+						readOnly=""
+						id="P1932029059"
+						aria-haspopup="true"
+						aria-expanded="false"
+						aria-readonly="false"
+						aria-owns="P1932029059_root submit_datepicker"
+						aria-label="date"
+					/>
+					<div className="datepicker-closed">
+						<Calendar />
+					</div>
+				</div>
+			);
+		} else {
+			div = (
+				<div onClick={this.calendarClickHandler} className="date-container-opened">
+					<a className="dtp-picker-selector-link date-label-opened dtp-picker-label">
+						{this.state.date}
+					</a>
+					<input
+						className="datepicker-opened dtp-picker-select picker__input"
+						data-value="2019-05-22"
+						readOnly=""
+						id="P1932029059"
+						aria-haspopup="true"
+						aria-expanded="false"
+						aria-readonly="false"
+						aria-owns="P1932029059_root submit_datepicker"
+						aria-label="date"
+					/>
+					<div className="datepicker-opened">
+						<Calendar />
+					</div>
+				</div>
+			);
 		}
+		return div;
+	}
+
+	render() {
 		return (
 			<div className="header-search-box">
 				<div className="close-button">
@@ -77,28 +125,10 @@ class Search extends React.Component {
 									<option value="18">18 Person</option>
 									<option value="19">19 Person</option>
 									<option value="20">20 Person</option>
+									<option value="21">Large Party</option>
 								</select>
 							</div>
-							<div className="date-container">
-								<a className="dtp-picker-selector-link date-label dtp-picker-label">
-									{this.state.date}
-								</a>
-								<input
-									type="text"
-									title="datepicker"
-									name="datepicker"
-									className="datepicker dtp-picker-select picker__input"
-									data-value="2019-05-22"
-									readOnly=""
-									id="P1932029059"
-									aria-haspopup="true"
-									aria-expanded="false"
-									aria-readonly="false"
-									aria-owns="P1932029059_root submit_datepicker"
-									aria-label="date"
-									onClick={this.calendarOpner}
-								/>
-							</div>
+							{this.calendarRender()}
 							<div className="time-container">
 								<a
 									className="select-label dtp-picker-selector-link"
