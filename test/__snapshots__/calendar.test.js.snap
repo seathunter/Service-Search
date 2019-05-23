@@ -1,0 +1,483 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are no items 1`] = `
+<div
+  className="picker-holder"
+  onClick={[Function]}
+>
+  <div
+    className="picker-frame"
+  >
+    <div
+      className="calendar-wrapper"
+    >
+      <div
+        className="picker-box"
+      >
+        <div
+          className="calendar-header"
+        >
+          <div>
+            <div
+              className="chevron-left"
+              onClick={[Function]}
+            />
+          </div>
+          <div
+            className="col-center"
+          >
+            <div
+              className="picker-month"
+            >
+              May 2019
+            </div>
+          </div>
+          <div>
+            <div
+              className="chevron-right"
+              onClick={[Function]}
+            />
+          </div>
+        </div>
+        <table
+          className="calendar-table"
+        >
+          <thead>
+            <tr
+              className="weekdays-header"
+            >
+              <th
+                className="weekday"
+              >
+                Sun
+              </th>
+              <th
+                className="weekday"
+              >
+                Mon
+              </th>
+              <th
+                className="weekday"
+              >
+                Tue
+              </th>
+              <th
+                className="weekday"
+              >
+                Wed
+              </th>
+              <th
+                className="weekday"
+              >
+                Thu
+              </th>
+              <th
+                className="weekday"
+              >
+                Fri
+              </th>
+              <th
+                className="weekday"
+              >
+                Sat
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-04-28T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  28
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-04-29T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  29
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-04-30T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  30
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-01T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  1
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-02T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  2
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-03T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  3
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-04T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  4
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-05T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  5
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-06T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  6
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-07T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  7
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-08T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  8
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-09T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  9
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-10T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  10
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-11T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  11
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-12T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  12
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-13T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  13
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-14T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  14
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-15T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  15
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-16T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  16
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-17T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  17
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-18T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  18
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-19T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  19
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-20T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  20
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-21T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  21
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2019-05-22T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  22
+                </div>
+              </td>
+              <td>
+                <div
+                  className="today hoverDates    calendar-day "
+                  data-day={2019-05-23T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  23
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-24T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  24
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-25T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  25
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-26T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  26
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-27T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  27
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-28T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  28
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-29T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  29
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-30T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  30
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates    calendar-day "
+                  data-day={2019-05-31T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  31
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-01T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  1
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-02T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  2
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-03T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  3
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-04T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  4
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-05T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  5
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-06T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  6
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-07T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  7
+                </div>
+              </td>
+              <td>
+                <div
+                  className=" hoverDates  futureMonthStyle  calendar-day "
+                  data-day={2019-06-08T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  8
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

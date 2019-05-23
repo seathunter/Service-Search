@@ -1,0 +1,408 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are no items 1`] = `
+<div
+  className="header-search-box"
+>
+  <div
+    className="close-button"
+  >
+    <a
+      className="js-toggle-search"
+      data-target="#header-search-box"
+    >
+      <i
+        className="icon-close"
+      />
+    </a>
+  </div>
+  <div
+    className="content-block-header"
+  >
+    <h3>
+      <span>
+        Find your table for any occasion
+      </span>
+    </h3>
+  </div>
+  <div
+    className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+    data-event-prefix="search-in-header::"
+    data-search-selector=".dtp-picker-search-autocomplete"
+    data-test="search-in-header-dtp"
+    id="dtp-picker-59"
+  >
+    <form
+      className="dtp-picker-form"
+    >
+      <div
+        className="picker-selectors-container"
+      >
+        <div
+          className="party-size-container"
+        >
+          <a
+            className="select-label dtp-picker-selector-link"
+            tabIndex="-1"
+          >
+            2 People
+          </a>
+          <select
+            className="party-size-selector"
+            onChange={[Function]}
+          >
+            <option
+              value={1}
+            >
+              1
+               People
+            </option>
+            <option
+              value={2}
+            >
+              2
+               People
+            </option>
+            <option
+              value={3}
+            >
+              3
+               People
+            </option>
+            <option
+              value={4}
+            >
+              4
+               People
+            </option>
+            <option
+              value={5}
+            >
+              5
+               People
+            </option>
+            <option
+              value={6}
+            >
+              6
+               People
+            </option>
+            <option
+              value={7}
+            >
+              7
+               People
+            </option>
+            <option
+              value={8}
+            >
+              8
+               People
+            </option>
+            <option
+              value={9}
+            >
+              9
+               People
+            </option>
+            <option
+              value={10}
+            >
+              10
+               People
+            </option>
+            <option
+              value={11}
+            >
+              11
+               People
+            </option>
+            <option
+              value={12}
+            >
+              12
+               People
+            </option>
+            <option
+              value={13}
+            >
+              13
+               People
+            </option>
+            <option
+              value={14}
+            >
+              14
+               People
+            </option>
+            <option
+              value={15}
+            >
+              15
+               People
+            </option>
+            <option
+              value={16}
+            >
+              16
+               People
+            </option>
+            <option
+              value={17}
+            >
+              17
+               People
+            </option>
+            <option
+              value={18}
+            >
+              18
+               People
+            </option>
+            <option
+              value={19}
+            >
+              19
+               People
+            </option>
+            <option
+              value={20}
+            >
+              20
+               People
+            </option>
+            <option
+              value="Large party"
+            >
+              Large Party
+            </option>
+          </select>
+        </div>
+        <div
+          className="date-container"
+          onClick={[Function]}
+        >
+          <a
+            className="dtp-picker-selector-link date-label-closed dtp-picker-label"
+          >
+            May 23, 2019
+          </a>
+          <input
+            className="datepicker-closed dtp-picker-select picker__input"
+          />
+          <div
+            className="datepicker-closed"
+          />
+        </div>
+        <div
+          className="time-container"
+        >
+          <a
+            className="select-label dtp-picker-selector-link"
+            tabIndex="-1"
+          >
+            7:00 PM
+          </a>
+          <select
+            aria-label="time"
+            className="time-selector"
+            name="Select_0"
+            onChange={[Function]}
+          >
+            <option
+              value="13:00 PM"
+            >
+              1
+              :00 PM
+            </option>
+            <option
+              value="13:30 PM"
+            >
+              1
+              :30 PM
+            </option>
+            <option
+              value="14:00 PM"
+            >
+              2
+              :00 PM
+            </option>
+            <option
+              value="14:30 PM"
+            >
+              2
+              :30 PM
+            </option>
+            <option
+              value="15:00 PM"
+            >
+              3
+              :00 PM
+            </option>
+            <option
+              value="15:30 PM"
+            >
+              3
+              :30 PM
+            </option>
+            <option
+              value="16:00 PM"
+            >
+              4
+              :00 PM
+            </option>
+            <option
+              value="16:30 PM"
+            >
+              4
+              :30 PM
+            </option>
+            <option
+              value="17:00 PM"
+            >
+              5
+              :00 PM
+            </option>
+            <option
+              value="17:30 PM"
+            >
+              5
+              :30 PM
+            </option>
+            <option
+              value="18:00 PM"
+            >
+              6
+              :00 PM
+            </option>
+            <option
+              value="18:30 PM"
+            >
+              6
+              :30 PM
+            </option>
+            <option
+              value="19:00 PM"
+            >
+              7
+              :00 PM
+            </option>
+            <option
+              value="19:30 PM"
+            >
+              7
+              :30 PM
+            </option>
+            <option
+              value="20:00 PM"
+            >
+              8
+              :00 PM
+            </option>
+            <option
+              value="20:30 PM"
+            >
+              8
+              :30 PM
+            </option>
+            <option
+              value="21:00 PM"
+            >
+              9
+              :00 PM
+            </option>
+            <option
+              value="21:30 PM"
+            >
+              9
+              :30 PM
+            </option>
+            <option
+              value="22:00 PM"
+            >
+              10
+              :00 PM
+            </option>
+            <option
+              value="22:30 PM"
+            >
+              10
+              :30 PM
+            </option>
+            <option
+              value="23:00 PM"
+            >
+              11
+              :00 PM
+            </option>
+            <option
+              value="23:30 PM"
+            >
+              11
+              :30 PM
+            </option>
+          </select>
+        </div>
+      </div>
+      <div
+        className="picker-search-container"
+      >
+        <div
+          className="search-icon"
+        />
+        <span
+          className="twitter-typehead"
+        >
+          <input
+            aria-label="search"
+            autoComplete="off"
+            className="dtp-picker-search-autocomplete tt-hint"
+            readOnly=""
+            spellCheck="false"
+            style={
+              Object {
+                "background": "none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0)",
+                "borderColor": "transparent",
+                "boxShadow": "none",
+                "left": "0px",
+                "opacity": "1",
+                "position": "absolute",
+                "top": "0px",
+              }
+            }
+            tabIndex="-1"
+            title="Location, Restaurant, or Cuisine"
+            type="text"
+          />
+          <input
+            aria-label="search"
+            autoComplete="off"
+            className="dtp-picker-search-autocomplete tt-input"
+            data-test="search-in-header-dtp-text-input"
+            dir="auto"
+            id="dtp-search-single-box"
+            name="searchText"
+            placeholder="Location, Restaurant, or Cuisine"
+            spellCheck="false"
+            style={
+              Object {
+                "backgrounColor": "transparent",
+                "position": "relative",
+                "verticalAlign": "top",
+              }
+            }
+            title="Location, Restaurant, or Cuisine"
+            type="text"
+          />
+        </span>
+      </div>
+      <input
+        className="button dtp-picker-button"
+        data-test="search-in-header-dtp-submit"
+        type="submit"
+        value="Find a Table"
+      />
+    </form>
+  </div>
+</div>
+`;

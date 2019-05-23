@@ -9,11 +9,12 @@ class Calendar extends React.Component {
 			currentMonth: new Date(),
 			currentDate: new Date(),
 			currentDay: new Date(),
-			selectedDay: new Date()
+			selectedDay: this.props.date
 		};
 		this.onDateClick = this.onDateClick.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
 		this.prevMonth = this.prevMonth.bind(this);
+		this.childClickHandler = this.childClickHandler.bind(this);
 	}
 
 	renderDays() {
@@ -46,7 +47,8 @@ class Calendar extends React.Component {
 
 		while (rows.length < 6) {
 			for (let i = 0; i < 7; i++) {
-				formattedDate = dateFns.format(day, 'D');
+				// formattedDate = dateFns.format(day, 'D');
+				formattedDate = day;
 				const cloneDay = day;
 				let currentDay = '';
 
@@ -74,6 +76,7 @@ class Calendar extends React.Component {
 				if (dateFns.compareDesc(day, dateFns.subDays(new Date(), 1)) === 1) {
 					pastDatesStyle = 'pastDatesStyle';
 				}
+
 				let hoverDates = '';
 				if (pastDatesStyle) {
 					pastMonthStyle = '';
@@ -81,9 +84,10 @@ class Calendar extends React.Component {
 					hoverDates = 'hoverDates';
 				}
 
-				if (!pastDatesStyle && !pastMonthStyle) {
+				if (!pastDatesStyle && !pastMonthStyle && !futureMonthStyle) {
 					currentDay =
-						formattedDate === dateFns.format(this.state.selectedDay, 'D')
+						dateFns.format(formattedDate, 'D') ===
+						dateFns.format(this.state.selectedDay, 'D')
 							? 'selectedDay'
 							: '';
 				}
@@ -92,15 +96,52 @@ class Calendar extends React.Component {
 					hoverDates = '';
 				}
 
-				const classNames = `${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
+				let today = '';
+				if (
+					dateFns.format(day, 'MMMM D') === dateFns.format(new Date(), 'MMMM D')
+				) {
+					today = 'today';
+				}
+
+				if (
+					dateFns.format(day, 'M') === dateFns.format(new Date(), 'M') &&
+					dateFns.format(day, 'D') === dateFns.format(new Date(), 'D')
+				) {
+					if (
+						dateFns.format(new Date(), 'H') >= 23 &&
+						dateFns.format(new Date(), 'm') > 30
+					) {
+						pastDatesStyle = 'pastDatesStyle';
+						today = '';
+						currentDay = '';
+					}
+				}
+
+				if (
+					dateFns.format(dateFns.subDays(day, 1), 'M') ===
+						dateFns.format(new Date(), 'M') &&
+					dateFns.format(dateFns.subDays(day, 1), 'D') ===
+						dateFns.format(new Date(), 'D')
+				) {
+					if (
+						days[i - 1].props.children.props.className.indexOf('today') === -1
+					) {
+						today = 'today';
+						currentDay = 'selectedDay';
+						// need to somehow pass the new date to the parent component to reflect onto the search bar. Will come back to this;
+					}
+				}
+
+				const classNames = `${today} ${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
 				days.push(
 					<td key={i}>
 						<div
+							data-day={cloneDay}
 							className={classNames}
-							onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+							onClick={this.onDateClick}
 						>
-							{formattedDate}
+							{dateFns.format(formattedDate, 'D')}
 						</div>
 					</td>
 				);
@@ -113,25 +154,32 @@ class Calendar extends React.Component {
 		return rows;
 	}
 
-	onDateClick(day) {
+	onDateClick(e) {
+		const day = dateFns.parse(e.target.dataset.day);
 		if (dateFns.compareAsc(day, dateFns.subDays(new Date(), 1)) === 1) {
 			if (
 				dateFns.format(day, 'D') === dateFns.format(this.state.selectedDay, 'D')
 			) {
-				this.setState({ selectedDay: '' });
+				this.setState({ selectedDay: '' }, () => {
+					this.props.clickHandler(this.state.selectedDay);
+				});
 			} else {
-				this.setState({ selectedDay: day });
+				this.setState({ selectedDay: day }, () => {
+					this.props.clickHandler(this.state.selectedDay);
+				});
 			}
 		}
 	}
 
-	nextMonth() {
+	nextMonth(e) {
+		e.stopPropagation();
 		this.setState({
 			currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
 		});
 	}
 
-	prevMonth() {
+	prevMonth(e) {
+		e.stopPropagation();
 		if (
 			dateFns.format(new Date(), 'MMMM YYYY') !==
 			dateFns.format(this.state.currentMonth, 'MMMM YYYY')
@@ -142,27 +190,35 @@ class Calendar extends React.Component {
 		}
 	}
 
+	childClickHandler(e) {
+		e.stopPropagation();
+	}
+
 	render() {
 		return (
-			<div className="calendar-wrapper">
-				<div className="picker-box">
-					<div className="calendar-header">
-						<div>
-							<div className="chevron-left" onClick={this.prevMonth} />
-						</div>
-						<div className="col-center">
-							<div className="picker-month">
-								{dateFns.format(this.state.currentMonth, 'MMMM YYYY')}
+			<div onClick={this.childClickHandler} className="picker-holder">
+				<div className="picker-frame">
+					<div className="calendar-wrapper">
+						<div className="picker-box">
+							<div className="calendar-header">
+								<div>
+									<div className="chevron-left" onClick={this.prevMonth} />
+								</div>
+								<div className="col-center">
+									<div className="picker-month">
+										{dateFns.format(this.state.currentMonth, 'MMMM YYYY')}
+									</div>
+								</div>
+								<div>
+									<div className="chevron-right" onClick={this.nextMonth} />
+								</div>
 							</div>
-						</div>
-						<div>
-							<div className="chevron-right" onClick={this.nextMonth} />
+							<table className="calendar-table">
+								<thead>{this.renderDays()}</thead>
+								<tbody>{this.renderCells()}</tbody>
+							</table>
 						</div>
 					</div>
-					<table className="calendar-table">
-						<thead>{this.renderDays()}</thead>
-						<tbody>{this.renderCells()}</tbody>
-					</table>
 				</div>
 			</div>
 		);
