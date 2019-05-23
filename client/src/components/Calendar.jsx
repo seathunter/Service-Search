@@ -114,7 +114,7 @@ class Calendar extends React.Component {
 						pastDatesStyle = 'pastDatesStyle';
 						today = '';
 						currentDay = '';
-						console.log(days[i - 1].props.children.props.className);
+						// console.log(days[i - 1].props.children.props.className);
 					}
 				}
 

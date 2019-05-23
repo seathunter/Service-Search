@@ -17,11 +17,7 @@ class Search extends React.Component {
 		this.calendarRender = this.calendarRender.bind(this);
 		this.calendarClickHandler = this.calendarClickHandler.bind(this);
 		this.partySizeChange = this.partySizeChange.bind(this);
-		this.dateUpdater = this.dateUpdater.bind(this);
-	}
-
-	dateUpdater(date) {
-		this.setState({ date: dateFns.format(date, 'MMM D, YYYY') });
+		this.timeSelectHandler = this.timeSelectHandler.bind(this);
 	}
 
 	timeSlotRender() {
@@ -38,19 +34,19 @@ class Search extends React.Component {
 				for (let i = 0; i < 24; i++) {
 					if (i === 0) {
 						rows.push(
-							<option value={`${i}0:00`}>{i + 12}:00 AM</option>,
-							<option value={`${i}0:30`}>{i + 12}:30 AM</option>
+							<option key={this.value} value={`${i}0:00`}>{i + 12}:00 AM</option>,
+							<option key={this.value} value={`${i}0:30`}>{i + 12}:30 AM</option>
 						);
 					} else if (i > 0) {
 						if (i > 12) {
 							rows.push(
-								<option value={`${i}:00`}>{i - 12}:00 PM</option>,
-								<option value={`${i}:30`}>{i - 12}:30 PM</option>
+								<option key={this.value} value={`${i}:00`}>{i - 12}:00 PM</option>,
+								<option key={this.value} value={`${i}:30`}>{i - 12}:30 PM</option>
 							);
 						} else {
 							rows.push(
-								<option value={`0${i}:00`}>{i}:00 AM</option>,
-								<option value={`0${i}:30`}>{i}:30 AM</option>
+								<option key={this.value} value={`0${i}:00`}>{i}:00 AM</option>,
+								<option key={this.value} value={`0${i}:30`}>{i}:30 AM</option>
 							);
 						}
 					}
@@ -59,19 +55,24 @@ class Search extends React.Component {
 				for (let i = hourNow; i < 24; i++) {
 					if (i === 0) {
 						rows.push(
-							<option value={`${i}0:00`}>{i + 12}:00 AM</option>,
-							<option value={`${i}0:30`}>{i + 12}:30 AM</option>
+							<option key={i} value={`${i}0:00 AM`}>{i + 12}:00 AM</option>,
+							<option key={`${i}:30`} value={`${i}0:30 AM`}>{i + 12}:30 AM</option>
 						);
 					} else if (i > 0) {
 						if (i > 12) {
 							rows.push(
-								<option value={`${i}:00`}>{i - 12}:00 PM</option>,
-								<option value={`${i}:30`}>{i - 12}:30 PM</option>
+								<option key={i} value={`${i}:00 PM`}>{i - 12}:00 PM</option>,
+								<option key={`${i}:30`} value={`${i}:30 PM`}>{i - 12}:30 PM</option>
 							);
-						} else if (i <= 12) {
+						} else if (i < 12) {
 							rows.push(
-								<option value={`0${i}:00`}>{i}:00 AM</option>,
-								<option value={`0${i}:30`}>{i}:30 AM</option>
+								<option key={i} value={`${i}:00 AM`}>{i}:00 AM</option>,
+								<option key={`${i}:30`} value={`${i}:30 AM`}>{i}:30 AM</option>
+							);
+						} else if (i === 12) {
+							rows.push(
+								<option key={i} value={`${i}:00 PM`}>{i}:00 PM</option>,
+								<option key={`${i}:30`} value={`${i}:30 PM`}>{i}:30 PM</option>
 							);
 						}
 					}
@@ -81,12 +82,34 @@ class Search extends React.Component {
 				}
 			}
 		}
-		console.log(dateFns.format(new Date(), 'D'));
 		return (
-			<select className="time-selector" name="Select_0" aria-label="time">
+			<select
+				onChange={this.timeSelectHandler}
+				className="time-selector"
+				name="Select_0"
+				aria-label="time"
+			>
 				{rows}
 			</select>
 		);
+	}
+
+	timeSelectHandler(time) {
+		let num = 0;
+		if (time.target.value.length === 7) {
+			this.setState({ time: time.target.value });
+		} else if (time.target.value.length === 8) {
+			num = Number(time.target.value.charAt(0) + time.target.value.charAt(1));
+			if (num > 12) {
+				num -= 12;
+				let newTime = time.target.value.slice(2);
+				newTime = num + newTime;
+				console.log(newTime);
+				this.setState({ time: newTime });
+			} else {
+				this.setState({ time: time.target.value });
+			}
+		}
 	}
 
 	calendarToggleHandler(e) {
@@ -95,7 +118,6 @@ class Search extends React.Component {
 	}
 
 	calendarClickHandler(day) {
-		console.log('hi there');
 		this.setState({ date: dateFns.format(day, 'MMM D, YYYY') }, () => {
 			this.setState({ calendar: !this.state.calendar });
 		});
