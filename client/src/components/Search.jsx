@@ -17,53 +17,76 @@ class Search extends React.Component {
 		this.calendarRender = this.calendarRender.bind(this);
 		this.calendarClickHandler = this.calendarClickHandler.bind(this);
 		this.partySizeChange = this.partySizeChange.bind(this);
+		this.dateUpdater = this.dateUpdater.bind(this);
+	}
+
+	dateUpdater(date) {
+		this.setState({ date: dateFns.format(date, 'MMM D, YYYY') });
 	}
 
 	timeSlotRender() {
 		const rows = [];
 		const hourNow = dateFns.format(new Date(), 'H');
 		const minNow = dateFns.format(new Date(), 'm');
-		// if (hourNow === 23){
-		// 	if (minNow >)
-		// }
-		// for (let i = 0; i < 10; i++) {
-		// 	if (i === 0) {
-		// 		rows.push(
-		// 			<option value={`0${i}:00`}>{`${i + 12}:00`} AM</option>,
-		// 			<option value={`0${i}:30`}>{`${i + 12}:30`} AM</option>
-		// 		);
-		// 	} else {
-		// 		rows.push(
-		// 			<option value={`0${i}:00`}>{`${i}:00`} AM</option>,
-		// 			<option value={`0${i}:30`}>{`${i}:30`} AM</option>
-		// 		);
-		// 	}
-		// }
-		// for (let i = 10; i < 24; i++) {
-		// 	if (i >= 13) {
-		// 		rows.push(
-		// 			<option value={`${i}:00`}>{`${i - 12}:00`} PM</option>,
-		// 			<option value={`${i}:30`}>{`${i - 12}:30`} PM</option>
-		// 		);
-		// 	} else if (i < 13) {
-		// 		if (i < 12) {
-		// 			rows.push(
-		// 				<option value={`${i}:00`}>{`${i}:00`} AM</option>,
-		// 				<option value={`${i}:30`}>{`${i}:30`} AM</option>
-		// 			);
-		// 		} else if (i >= 12) {
-		// 			rows.push(
-		// 				<option value={`${i}:00`}>{`${i}:00`} PM</option>,
-		// 				<option value={`${i}:30`}>{`${i}:30`} PM</option>
-		// 			);
-		// 		}
-		// 	}
-		// }
-		// return (
-		// 	<select className="time-selector" name="Select_0" aria-label="time">
-		// 		{rows}
-		// 	</select>
-		// );
+		if (
+			dateFns.format(this.state.date, 'M') == dateFns.format(new Date(), 'M') &&
+			dateFns.format(this.state.date, 'D') == dateFns.format(new Date(), 'D')
+		) {
+			if (hourNow === 23 && minNow <= 30) {
+				rows.push(<option value="11:30">11:30 PM</option>);
+			} else if (hourNow === 23 && minNow > 30) {
+				for (let i = 0; i < 24; i++) {
+					if (i === 0) {
+						rows.push(
+							<option value={`${i}0:00`}>{i + 12}:00 AM</option>,
+							<option value={`${i}0:30`}>{i + 12}:30 AM</option>
+						);
+					} else if (i > 0) {
+						if (i > 12) {
+							rows.push(
+								<option value={`${i}:00`}>{i - 12}:00 PM</option>,
+								<option value={`${i}:30`}>{i - 12}:30 PM</option>
+							);
+						} else {
+							rows.push(
+								<option value={`0${i}:00`}>{i}:00 AM</option>,
+								<option value={`0${i}:30`}>{i}:30 AM</option>
+							);
+						}
+					}
+				}
+			} else {
+				for (let i = hourNow; i < 24; i++) {
+					if (i === 0) {
+						rows.push(
+							<option value={`${i}0:00`}>{i + 12}:00 AM</option>,
+							<option value={`${i}0:30`}>{i + 12}:30 AM</option>
+						);
+					} else if (i > 0) {
+						if (i > 12) {
+							rows.push(
+								<option value={`${i}:00`}>{i - 12}:00 PM</option>,
+								<option value={`${i}:30`}>{i - 12}:30 PM</option>
+							);
+						} else if (i <= 12) {
+							rows.push(
+								<option value={`0${i}:00`}>{i}:00 AM</option>,
+								<option value={`0${i}:30`}>{i}:30 AM</option>
+							);
+						}
+					}
+				}
+				if (minNow >= 30) {
+					rows.slice(1);
+				}
+			}
+		}
+		console.log(dateFns.format(new Date(), 'D'));
+		return (
+			<select className="time-selector" name="Select_0" aria-label="time">
+				{rows}
+			</select>
+		);
 	}
 
 	calendarToggleHandler(e) {
@@ -123,6 +146,7 @@ class Search extends React.Component {
 					<div className="datepicker-opened">
 						<Calendar
 							date={this.state.date}
+							dateUpdater={this.dateUpdater}
 							clickHandler={this.calendarClickHandler}
 						/>
 					</div>

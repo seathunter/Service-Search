@@ -129,6 +129,7 @@ class Calendar extends React.Component {
 					) {
 						today = 'today';
 						currentDay = 'selectedDay';
+						// need to somehow pass the new date to the parent component to reflect onto the search bar, will come back to this;
 					}
 				}
 
@@ -139,7 +140,6 @@ class Calendar extends React.Component {
 						<div
 							data-day={cloneDay}
 							className={classNames}
-							// onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
 							onClick={this.onDateClick}
 						>
 							{dateFns.format(formattedDate, 'D')}
@@ -161,12 +161,15 @@ class Calendar extends React.Component {
 			if (
 				dateFns.format(day, 'D') === dateFns.format(this.state.selectedDay, 'D')
 			) {
-				this.setState({ selectedDay: '' });
+				this.setState({ selectedDay: '' }, () => {
+					this.props.clickHandler(this.state.selectedDay);
+				});
 			} else {
-				this.setState({ selectedDay: day });
+				this.setState({ selectedDay: day }, () => {
+					this.props.clickHandler(this.state.selectedDay);
+				});
 			}
 		}
-		this.props.clickHandler(day);
 	}
 
 	nextMonth(e) {
