@@ -9,7 +9,7 @@ class Calendar extends React.Component {
 			currentMonth: new Date(),
 			currentDate: new Date(),
 			currentDay: new Date(),
-			selectedDay: new Date()
+			selectedDay: this.props.date
 		};
 		this.onDateClick = this.onDateClick.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
@@ -47,7 +47,8 @@ class Calendar extends React.Component {
 
 		while (rows.length < 6) {
 			for (let i = 0; i < 7; i++) {
-				formattedDate = dateFns.format(day, 'D');
+				// formattedDate = dateFns.format(day, 'D');
+				formattedDate = day;
 				const cloneDay = day;
 				let currentDay = '';
 
@@ -85,7 +86,7 @@ class Calendar extends React.Component {
 
 				if (!pastDatesStyle && !pastMonthStyle && !futureMonthStyle) {
 					currentDay =
-						formattedDate === dateFns.format(this.state.selectedDay, 'D')
+						dateFns.format(formattedDate, 'D') === dateFns.format(this.state.selectedDay, 'D')
 							? 'selectedDay'
 							: '';
 				}
@@ -107,10 +108,12 @@ class Calendar extends React.Component {
 				days.push(
 					<td key={i}>
 						<div
+							data-day={cloneDay}
 							className={classNames}
-							onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+							// onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+							onClick={this.onDateClick}
 						>
-							{formattedDate}
+							{dateFns.format(formattedDate, 'D')}
 						</div>
 					</td>
 				);
@@ -123,7 +126,8 @@ class Calendar extends React.Component {
 		return rows;
 	}
 
-	onDateClick(day) {
+	onDateClick(e) {
+		const day = dateFns.parse(e.target.dataset.day);
 		if (dateFns.compareAsc(day, dateFns.subDays(new Date(), 1)) === 1) {
 			if (
 				dateFns.format(day, 'D') === dateFns.format(this.state.selectedDay, 'D')
@@ -133,6 +137,7 @@ class Calendar extends React.Component {
 				this.setState({ selectedDay: day });
 			}
 		}
+		this.props.clickHandler(day);
 	}
 
 	nextMonth(e) {

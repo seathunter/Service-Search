@@ -9,26 +9,34 @@ class Search extends React.Component {
 		this.state = {
 			party: 2,
 			time: '7:00 PM',
-			date: 'May 22, 2019',
+			date: dateFns.format(new Date(), 'MMM D, YYYY'),
 			calendar: false
 		};
 		this.timeSlotRender = this.timeSlotRender.bind(this);
-		this.calendarClickHandler = this.calendarClickHandler.bind(this);
+		this.calendarToggleHandler = this.calendarToggleHandler.bind(this);
 		this.calendarRender = this.calendarRender.bind(this);
+		this.calendarClickHandler = this.calendarClickHandler.bind(this);
 	}
 
 	timeSlotRender() {}
 
-	calendarClickHandler(e) {
+	calendarToggleHandler(e) {
 		e.stopPropagation();
 		this.setState({ calendar: !this.state.calendar });
+	}
+
+	calendarClickHandler(day) {
+		console.log('hi there');
+		this.setState({ date: dateFns.format(day, 'MMM D, YYYY') }, () => {
+			this.setState({ calendar: !this.state.calendar });
+		});
 	}
 
 	calendarRender() {
 		let div = '';
 		if (this.state.calendar === false) {
 			div = (
-				<div onClick={this.calendarClickHandler} className="date-container">
+				<div onClick={this.calendarToggleHandler} className="date-container">
 					<a className="dtp-picker-selector-link date-label-closed dtp-picker-label">
 						{this.state.date}
 					</a>
@@ -43,13 +51,15 @@ class Search extends React.Component {
 						aria-owns="P1932029059_root submit_datepicker"
 						aria-label="date"
 					/>
-					<div className="datepicker-closed">
-					</div>
+					<div className="datepicker-closed" />
 				</div>
 			);
 		} else {
 			div = (
-				<div onClick={this.calendarClickHandler} className="date-container-opened">
+				<div
+					onClick={this.calendarToggleHandler}
+					className="date-container-opened"
+				>
 					<a className="dtp-picker-selector-link date-label-opened dtp-picker-label">
 						{this.state.date}
 					</a>
@@ -65,12 +75,27 @@ class Search extends React.Component {
 						aria-label="date"
 					/>
 					<div className="datepicker-opened">
-						<Calendar />
+						<Calendar
+							date={this.state.date}
+							clickHandler={this.calendarClickHandler}
+						/>
 					</div>
 				</div>
 			);
 		}
 		return div;
+	}
+
+	partySizeRender() {
+		const rows = [];
+		for (let i = 1; i < 22; i++) {
+			if (i === 21) {
+				rows.push(<option value={i}>Large Party</option>);
+			} else {
+				rows.push(<option value={i}>{i} Person</option>);
+			}
+		}
+		return <select className="party-size-selector">{rows}</select>;
 	}
 
 	render() {
@@ -103,29 +128,7 @@ class Search extends React.Component {
 								>
 									{this.state.party} People
 								</a>
-								<select className="party-size-selector">
-									<option value="1">1 Person</option>
-									<option value="2">2 Person</option>
-									<option value="3">3 Person</option>
-									<option value="4">4 Person</option>
-									<option value="5">5 Person</option>
-									<option value="6">6 Person</option>
-									<option value="7">7 Person</option>
-									<option value="8">8 Person</option>
-									<option value="9">9 Person</option>
-									<option value="10">10 Person</option>
-									<option value="11">11 Person</option>
-									<option value="12">12 Person</option>
-									<option value="13">13 Person</option>
-									<option value="14">14 Person</option>
-									<option value="15">15 Person</option>
-									<option value="16">16 Person</option>
-									<option value="17">17 Person</option>
-									<option value="18">18 Person</option>
-									<option value="19">19 Person</option>
-									<option value="20">20 Person</option>
-									<option value="21">Large Party</option>
-								</select>
+								{this.partySizeRender()}
 							</div>
 							{this.calendarRender()}
 							<div className="time-container">
