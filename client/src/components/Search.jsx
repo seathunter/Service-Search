@@ -21,44 +21,49 @@ class Search extends React.Component {
 
 	timeSlotRender() {
 		const rows = [];
-		for (let i = 0; i < 10; i++) {
-			if (i === 0) {
-				rows.push(
-					<option value={`0${i}:00`}>{`${i + 12}:00`} AM</option>,
-					<option value={`0${i}:30`}>{`${i + 12}:30`} AM</option>
-				);
-			} else {
-				rows.push(
-					<option value={`0${i}:00`}>{`${i}:00`} AM</option>,
-					<option value={`0${i}:30`}>{`${i}:30`} AM</option>
-				);
-			}
-		}
-		for (let i = 10; i < 24; i++) {
-			if (i >= 13) {
-				rows.push(
-					<option value={`${i}:00`}>{`${i - 12}:00`} PM</option>,
-					<option value={`${i}:30`}>{`${i - 12}:30`} PM</option>
-				);
-			} else if (i < 13) {
-				if (i < 12) {
-					rows.push(
-						<option value={`${i}:00`}>{`${i}:00`} AM</option>,
-						<option value={`${i}:30`}>{`${i}:30`} AM</option>
-					);
-				} else if (i >= 12) {
-					rows.push(
-						<option value={`${i}:00`}>{`${i}:00`} PM</option>,
-						<option value={`${i}:30`}>{`${i}:30`} PM</option>
-					);
-				}
-			}
-		}
-		return (
-			<select className="time-selector" name="Select_0" aria-label="time">
-				{rows}
-			</select>
-		);
+		const hourNow = dateFns.format(new Date(), 'H');
+		const minNow = dateFns.format(new Date(), 'm');
+		// if (hourNow === 23){
+		// 	if (minNow >)
+		// }
+		// for (let i = 0; i < 10; i++) {
+		// 	if (i === 0) {
+		// 		rows.push(
+		// 			<option value={`0${i}:00`}>{`${i + 12}:00`} AM</option>,
+		// 			<option value={`0${i}:30`}>{`${i + 12}:30`} AM</option>
+		// 		);
+		// 	} else {
+		// 		rows.push(
+		// 			<option value={`0${i}:00`}>{`${i}:00`} AM</option>,
+		// 			<option value={`0${i}:30`}>{`${i}:30`} AM</option>
+		// 		);
+		// 	}
+		// }
+		// for (let i = 10; i < 24; i++) {
+		// 	if (i >= 13) {
+		// 		rows.push(
+		// 			<option value={`${i}:00`}>{`${i - 12}:00`} PM</option>,
+		// 			<option value={`${i}:30`}>{`${i - 12}:30`} PM</option>
+		// 		);
+		// 	} else if (i < 13) {
+		// 		if (i < 12) {
+		// 			rows.push(
+		// 				<option value={`${i}:00`}>{`${i}:00`} AM</option>,
+		// 				<option value={`${i}:30`}>{`${i}:30`} AM</option>
+		// 			);
+		// 		} else if (i >= 12) {
+		// 			rows.push(
+		// 				<option value={`${i}:00`}>{`${i}:00`} PM</option>,
+		// 				<option value={`${i}:30`}>{`${i}:30`} PM</option>
+		// 			);
+		// 		}
+		// 	}
+		// }
+		// return (
+		// 	<select className="time-selector" name="Select_0" aria-label="time">
+		// 		{rows}
+		// 	</select>
+		// );
 	}
 
 	calendarToggleHandler(e) {
@@ -142,9 +147,17 @@ class Search extends React.Component {
 		const rows = [];
 		for (let i = 1; i < 22; i++) {
 			if (i === 21) {
-				rows.push(<option value="Large party">Large Party</option>);
+				rows.push(
+					<option key={i} value="Large party">
+						Large Party
+					</option>
+				);
 			} else {
-				rows.push(<option value={i}>{i} People</option>);
+				rows.push(
+					<option key={i} value={i}>
+						{i} People
+					</option>
+				);
 			}
 		}
 		return (
@@ -203,7 +216,6 @@ class Search extends React.Component {
 								<input
 									type="text"
 									title="Location, Restaurant, or Cuisine"
-									value=""
 									className="dtp-picker-search-autocomplete tt-hint"
 									aria-label="search"
 									readOnly=""
@@ -226,7 +238,6 @@ class Search extends React.Component {
 									type="text"
 									name="searchText"
 									title="Location, Restaurant, or Cuisine"
-									value=""
 									placeholder="Location, Restaurant, or Cuisine"
 									data-test="search-in-header-dtp-text-input"
 									className="dtp-picker-search-autocomplete tt-input"

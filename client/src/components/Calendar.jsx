@@ -72,11 +72,11 @@ class Calendar extends React.Component {
 					futureMonthStyle = 'futureMonthStyle';
 				}
 
-
 				let pastDatesStyle = '';
 				if (dateFns.compareDesc(day, dateFns.subDays(new Date(), 1)) === 1) {
 					pastDatesStyle = 'pastDatesStyle';
 				}
+
 				let hoverDates = '';
 				if (pastDatesStyle) {
 					pastMonthStyle = '';
@@ -86,7 +86,8 @@ class Calendar extends React.Component {
 
 				if (!pastDatesStyle && !pastMonthStyle && !futureMonthStyle) {
 					currentDay =
-						dateFns.format(formattedDate, 'D') === dateFns.format(this.state.selectedDay, 'D')
+						dateFns.format(formattedDate, 'D') ===
+						dateFns.format(this.state.selectedDay, 'D')
 							? 'selectedDay'
 							: '';
 				}
@@ -102,6 +103,34 @@ class Calendar extends React.Component {
 					today = 'today';
 				}
 
+				if (
+					dateFns.format(day, 'M') === dateFns.format(new Date(), 'M') &&
+					dateFns.format(day, 'D') === dateFns.format(new Date(), 'D')
+				) {
+					if (
+						dateFns.format(new Date(), 'H') == 23 &&
+						dateFns.format(new Date(), 'm') > 30
+					) {
+						pastDatesStyle = 'pastDatesStyle';
+						today = '';
+						currentDay = '';
+						console.log(days[i - 1].props.children.props.className);
+					}
+				}
+
+				if (
+					dateFns.format(dateFns.subDays(day, 1), 'M') ===
+						dateFns.format(new Date(), 'M') &&
+					dateFns.format(dateFns.subDays(day, 1), 'D') ===
+						dateFns.format(new Date(), 'D')
+				) {
+					if (
+						days[i - 1].props.children.props.className.indexOf('today') === -1
+					) {
+						today = 'today';
+						currentDay = 'selectedDay';
+					}
+				}
 
 				const classNames = `${today} ${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
