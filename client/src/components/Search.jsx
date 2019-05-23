@@ -115,7 +115,7 @@ class Search extends React.Component {
 				}
 			}
 			if (minNow >= 30) {
-				rows.slice(1);
+				rows.splice(0, 1);
 			}
 		}
 		return (
@@ -243,7 +243,7 @@ class Search extends React.Component {
 					</a>
 				</div>
 				<div className="content-block-header">
-					<h3>
+					<h3 className='slogan-header'>
 						<span>Find your table for any occasion</span>
 					</h3>
 				</div>

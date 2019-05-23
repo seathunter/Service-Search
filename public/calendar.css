@@ -2,14 +2,17 @@
 	box-sizing: border-box;
 }
 
+@font-face {
+	font-family: Brandon;
+	src: url("./Brandon.otf") format("opentype");
+}
+
 .calendar-wrapper {
 	box-sizing: border-box;
 	color: rgb(51, 51, 51);
 	cursor: default;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
 	height: 288px;
@@ -47,9 +50,7 @@
 	color: rgb(51, 51, 51);
 	cursor: default;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
 	height: 289px;
@@ -84,9 +85,7 @@
 	color: rgb(51, 51, 51);
 	cursor: default;
 	display: block;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
 	height: 288px;
@@ -128,9 +127,7 @@
 	visibility: visible;
 	width: 353px;
 	-webkit-font-smoothing: antialiased;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 }
 
 .calendar-header {
@@ -138,9 +135,7 @@
 	font-weight: 500;
 	line-height: 16px;
 	text-size-adjust: 100%;
-	font-family: 'BrandonText', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto',
-		'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 	height: 15.454;
 	text-align: center;
 	display: flex;
@@ -167,9 +162,7 @@
 	color: rgb(51, 51, 51);
 	cursor: default;
 	display: table;
-	font-family: BrandonText, -apple-system, system-ui, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
+	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
 	height: 224px;
