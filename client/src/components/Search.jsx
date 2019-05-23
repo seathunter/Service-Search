@@ -18,68 +18,104 @@ class Search extends React.Component {
 		this.calendarClickHandler = this.calendarClickHandler.bind(this);
 		this.partySizeChange = this.partySizeChange.bind(this);
 		this.timeSelectHandler = this.timeSelectHandler.bind(this);
+		this.dateUpdater = this.dateUpdater.bind(this);
 	}
 
 	timeSlotRender() {
 		const rows = [];
 		const hourNow = dateFns.format(new Date(), 'H');
 		const minNow = dateFns.format(new Date(), 'm');
+
 		if (
-			dateFns.format(this.state.date, 'M') == dateFns.format(new Date(), 'M') &&
-			dateFns.format(this.state.date, 'D') == dateFns.format(new Date(), 'D')
+			(hourNow === 23 && minNow > 30) ||
+			dateFns.format(this.state.date, 'M D') !==
+				dateFns.format(new Date(), 'M D')
 		) {
-			if (hourNow === 23 && minNow <= 30) {
-				rows.push(<option value="11:30">11:30 PM</option>);
-			} else if (hourNow === 23 && minNow > 30) {
-				for (let i = 0; i < 24; i++) {
-					if (i === 0) {
+			for (let i = 0; i < 24; i++) {
+				if (i === 0) {
+					rows.push(
+						<option key={i} value={`${i}0:00 AM`}>
+							{i + 12}:00 AM
+						</option>,
+						<option key={`${i}:30`} value={`${i}0:30 AM`}>
+							{i + 12}:30 AM
+						</option>
+					);
+				} else if (i > 0) {
+					if (i > 12) {
 						rows.push(
-							<option key={this.value} value={`${i}0:00`}>{i + 12}:00 AM</option>,
-							<option key={this.value} value={`${i}0:30`}>{i + 12}:30 AM</option>
+							<option key={i} value={`${i}:00 PM`}>
+								{i - 12}:00 PM
+							</option>,
+							<option key={`${i}:30`} value={`${i}:30 PM`}>
+								{i - 12}:30 PM
+							</option>
 						);
-					} else if (i > 0) {
-						if (i > 12) {
-							rows.push(
-								<option key={this.value} value={`${i}:00`}>{i - 12}:00 PM</option>,
-								<option key={this.value} value={`${i}:30`}>{i - 12}:30 PM</option>
-							);
-						} else {
-							rows.push(
-								<option key={this.value} value={`0${i}:00`}>{i}:00 AM</option>,
-								<option key={this.value} value={`0${i}:30`}>{i}:30 AM</option>
-							);
-						}
+					} else if (i < 12) {
+						rows.push(
+							<option key={i} value={`${i}:00 AM`}>
+								{i}:00 AM
+							</option>,
+							<option key={`${i}:30`} value={`${i}:30 AM`}>
+								{i}:30 AM
+							</option>
+						);
+					} else if (i === 12) {
+						rows.push(
+							<option key={i} value={`${i}:00 PM`}>
+								{i}:00 PM
+							</option>,
+							<option key={`${i}:30`} value={`${i}:30 PM`}>
+								{i}:30 PM
+							</option>
+						);
 					}
 				}
-			} else {
-				for (let i = hourNow; i < 24; i++) {
-					if (i === 0) {
+			}
+		} else {
+			for (let i = hourNow; i < 24; i++) {
+				if (i === 0) {
+					rows.push(
+						<option key={i} value={`${i}0:00 AM`}>
+							{i + 12}:00 AM
+						</option>,
+						<option key={`${i}:30`} value={`${i}0:30 AM`}>
+							{i + 12}:30 AM
+						</option>
+					);
+				} else if (i > 0) {
+					if (i > 12) {
 						rows.push(
-							<option key={i} value={`${i}0:00 AM`}>{i + 12}:00 AM</option>,
-							<option key={`${i}:30`} value={`${i}0:30 AM`}>{i + 12}:30 AM</option>
+							<option key={i} value={`${i}:00 PM`}>
+								{i - 12}:00 PM
+							</option>,
+							<option key={`${i}:30`} value={`${i}:30 PM`}>
+								{i - 12}:30 PM
+							</option>
 						);
-					} else if (i > 0) {
-						if (i > 12) {
-							rows.push(
-								<option key={i} value={`${i}:00 PM`}>{i - 12}:00 PM</option>,
-								<option key={`${i}:30`} value={`${i}:30 PM`}>{i - 12}:30 PM</option>
-							);
-						} else if (i < 12) {
-							rows.push(
-								<option key={i} value={`${i}:00 AM`}>{i}:00 AM</option>,
-								<option key={`${i}:30`} value={`${i}:30 AM`}>{i}:30 AM</option>
-							);
-						} else if (i === 12) {
-							rows.push(
-								<option key={i} value={`${i}:00 PM`}>{i}:00 PM</option>,
-								<option key={`${i}:30`} value={`${i}:30 PM`}>{i}:30 PM</option>
-							);
-						}
+					} else if (i < 12) {
+						rows.push(
+							<option key={i} value={`${i}:00 AM`}>
+								{i}:00 AM
+							</option>,
+							<option key={`${i}:30`} value={`${i}:30 AM`}>
+								{i}:30 AM
+							</option>
+						);
+					} else if (i === 12) {
+						rows.push(
+							<option key={i} value={`${i}:00 PM`}>
+								{i}:00 PM
+							</option>,
+							<option key={`${i}:30`} value={`${i}:30 PM`}>
+								{i}:30 PM
+							</option>
+						);
 					}
 				}
-				if (minNow >= 30) {
-					rows.slice(1);
-				}
+			}
+			if (minNow >= 30) {
+				rows.slice(1);
 			}
 		}
 		return (
@@ -112,6 +148,11 @@ class Search extends React.Component {
 		}
 	}
 
+	dateUpdater() {
+		const date = dateFns.addDays(this.state.date, 1);
+		this.setState({ date: dateFns.format(date, 'MMM D, YYYY') });
+	}
+
 	calendarToggleHandler(e) {
 		e.stopPropagation();
 		this.setState({ calendar: !this.state.calendar });
@@ -131,17 +172,7 @@ class Search extends React.Component {
 					<a className="dtp-picker-selector-link date-label-closed dtp-picker-label">
 						{this.state.date}
 					</a>
-					<input
-						className="datepicker-closed dtp-picker-select picker__input"
-						data-value="2019-05-22"
-						readOnly=""
-						id="P1932029059"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-readonly="false"
-						aria-owns="P1932029059_root submit_datepicker"
-						aria-label="date"
-					/>
+					<input className="datepicker-closed dtp-picker-select picker__input" />
 					<div className="datepicker-closed" />
 				</div>
 			);
@@ -154,17 +185,7 @@ class Search extends React.Component {
 					<a className="dtp-picker-selector-link date-label-opened dtp-picker-label">
 						{this.state.date}
 					</a>
-					<input
-						className="datepicker-opened dtp-picker-select picker__input"
-						data-value="2019-05-22"
-						readOnly=""
-						id="P1932029059"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-readonly="false"
-						aria-owns="P1932029059_root submit_datepicker"
-						aria-label="date"
-					/>
+					<input className="datepicker-opened dtp-picker-select picker__input" />
 					<div className="datepicker-opened">
 						<Calendar
 							date={this.state.date}
@@ -229,7 +250,6 @@ class Search extends React.Component {
 				<div
 					id="dtp-picker-59"
 					data-event-prefix="search-in-header::"
-					data-autocomplete-options='{"disableFreetext":false,"disableCuisines":false,"disableEmpty":false,"redirectSingleToMulti":true,"locationFormat":"C","domainId":"com","language":"en-US","latitude":37.77671,"longitude":-122.271608,"macroId":5,"metroId":4,"environment":"production"}'
 					data-search-selector=".dtp-picker-search-autocomplete"
 					data-test="search-in-header-dtp"
 					className="dtp-picker dtp-lang-en  with-search single-search  initialised"

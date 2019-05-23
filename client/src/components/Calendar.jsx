@@ -108,13 +108,12 @@ class Calendar extends React.Component {
 					dateFns.format(day, 'D') === dateFns.format(new Date(), 'D')
 				) {
 					if (
-						dateFns.format(new Date(), 'H') == 23 &&
+						dateFns.format(new Date(), 'H') >= 23 &&
 						dateFns.format(new Date(), 'm') > 30
 					) {
 						pastDatesStyle = 'pastDatesStyle';
 						today = '';
 						currentDay = '';
-						// console.log(days[i - 1].props.children.props.className);
 					}
 				}
 
@@ -129,7 +128,7 @@ class Calendar extends React.Component {
 					) {
 						today = 'today';
 						currentDay = 'selectedDay';
-						// need to somehow pass the new date to the parent component to reflect onto the search bar, will come back to this;
+						// need to somehow pass the new date to the parent component to reflect onto the search bar. Will come back to this;
 					}
 				}
 
