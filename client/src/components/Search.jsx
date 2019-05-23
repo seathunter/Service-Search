@@ -7,7 +7,7 @@ class Search extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			party: 2,
+			party: '2 People',
 			time: '7:00 PM',
 			date: dateFns.format(new Date(), 'MMM D, YYYY'),
 			calendar: false
@@ -16,9 +16,50 @@ class Search extends React.Component {
 		this.calendarToggleHandler = this.calendarToggleHandler.bind(this);
 		this.calendarRender = this.calendarRender.bind(this);
 		this.calendarClickHandler = this.calendarClickHandler.bind(this);
+		this.partySizeChange = this.partySizeChange.bind(this);
 	}
 
-	timeSlotRender() {}
+	timeSlotRender() {
+		const rows = [];
+		for (let i = 0; i < 10; i++) {
+			if (i === 0) {
+				rows.push(
+					<option value={`0${i}:00`}>{`${i + 12}:00`} AM</option>,
+					<option value={`0${i}:30`}>{`${i + 12}:30`} AM</option>
+				);
+			} else {
+				rows.push(
+					<option value={`0${i}:00`}>{`${i}:00`} AM</option>,
+					<option value={`0${i}:30`}>{`${i}:30`} AM</option>
+				);
+			}
+		}
+		for (let i = 10; i < 24; i++) {
+			if (i >= 13) {
+				rows.push(
+					<option value={`${i}:00`}>{`${i - 12}:00`} PM</option>,
+					<option value={`${i}:30`}>{`${i - 12}:30`} PM</option>
+				);
+			} else if (i < 13) {
+				if (i < 12) {
+					rows.push(
+						<option value={`${i}:00`}>{`${i}:00`} AM</option>,
+						<option value={`${i}:30`}>{`${i}:30`} AM</option>
+					);
+				} else if (i >= 12) {
+					rows.push(
+						<option value={`${i}:00`}>{`${i}:00`} PM</option>,
+						<option value={`${i}:30`}>{`${i}:30`} PM</option>
+					);
+				}
+			}
+		}
+		return (
+			<select className="time-selector" name="Select_0" aria-label="time">
+				{rows}
+			</select>
+		);
+	}
 
 	calendarToggleHandler(e) {
 		e.stopPropagation();
@@ -86,16 +127,31 @@ class Search extends React.Component {
 		return div;
 	}
 
+	partySizeChange(e) {
+		console.log(e.target.value);
+		let party;
+		if (e.target.value === 'Large party') {
+			party = e.target.value;
+		} else {
+			party = `${e.target.value} People`;
+		}
+		this.setState({ party });
+	}
+
 	partySizeRender() {
 		const rows = [];
 		for (let i = 1; i < 22; i++) {
 			if (i === 21) {
-				rows.push(<option value={i}>Large Party</option>);
+				rows.push(<option value="Large party">Large Party</option>);
 			} else {
-				rows.push(<option value={i}>{i} Person</option>);
+				rows.push(<option value={i}>{i} People</option>);
 			}
 		}
-		return <select className="party-size-selector">{rows}</select>;
+		return (
+			<select onChange={this.partySizeChange} className="party-size-selector">
+				{rows}
+			</select>
+		);
 	}
 
 	render() {
@@ -126,7 +182,7 @@ class Search extends React.Component {
 									className="select-label dtp-picker-selector-link"
 									tabIndex="-1"
 								>
-									{this.state.party} People
+									{this.state.party}
 								</a>
 								{this.partySizeRender()}
 							</div>
@@ -138,59 +194,7 @@ class Search extends React.Component {
 								>
 									{this.state.time}
 								</a>
-								<select
-									className="time-selector"
-									name="Select_0"
-									aria-label="time"
-								>
-									<option value="00:30">12:30 AM</option>
-									<option value="01:00">1:00 AM</option>
-									<option value="01:30">1:30 AM</option>
-									<option value="02:00">2:00 AM</option>
-									<option value="02:30">2:30 AM</option>
-									<option value="03:00">3:00 AM</option>
-									<option value="03:30">3:30 AM</option>
-									<option value="04:00">4:00 AM</option>
-									<option value="04:30">4:30 AM</option>
-									<option value="05:00">5:00 AM</option>
-									<option value="05:30">5:30 AM</option>
-									<option value="06:00">6:00 AM</option>
-									<option value="06:30">6:30 AM</option>
-									<option value="07:00">7:00 AM</option>
-									<option value="07:30">7:30 AM</option>
-									<option value="08:00">8:00 AM</option>
-									<option value="08:30">8:30 AM</option>
-									<option value="09:00">9:00 AM</option>
-									<option value="09:30">9:30 AM</option>
-									<option value="10:00">10:00 AM</option>
-									<option value="10:30">10:30 AM</option>
-									<option value="11:00">11:00 AM</option>
-									<option value="11:30">11:30 AM</option>
-									<option value="12:00">12:00 PM</option>
-									<option value="12:30">12:30 PM</option>
-									<option value="13:00">1:00 PM</option>
-									<option value="13:30">1:30 PM</option>
-									<option value="14:00">2:00 PM</option>
-									<option value="14:30">2:30 PM</option>
-									<option value="15:00">3:00 PM</option>
-									<option value="15:30">3:30 PM</option>
-									<option value="16:00">4:00 PM</option>
-									<option value="16:30">4:30 PM</option>
-									<option value="17:00">5:00 PM</option>
-									<option value="17:30">5:30 PM</option>
-									<option value="18:00">6:00 PM</option>
-									<option value="18:30">6:30 PM</option>
-									<option value="19:00">7:00 PM</option>
-									<option value="19:30">7:30 PM</option>
-									<option value="20:00">8:00 PM</option>
-									<option value="20:30">8:30 PM</option>
-									<option value="21:00">9:00 PM</option>
-									<option value="21:30">9:30 PM</option>
-									<option value="22:00">10:00 PM</option>
-									<option value="22:30">10:30 PM</option>
-									<option value="23:00">11:00 PM</option>
-									<option value="23:30">11:30 PM</option>
-								</select>
+								{this.timeSlotRender()}
 							</div>
 						</div>
 						<div className="picker-search-container">
