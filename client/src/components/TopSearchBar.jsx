@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search.jsx';
 import Mobile from './Mobile.jsx';
+import Language from './Language.jsx';
 import '../../../public/topsearchbar.css';
 
 class TopSearchBar extends React.Component {
@@ -17,6 +18,7 @@ class TopSearchBar extends React.Component {
 		return (
 			<div>
 				<Mobile />
+				<Language />
 			</div>
 			// <div className="site-header">
 			// 	<div className="utility-bar">
