@@ -67,6 +67,8 @@
 		contrast(90%);
 }
 
+
+
 .list-holder {
 	background-attachment: scroll;
 	background-clip: border-box;
@@ -141,7 +143,7 @@
 	text-transform: none;
 	top: 10.7px;
 	width: 12.8px;
-	height:10px;
+	height: 10px;
 	z-index: 2;
 	background-repeat: no-repeat;
 	filter: invert(75%) sepia(4%) saturate(16%) hue-rotate(353deg) brightness(80%)
@@ -211,6 +213,7 @@
 	font-family: Brandon;
 	font-size: 13px;
 	font-weight: 500;
+	height: 80.3214px;
 	line-height: 13px;
 	list-style-image: none;
 	list-style-position: outside;
@@ -239,7 +242,8 @@
 	transition-timing-function: ease-out, ease-out, ease-out, ease;
 	user-select: none;
 	width: 150px;
-	height: 77px;
+	z-index:100;
+	-webkit-font-smoothing: antialiased;
 }
 
 .menu-section {
@@ -263,8 +267,6 @@
 	text-align: left;
 	text-size-adjust: 100%;
 	user-select: none;
-	width: 146px;
-	height: 78px;
 }
 
 .menu-list {
@@ -320,6 +322,6 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-.menu-list-link:hover{
-	background-color:	#f7f7f7
+.menu-list-link:hover {
+	background-color: #f7f7f7;
 }
