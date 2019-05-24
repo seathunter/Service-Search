@@ -183,6 +183,10 @@
 	width: 74.4219px;
 }
 
+.language-name:hover {
+	color: #333;
+}
+
 .js-toggle-menu::after {
 	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/down-chevron.svg');
 	color: rgb(153, 153, 153);
@@ -208,9 +212,6 @@
 	cursor: pointer;
 	display: block;
 	float: left;
-	font-family: Brandon;
-	font-size: 13px;
-	font-weight: 500;
 	height: 31px;
 	line-height: 28px;
 	list-style-image: none;
@@ -235,7 +236,6 @@
 	cursor: pointer;
 	display: block;
 	float: left;
-	font-family: Brandon;
 	font-size: 13px;
 	font-weight: 500;
 	height: 28px;
@@ -253,7 +253,7 @@
 	padding-top: 0px;
 	text-align: left;
 	text-size-adjust: 100%;
-	width: 22.4219px;
+	width: 22.4107px;
 }
 
 .language-selector-menu {
@@ -419,7 +419,7 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-.js-language-list:hover{
+.js-language-list:hover {
 	border-bottom-color: rgb(35, 123, 152);
 	border-left-color: rgb(35, 123, 152);
 	border-right-color: rgb(35, 123, 152);
@@ -475,4 +475,17 @@
 	user-select: none;
 	white-space: nowrap;
 	width: 146px;
+}
+
+.js-language-list-highlighted::after {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/tick.svg');
+	display: block;
+	height: 14px;
+	width: 14px;
+	content: ' ';
+	position: absolute;
+	top: 0.85rem;
+	right: 1.2rem;
+	filter: invert(45%) sepia(7%) saturate(4102%) hue-rotate(149deg)
+		brightness(89%) contrast(90%);
 }

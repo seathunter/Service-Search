@@ -25,16 +25,10 @@ class Mobile extends React.Component {
 		return (
 			<li onClick={this.clickHandler} className="top-bar-navi">
 				<a className="header-mobile-menu">Mobile</a>
-				<div className="menu-right">
-					<div className={expand}>
-						<div className="menu-main">
-							<div className="menu-section">
-								<div className="menu-list">
-									<a className="menu-list-link">iOS App</a>
-									<a className="menu-list-link">Android App</a>
-								</div>
-							</div>
-						</div>
+				<div className={expand}>
+					<div className="list-holder">
+						<a className="menu-list-link">iOS App</a>
+						<a className="menu-list-link">Android App</a>
 					</div>
 				</div>
 			</li>

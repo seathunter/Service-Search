@@ -17,7 +17,13 @@ class TopSearchBar extends React.Component {
 	render() {
 		return (
 			<div>
+				<li className="for-container">
+					<a className="for-menu">For Restaurateurs</a>
+				</li>
 				<Mobile />
+				<li className="help-container">
+					<a className="help-menu">Help</a>
+				</li>
 				<Language />
 			</div>
 			// <div className="site-header">
