@@ -5,14 +5,18 @@ class Language extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			expand: false
+			expand: false,
+			language: false
 		};
 		this.clickHandler = this.clickHandler.bind(this);
 	}
 
 	clickHandler(e) {
 		e.preventDefault();
-		this.setState({ expand: !this.state.expand });
+		this.setState({
+			expand: !this.state.expand,
+			language: !this.state.language
+		});
 	}
 
 	render() {
@@ -21,6 +25,12 @@ class Language extends React.Component {
 			expand = 'menu-container-opened';
 		} else {
 			expand = 'menu-container-closed';
+		}
+		let language;
+		if (this.state.language) {
+			language = 'language-selector-menu-opened';
+		} else {
+			language = 'language-selector-menu-closed';
 		}
 		return (
 			<li onClick={this.clickHandler} className="language-container">
@@ -31,7 +41,7 @@ class Language extends React.Component {
 						</div>
 						<div className="language-name">EN</div>
 					</a>
-					<div className="language-selector-menu">
+					<div className={language}>
 						<div className={expand}>
 							<div className="menu-main">
 								<div className="menu-section">

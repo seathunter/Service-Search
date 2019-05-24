@@ -1922,12 +1922,12 @@
 	touch-action: auto;
 	transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
 	transform-box: view-box;
-	transform-origin: 8px 8px;
 	transform-style: flat;
 	transition-delay: 0s;
 	transition-duration: 0s;
 	transition-property: all;
 	transition-timing-function: ease;
+	transform-origin: 8px 8px;
 	unicode-bidi: normal;
 	user-select: none;
 	vector-effect: none;

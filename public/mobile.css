@@ -659,12 +659,12 @@
 	touch-action: auto;
 	transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
 	transform-box: view-box;
-	transform-origin: 6px 6px;
 	transform-style: flat;
-	transition-delay: 0s, 0s;
-	transition-duration: 0.15s, 0.15s;
-	transition-property: transform, opacity;
-	transition-timing-function: ease-out, ease-out;
+	transition-delay: 0.15s;
+	transition-duration: 0s;
+	transition-property: all;
+	transition-timing-function: ease;
+	transform-origin: 6px 6px;
 	unicode-bidi: normal;
 	user-select: none;
 	vector-effect: none;
