@@ -2,7 +2,6 @@ import React from 'react';
 import Search from './Search.jsx';
 import TopSearchBar from './TopSearchBar.jsx';
 
-
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,10 +10,9 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<div className="App">
-					<TopSearchBar />
-				</div>
+			<div className="App">
+				<TopSearchBar />
+				{/* <Search /> */}
 			</div>
 		);
 	}
