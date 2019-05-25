@@ -5,22 +5,35 @@ import Topbar from './TopBar.jsx';
 class TopSearchBar extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			locationExpand: false
+		};
+		this.clickHandler = this.clickHandler.bind(this);
+	}
+
+	clickHandler() {
+		this.setState({ locationExpand: !this.state.locationExpand });
 	}
 
 	render() {
+		let menuExpand;
+		if (this.state.locationExpand) {
+			menuExpand = 'location-menu-container-opened';
+		} else {
+			menuExpand = 'location-menu-container-closed';
+		}
 		return (
 			<div className="topsearchbar">
 				<div className="top-bar-logo">
 					<a className="logo-pic"></a>
 				</div>
 				<nav className="location-picker">
-					<a className="location-toggle-menu">
+					<a onClick={this.clickHandler} className="location-toggle-menu">
 						<div className="location-picker-metro">San Francisco Bay Area</div>
 						<div className="location-picker-region">San Francisco</div>
 					</a>
 					<div className="location-picker-menu">
-						<div className="menu-container">
+						<div className={menuExpand}>
 							<div className="menu-main">
 								<div className="menu-header">
 									<div className="row">

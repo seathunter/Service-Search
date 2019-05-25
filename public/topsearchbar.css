@@ -435,6 +435,10 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.location-picker:hover{
+	cursor: pointer;
+}
+
 .location-toggle-menu::before {
 	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/placeholder+(1).svg');
 	display: block;
@@ -524,4 +528,114 @@
 	bottom: 19px;
 	filter: invert(79%) sepia(11%) saturate(13%) hue-rotate(326deg)
 		brightness(87%) contrast(92%);
+}
+
+.location-picker-menu::after {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgba(0, 0, 0, 0.06);
+	background-image: none;
+	background-origin: padding-box;
+	background-position-x: 0%;
+	background-position-y: 0%;
+	background-repeat-x: ;
+	background-repeat-y: ;
+	background-size: auto;
+	content: '';
+	display: block;
+	height: 54px;
+	left: 351.484px;
+	position: absolute;
+	left: 355px;
+	top: 0px;
+	width: 1px;
+}
+
+.location-menu-container-closed {
+	box-sizing: border-box;
+	color: rgb(51, 51, 51);
+	cursor: default;
+	display: block;
+	font-family: Brandon;
+	font-size: 16px;
+	font-weight: 500;
+	height: 0px;
+	left: -152px;
+	line-height: 16px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	max-height: 0px;
+	min-width: 150px;
+	opacity: 0;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	position: absolute;
+	text-size-adjust: 100%;
+	transform: matrix3d(
+		1,
+		0,
+		0,
+		0,
+		0,
+		1,
+		0,
+		0,
+		0,
+		0.0266667,
+		1,
+		-0.00166667,
+		0,
+		-16,
+		0,
+		1
+	);
+	transition-delay: 0s, 0s, 0s, 0.15s;
+	transition-duration: 0.15s, 0.15s, 0.15s, 0s;
+	transition-property: transform, opacity, position, max-height;
+	transition-timing-function: ease-out, ease-out, ease-out, ease;
+	user-select: none;
+	width: 640px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.location-menu-container-opened {
+	box-sizing: border-box;
+	color: rgb(51, 51, 51);
+	cursor: default;
+	display: block;
+	font-family: Brandon;
+	font-size: 16px;
+	font-weight: 500;
+	height: 502px;
+	left: -152px;
+	line-height: 16px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	max-height: 1120px;
+	min-width: 150px;
+	opacity: 1;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	position: absolute;
+	text-size-adjust: 100%;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166667, 0, 0, 0, 1);
+	transition-delay: 0s, 0s, 0s, 0.15s;
+	transition-duration: 0.15s, 0.15s, 0.15s, 0s;
+	transition-property: transform, opacity, position, max-height;
+	transition-timing-function: ease-out, ease-out, ease-out, ease;
+	user-select: none;
+	width: 640px;
+	-webkit-font-smoothing: antialiased;
 }
