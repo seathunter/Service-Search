@@ -291,7 +291,7 @@
 	visibility: visible;
 	white-space: normal;
 	widows: 2;
-	width: auto;
+	width: 100%;
 	will-change: auto;
 	word-break: normal;
 	word-spacing: 0px;
@@ -330,7 +330,7 @@
 	transition-timing-function: linear; */
 	/* transition-duration: 0.3s; */
 	visibility: hidden;
-	width: 1425px;
+	width: 100%;
 	z-index: 1;
 	-webkit-font-smoothing: antialiased;
 }
