@@ -9,7 +9,7 @@ class Calendar extends React.Component {
 			currentMonth: new Date(),
 			currentDate: new Date(),
 			currentDay: new Date(),
-			selectedDay: this.props.date
+			selectedDay: new Date()
 		};
 		this.onDateClick = this.onDateClick.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
@@ -38,9 +38,7 @@ class Calendar extends React.Component {
 	renderCells() {
 		const monthStart = dateFns.startOfMonth(this.state.currentMonth);
 		const startDate = dateFns.startOfWeek(monthStart);
-
 		const rows = [];
-
 		let days = [];
 		let day = startDate;
 		let formattedDate = '';
@@ -51,7 +49,6 @@ class Calendar extends React.Component {
 				formattedDate = day;
 				const cloneDay = day;
 				let currentDay = '';
-
 				let pastMonthStyle = '';
 				const prevMonth = dateFns.format(
 					dateFns.subMonths(this.state.currentMonth, 1),
@@ -117,20 +114,20 @@ class Calendar extends React.Component {
 					}
 				}
 
-				if (
-					dateFns.format(dateFns.subDays(day, 1), 'M') ===
-						dateFns.format(new Date(), 'M') &&
-					dateFns.format(dateFns.subDays(day, 1), 'D') ===
-						dateFns.format(new Date(), 'D')
-				) {
-					if (
-						days[i - 1].props.children.props.className.indexOf('today') === -1
-					) {
-						today = 'today';
-						currentDay = 'selectedDay';
-						// need to somehow pass the new date to the parent component to reflect onto the search bar. Will come back to this;
-					}
-				}
+				// if (
+				// 	dateFns.format(dateFns.subDays(day, 1), 'M') ===
+				// 		dateFns.format(new Date(), 'M') &&
+				// 	dateFns.format(dateFns.subDays(day, 1), 'D') ===
+				// 		dateFns.format(new Date(), 'D')
+				// ) {
+				// 	// if (
+				// 	// 	days[i - 1].props.children.props.className.indexOf('today') === -1
+				// 	// ) {
+				// 	// 	today = 'today';
+				// 	// 	currentDay = 'selectedDay';
+				// 	// 	// need to somehow pass the new date to the parent component to reflect onto the search bar. Will come back to this;
+				// 	// }
+				// }
 
 				const classNames = `${today} ${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 

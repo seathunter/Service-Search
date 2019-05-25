@@ -9,7 +9,7 @@ class Search extends React.Component {
 		super(props);
 		this.state = {
 			party: '2 People',
-			time: '7:00 PM',
+			time: this.currentTimeMenu(),
 			date: dateFns.format(new Date(), 'MMM D, YYYY'),
 			calendar: false,
 			expand: false,
@@ -23,6 +23,16 @@ class Search extends React.Component {
 		this.timeSelectHandler = this.timeSelectHandler.bind(this);
 		this.dateUpdater = this.dateUpdater.bind(this);
 		this.clickHandler = this.clickHandler.bind(this);
+	}
+
+	currentTimeMenu() {
+		let min;
+		if (dateFns.format(new Date(), 'm') >= 30) {
+			min = '30';
+		} else {
+			min = '00';
+		}
+		return `${dateFns.format(new Date(), 'h')}:${min} ${dateFns.format(new Date(), 'A')}`;
 	}
 
 	timeSlotRender() {
@@ -180,7 +190,7 @@ class Search extends React.Component {
 					<div className="datepicker-closed" />
 				</div>
 			);
-		} else {
+		} else if (this.state.calendar === true) {
 			div = (
 				<div
 					onClick={this.calendarToggleHandler}
