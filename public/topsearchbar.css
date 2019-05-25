@@ -49,7 +49,7 @@
 	text-size-adjust: 100%;
 	top: 0px;
 	width: 352.484px;
-	z-index: 150;
+	z-index: 1;
 	cursor: pointer;
 	-webkit-font-smoothing: antialiased;
 }
@@ -406,6 +406,8 @@
 	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/Logo_horizontal_RGB-156x36-0efdb16.png');
 	display: block;
 	float: left;
+	position:relative;
+	top:10px;
 	width: 156px;
 	height: 54px;
 	background-repeat: no-repeat;
