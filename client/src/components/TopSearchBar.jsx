@@ -34,14 +34,14 @@ class TopSearchBar extends React.Component {
 					</a>
 					<div className="location-picker-menu">
 						<div className={menuExpand}>
-							<div className="menu-main">
-								<div className="menu-header">
-									<div className="row">
+							<div className="location-menu-main">
+								<div className="location-menu-header">
+									<div className="location-row">
 										<div className="location-picker-menu-header">Metro</div>
 										<div className="location-picker-menu-header">Region</div>
 									</div>
 								</div>
-								<div className="menu-body">
+								<div className="location-menu-body">
 									<div className="location-picker-menu-column"></div>
 									<div className="menu-section">
 										<div className="scrollbar" style={{ height: '396px' }}>
