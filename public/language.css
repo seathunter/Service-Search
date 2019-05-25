@@ -196,8 +196,8 @@
 	font-size: 12.8px;
 	height: 10px;
 	line-height: 0px;
-	position: absolute;
-	right: 4.8px;
+	position: relative;
+	left: 30px;
 	top: 14.6875px;
 	width: 12.8125px;
 	background-repeat: no-repeat;
@@ -254,6 +254,8 @@
 	text-align: left;
 	text-size-adjust: 100%;
 	width: 22.4107px;
+	position: relative;
+	right: 12px;
 }
 
 .language-selector-menu-closed {
