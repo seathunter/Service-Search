@@ -1039,10 +1039,10 @@
 }
 
 .party-size-container::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/user-outline-shape.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/opentable-profile.svg');
 	display: block;
-	height: 30px;
-	width: 15px;
+	height: 24px;
+	width: 22px;
 	content: '';
 	background-size: contain;
 	background-position: center center;
@@ -1335,10 +1335,10 @@
 }
 
 .date-container::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar-pixel.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/opentable-calendar.svg');
 	display: block;
 	height: 24px;
-	width: 15px;
+	width: 19.73px;
 	content: '';
 	background-size: contain;
 	background-position: center center;
@@ -1411,7 +1411,7 @@
 }
 
 .date-container-opened::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar-pixel.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/opentable-calendar.svg');
 	display: block;
 	height: 24px;
 	width: 19.7px;
