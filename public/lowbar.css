@@ -15,7 +15,8 @@
 	bottom: 131px;
 	z-index:1;
 	top:-10px;
-	
+	padding-left: 35px;
+	padding-right:35px;
 }
 
 .lowbar-menu li:after {

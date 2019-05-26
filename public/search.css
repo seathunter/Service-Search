@@ -274,9 +274,9 @@
 	transform-box: view-box;
 	transform-origin: 532.4px 0px;
 	transform-style: flat;
-	/* transition-delay: 0s;
+	transition-delay: 0s;
 	transition-property: opacity;
-	transition-timing-function: linear; */
+	transition-timing-function: linear;
 	transition: opacity 2s linear;
 	transition-duration: 0.3s;
 	unicode-bidi: normal;
@@ -323,7 +323,7 @@
 	/* transition-delay: 0s;
 	transition-property: opacity;
 	transition-timing-function: linear; */
-	/* transition-duration: 0.3s; */
+	transition-duration: 0.3s;
 	width: 100%;
 	/* z-index: 1; */
 	visibility: hidden;
