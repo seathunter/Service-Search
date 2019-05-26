@@ -124,6 +124,11 @@
 		brightness(87%) contrast(92%);
 }
 
+.location-picker-region:hover::after {
+	filter: invert(19%) sepia(6%) saturate(166%) hue-rotate(39deg) brightness(93%)
+		contrast(92%);
+}
+
 .location-picker-menu::after {
 	background-attachment: scroll;
 	background-clip: border-box;
@@ -1428,7 +1433,7 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-.menu-list-link:hover{
+.menu-list-link:hover {
 	border-bottom-color: rgb(35, 123, 152);
 	border-left-color: rgb(35, 123, 152);
 	border-right-color: rgb(35, 123, 152);
