@@ -3,11 +3,6 @@
 	src: url('./Brandon.otf') format('opentype');
 }
 
-.site-header {
-	z-index: 102;
-	height: 118px;
-	background: #fff;
-}
 
 .header-search-box-opened {
 	font-family: Brandon;
@@ -279,9 +274,9 @@
 	transform-box: view-box;
 	transform-origin: 532.4px 0px;
 	transform-style: flat;
-	/* transition-delay: 0s;
+	transition-delay: 0s;
 	transition-property: opacity;
-	transition-timing-function: linear; */
+	transition-timing-function: linear;
 	transition: opacity 2s linear;
 	transition-duration: 0.3s;
 	unicode-bidi: normal;
@@ -298,7 +293,7 @@
 	writing-mode: horizontal-tb;
 	x: 0px;
 	y: 0px;
-	z-index: 11;
+	z-index: 5;
 	zoom: 1;
 }
 
@@ -307,7 +302,7 @@
 	box-sizing: border-box;
 	color: rgb(0, 0, 0);
 	cursor: default;
-	display: block;
+	display: none;
 	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
@@ -328,10 +323,10 @@
 	/* transition-delay: 0s;
 	transition-property: opacity;
 	transition-timing-function: linear; */
-	/* transition-duration: 0.3s; */
-	visibility: hidden;
+	transition-duration: 0.3s;
 	width: 100%;
-	z-index: 1;
+	/* z-index: 1; */
+	visibility: hidden;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -355,7 +350,7 @@
 	padding-top: 0px;
 	position: relative;
 	text-size-adjust: 100%;
-	visibility: visible;
+	visibility: hidden;
 	width: 100%;
 }
 
@@ -726,7 +721,7 @@
 	writing-mode: horizontal-tb;
 	x: 0px;
 	y: 0px;
-	z-index: auto;
+	/* z-index: auto; */
 	zoom: 1;
 	display: flex;
 	flex-wrap: wrap;
@@ -753,7 +748,6 @@
 	padding-right: 0px;
 	padding-top: 0px;
 	text-size-adjust: 100%;
-	visibility: visible;
 	width: 480px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -1037,7 +1031,7 @@
 	width: 157.837px;
 	word-spacing: 0px;
 	writing-mode: horizontal-tb;
-	z-index: 2;
+	/* z-index: 2; */
 	-webkit-appearance: none;
 	-webkit-font-smoothing: antialiased;
 	-webkit-rtl-ordering: logical;
@@ -1045,10 +1039,10 @@
 }
 
 .party-size-container::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/profile.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/opentable-profile.svg');
 	display: block;
 	height: 24px;
-	width: 16px;
+	width: 22px;
 	content: '';
 	background-size: contain;
 	background-position: center center;
@@ -1101,7 +1095,7 @@
 	visibility: visible;
 	white-space: nowrap;
 	width: 130.137px;
-	z-index: 1;
+	/* z-index: 1; */
 	-webkit-appearance: none;
 	-webkit-font-smoothing: antialiased;
 }
@@ -1270,7 +1264,7 @@
 	width: 158.837px;
 	word-spacing: 0px;
 	writing-mode: horizontal-tb;
-	z-index: 2;
+	/* z-index: 2; */
 }
 
 .date-container {
@@ -1341,10 +1335,10 @@
 }
 
 .date-container::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar+123.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/opentable-calendar.svg');
 	display: block;
 	height: 24px;
-	width: 19.7px;
+	width: 19.73px;
 	content: '';
 	background-size: contain;
 	background-position: center center;
@@ -1417,7 +1411,7 @@
 }
 
 .date-container-opened::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar-pixel.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/opentable-calendar.svg');
 	display: block;
 	height: 24px;
 	width: 19.7px;
@@ -1475,7 +1469,7 @@
 	visibility: visible;
 	white-space: nowrap;
 	width: 131.113px;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .date-label-opened {
@@ -1526,7 +1520,7 @@
 	visibility: visible;
 	white-space: nowrap;
 	width: 131.113px;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 /* .date-label-closed:hover{
@@ -1592,7 +1586,7 @@
 	width: 158.837px;
 	word-spacing: 0px;
 	writing-mode: horizontal-tb;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .datepicker-opened {
@@ -1619,7 +1613,7 @@
 	user-select: none;
 	visibility: visible;
 	width: 158.837px;
-	z-index: 104;
+	/* z-index: 104; */
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -1910,7 +1904,7 @@
 	writing-mode: horizontal-tb;
 	x: 0px;
 	y: 0px;
-	z-index: 100;
+	/* z-index: 100; */
 	zoom: 1;
 }
 
@@ -1959,7 +1953,7 @@
 	text-align: right;
 	text-size-adjust: 100%;
 	visibility: visible;
-	width: 100%;
+	float:right;
 }
 
 .icon-close {
@@ -1967,7 +1961,7 @@
 	color: rgb(51, 51, 51);
 	position: relative;
 	bottom: 5px;
-	right:10px;
+	right: 10px;
 	cursor: pointer;
 	display: block;
 	font-size: 16px;
@@ -1979,7 +1973,7 @@
 	text-align: right;
 	text-size-adjust: 100%;
 	visibility: visible;
-	z-index:5;
+	/* z-index: 15; */
 }
 
 .icon-close::before {
@@ -1989,6 +1983,8 @@
 	width: 17px;
 	content: '';
 	position: relative;
+	left:3px;
+	top:3px;
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -2084,7 +2080,7 @@
 	top: -7px;
 	transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
 	width: 16px;
-	z-index: 100;
+	/* z-index: 100; */
 }
 
 .calendar-closed {

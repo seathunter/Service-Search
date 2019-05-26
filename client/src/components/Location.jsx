@@ -1,5 +1,6 @@
 import React from 'react';
 import Topbar from './TopBar.jsx';
+import '../../../public/location.css';
 
 class Location extends React.Component {
 	constructor(props) {
@@ -329,7 +330,7 @@ class Location extends React.Component {
 		const rows = [];
 		for (let i = 0; i < list.length; i++) {
 			rows.push(
-				<a className="menu-list-link">
+				<a key={i} className="menu-list-link">
 					{list[i][0]}
 					<span className="menu-list-link-meta">{list[i][1]}</span>
 				</a>
