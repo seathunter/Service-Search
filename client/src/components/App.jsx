@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search.jsx';
 import Topbar from './TopBar.jsx';
+import LowBar from './Lowbar.jsx';
 import TopSearchBar from './TopSearchBar.jsx';
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
 				<Topbar />
 				<Search />
 				<TopSearchBar />
+				<LowBar />
 				{/* </div> */}
 			</div>
 		);

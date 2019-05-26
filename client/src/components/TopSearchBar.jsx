@@ -10,24 +10,9 @@ class TopSearchBar extends React.Component {
 		this.state = {
 			userExpand: false
 		};
-		this.userExpandHandler = this.userExpandHandler.bind(this);
-	}
-
-	userExpandHandler(e) {
-		e.preventDefault();
-		this.setState({ userExpand: !this.state.userExpand });
 	}
 
 	render() {
-		let menu;
-		let container;
-		if (this.state.userExpand) {
-			container = 'user-menu-container-opened';
-			menu = 'user-menu-opened';
-		} else {
-			container = 'user-menu-container-closed';
-			menu = 'user-menu-closed';
-		}
 		return (
 			<div className="topsearchbar">
 				<div className="top-bar-logo">
@@ -44,25 +29,6 @@ class TopSearchBar extends React.Component {
 								</div>
 							</div>
 						</li>
-						{/* <li
-							onClick={this.userExpandHandler}
-							className="user-info-container"
-						>
-							<a className="top-bar-nav-username">Hi, Chris</a>
-							<div className={menu}>
-								<div className={container}>
-									<div className="user-menu-main">
-										<div className="user-menu-section with-padding">
-											<div className="user-points">
-											
-											</div>
-										</div>
-										<div className="menu-divider" />
-										<div className="user-menu-section"></div>
-									</div>
-								</div>
-							</div>
-						</li> */}
 						<User />
 						<li className="top-bar-nav-li">
 							<a className="top-bar-nav-link">
