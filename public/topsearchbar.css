@@ -49,7 +49,7 @@
 	text-size-adjust: 100%;
 	top: 0px;
 	width: 352.484px;
-	z-index: 1;
+	z-index: 2;
 	cursor: pointer;
 	-webkit-font-smoothing: antialiased;
 }
@@ -1008,7 +1008,6 @@
 	text-size-adjust: 100%;
 	user-select: none;
 	width: 636px;
-	-webkit-font-smoothing: antialiased;
 }
 
 .location-row {
