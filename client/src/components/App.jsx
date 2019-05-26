@@ -1,7 +1,7 @@
 import React from 'react';
-// import Calendar from './Calendar.jsx';
 import Search from './Search.jsx';
-
+import Topbar from './TopBar.jsx';
+import TopSearchBar from './TopSearchBar.jsx';
 
 class App extends React.Component {
 	constructor(props) {
@@ -11,11 +11,15 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<div className="App">
-					{/* <Calendar /> */}
-					<Search />
-				</div>
+			<div className="App">
+				{/* <div className="site-header">
+					<div className="">
+						<div className="close-btn"></div>
+					</div> */}
+				<Topbar />
+				<Search />
+				<TopSearchBar />
+				{/* </div> */}
 			</div>
 		);
 	}

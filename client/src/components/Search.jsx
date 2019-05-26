@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../public/search.css';
 import dateFns from 'date-fns';
+import Searchbox from './Searchbox.jsx';
 import Calendar from './Calendar.jsx';
 
 class Search extends React.Component {
@@ -8,9 +9,11 @@ class Search extends React.Component {
 		super(props);
 		this.state = {
 			party: '2 People',
-			time: '7:00 PM',
+			time: this.currentTimeMenu(),
 			date: dateFns.format(new Date(), 'MMM D, YYYY'),
-			calendar: false
+			calendar: false,
+			expand: false,
+			iconexpand: false
 		};
 		this.timeSlotRender = this.timeSlotRender.bind(this);
 		this.calendarToggleHandler = this.calendarToggleHandler.bind(this);
@@ -19,6 +22,17 @@ class Search extends React.Component {
 		this.partySizeChange = this.partySizeChange.bind(this);
 		this.timeSelectHandler = this.timeSelectHandler.bind(this);
 		this.dateUpdater = this.dateUpdater.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
+	}
+
+	currentTimeMenu() {
+		let min;
+		if (dateFns.format(new Date(), 'm') >= 30) {
+			min = '30';
+		} else {
+			min = '00';
+		}
+		return `${dateFns.format(new Date(), 'h')}:${min} ${dateFns.format(new Date(), 'A')}`;
 	}
 
 	timeSlotRender() {
@@ -176,7 +190,7 @@ class Search extends React.Component {
 					<div className="datepicker-closed" />
 				</div>
 			);
-		} else {
+		} else if (this.state.calendar === true) {
 			div = (
 				<div
 					onClick={this.calendarToggleHandler}
@@ -234,98 +248,73 @@ class Search extends React.Component {
 		);
 	}
 
+	clickHandler(e) {
+		e.preventDefault();
+		this.setState({ expand: !this.state.expand });
+	}
+
 	render() {
+		let expand;
+		if (this.state.expand) {
+			expand = 'header-search-box-opened';
+		} else {
+			expand = 'header-search-box-closed';
+		}
 		return (
-			<div className="header-search-box">
-				<div className="close-button">
-					<a data-target="#header-search-box" className="js-toggle-search">
-						<i className="icon-close" />
-					</a>
-				</div>
-				<div className="content-block-header">
-					<h3 className='slogan-header'>
-						<span>Find your table for any occasion</span>
-					</h3>
-				</div>
-				<div
-					id="dtp-picker-59"
-					data-event-prefix="search-in-header::"
-					data-search-selector=".dtp-picker-search-autocomplete"
-					data-test="search-in-header-dtp"
-					className="dtp-picker dtp-lang-en  with-search single-search  initialised"
-				>
-					<form className="dtp-picker-form">
-						<div className="picker-selectors-container">
-							<div className="party-size-container">
-								<a
-									className="select-label dtp-picker-selector-link"
-									tabIndex="-1"
-								>
-									{this.state.party}
-								</a>
-								{this.partySizeRender()}
+			<div className="site-header">
+				<div className={expand}>
+					<div className="close-button">
+						<a
+							onClick={this.clickHandler}
+							data-target="#header-search-box"
+							className="js-toggle-search"
+						>
+							<i className="icon-close" />
+						</a>
+					</div>
+					<div className="content-block-header">
+						<h3 className="slogan-header">
+							<span>Find your table for any occasion</span>
+						</h3>
+					</div>
+					<div
+						id="dtp-picker-59"
+						data-event-prefix="search-in-header::"
+						data-search-selector=".dtp-picker-search-autocomplete"
+						data-test="search-in-header-dtp"
+						className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+					>
+						<form autoComplete="off" className="dtp-picker-form">
+							<div className="picker-selectors-container">
+								<div className="party-size-container">
+									<a
+										className="select-label dtp-picker-selector-link"
+										tabIndex="-1"
+									>
+										{this.state.party}
+									</a>
+									{this.partySizeRender()}
+								</div>
+								{this.calendarRender()}
+								<div className="time-container">
+									<a
+										className="select-label dtp-picker-selector-link"
+										tabIndex="-1"
+									>
+										{this.state.time}
+									</a>
+									{this.timeSlotRender()}
+								</div>
 							</div>
-							{this.calendarRender()}
-							<div className="time-container">
-								<a
-									className="select-label dtp-picker-selector-link"
-									tabIndex="-1"
-								>
-									{this.state.time}
-								</a>
-								{this.timeSlotRender()}
-							</div>
-						</div>
-						<div className="picker-search-container">
-							<div className="search-icon" />
-							<span className="twitter-typehead">
-								<input
-									type="text"
-									title="Location, Restaurant, or Cuisine"
-									className="dtp-picker-search-autocomplete tt-hint"
-									aria-label="search"
-									readOnly=""
-									autoComplete="off"
-									spellCheck="false"
-									tabIndex="-1"
-									style={{
-										position: 'absolute',
-										top: '0px',
-										left: '0px',
-										borderColor: 'transparent',
-										boxShadow: 'none',
-										opacity: '1',
-										background:
-											'none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0)'
-									}}
-								/>
-								<input
-									id="dtp-search-single-box"
-									type="text"
-									name="searchText"
-									title="Location, Restaurant, or Cuisine"
-									placeholder="Location, Restaurant, or Cuisine"
-									data-test="search-in-header-dtp-text-input"
-									className="dtp-picker-search-autocomplete tt-input"
-									aria-label="search"
-									autoComplete="off"
-									spellCheck="false"
-									dir="auto"
-									style={{
-										position: 'relative',
-										verticalAlign: 'top',
-										backgrounColor: 'transparent'
-									}}
-								/>
-							</span>
-						</div>
-						<input
-							type="submit"
-							value="Find a Table"
-							data-test="search-in-header-dtp-submit"
-							className="button dtp-picker-button"
-						/>
-					</form>
+							<Searchbox />
+							<input
+								type="submit"
+								value="Find a Table"
+								data-test="search-in-header-dtp-submit"
+								className="button dtp-picker-button"
+							/>
+						</form>
+					</div>
 				</div>
 			</div>
 		);
