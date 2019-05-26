@@ -3,12 +3,6 @@
 	src: url('./Brandon.otf') format('opentype');
 }
 
-.site-header {
-	/* z-index: 102; */
-	z-index:0;
-	height: 118px;
-	background: #fff;
-}
 
 .header-search-box-opened {
 	font-family: Brandon;
@@ -299,7 +293,7 @@
 	writing-mode: horizontal-tb;
 	x: 0px;
 	y: 0px;
-	z-index: 11;
+	z-index: 5;
 	zoom: 1;
 }
 
@@ -308,7 +302,7 @@
 	box-sizing: border-box;
 	color: rgb(0, 0, 0);
 	cursor: default;
-	display: block;
+	display: none;
 	font-family: Brandon;
 	font-size: 16px;
 	font-weight: 500;
@@ -330,9 +324,9 @@
 	transition-property: opacity;
 	transition-timing-function: linear; */
 	/* transition-duration: 0.3s; */
-	visibility: hidden;
 	width: 100%;
-	z-index: 1;
+	/* z-index: 1; */
+	visibility: hidden;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -356,7 +350,7 @@
 	padding-top: 0px;
 	position: relative;
 	text-size-adjust: 100%;
-	visibility: visible;
+	visibility: hidden;
 	width: 100%;
 }
 
@@ -727,7 +721,7 @@
 	writing-mode: horizontal-tb;
 	x: 0px;
 	y: 0px;
-	z-index: auto;
+	/* z-index: auto; */
 	zoom: 1;
 	display: flex;
 	flex-wrap: wrap;
@@ -754,7 +748,6 @@
 	padding-right: 0px;
 	padding-top: 0px;
 	text-size-adjust: 100%;
-	visibility: visible;
 	width: 480px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -1038,7 +1031,7 @@
 	width: 157.837px;
 	word-spacing: 0px;
 	writing-mode: horizontal-tb;
-	z-index: 2;
+	/* z-index: 2; */
 	-webkit-appearance: none;
 	-webkit-font-smoothing: antialiased;
 	-webkit-rtl-ordering: logical;
@@ -1046,10 +1039,10 @@
 }
 
 .party-size-container::after {
-	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/profile.svg');
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/user-outline-shape.svg');
 	display: block;
-	height: 24px;
-	width: 16px;
+	height: 30px;
+	width: 15px;
 	content: '';
 	background-size: contain;
 	background-position: center center;
@@ -1102,7 +1095,7 @@
 	visibility: visible;
 	white-space: nowrap;
 	width: 130.137px;
-	z-index: 1;
+	/* z-index: 1; */
 	-webkit-appearance: none;
 	-webkit-font-smoothing: antialiased;
 }
@@ -1271,7 +1264,7 @@
 	width: 158.837px;
 	word-spacing: 0px;
 	writing-mode: horizontal-tb;
-	z-index: 2;
+	/* z-index: 2; */
 }
 
 .date-container {
@@ -1345,7 +1338,7 @@
 	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/calendar-pixel.svg');
 	display: block;
 	height: 24px;
-	width: 19.7px;
+	width: 15px;
 	content: '';
 	background-size: contain;
 	background-position: center center;
@@ -1476,7 +1469,7 @@
 	visibility: visible;
 	white-space: nowrap;
 	width: 131.113px;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .date-label-opened {
@@ -1527,7 +1520,7 @@
 	visibility: visible;
 	white-space: nowrap;
 	width: 131.113px;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 /* .date-label-closed:hover{
@@ -1593,7 +1586,7 @@
 	width: 158.837px;
 	word-spacing: 0px;
 	writing-mode: horizontal-tb;
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .datepicker-opened {
@@ -1620,7 +1613,7 @@
 	user-select: none;
 	visibility: visible;
 	width: 158.837px;
-	z-index: 104;
+	/* z-index: 104; */
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -1911,7 +1904,7 @@
 	writing-mode: horizontal-tb;
 	x: 0px;
 	y: 0px;
-	z-index: 100;
+	/* z-index: 100; */
 	zoom: 1;
 }
 
@@ -1980,7 +1973,7 @@
 	text-align: right;
 	text-size-adjust: 100%;
 	visibility: visible;
-	z-index: 5;
+	/* z-index: 15; */
 }
 
 .icon-close::before {
@@ -1990,6 +1983,8 @@
 	width: 17px;
 	content: '';
 	position: relative;
+	left:3px;
+	top:3px;
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -2085,7 +2080,7 @@
 	top: -7px;
 	transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
 	width: 16px;
-	z-index: 100;
+	/* z-index: 100; */
 }
 
 .calendar-closed {

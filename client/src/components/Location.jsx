@@ -1,5 +1,6 @@
 import React from 'react';
 import Topbar from './TopBar.jsx';
+import '../../../public/location.css';
 
 class Location extends React.Component {
 	constructor(props) {

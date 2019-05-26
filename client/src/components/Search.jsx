@@ -12,7 +12,7 @@ class Search extends React.Component {
 			time: this.currentTimeMenu(),
 			date: dateFns.format(new Date(), 'MMM D, YYYY'),
 			calendar: false,
-			expand: false,
+			expand: this.props.searchExpand,
 			iconexpand: false
 		};
 		this.timeSlotRender = this.timeSlotRender.bind(this);
@@ -25,6 +25,7 @@ class Search extends React.Component {
 		this.clickHandler = this.clickHandler.bind(this);
 	}
 
+
 	currentTimeMenu() {
 		let min;
 		if (dateFns.format(new Date(), 'm') >= 30) {
@@ -32,7 +33,10 @@ class Search extends React.Component {
 		} else {
 			min = '00';
 		}
-		return `${dateFns.format(new Date(), 'h')}:${min} ${dateFns.format(new Date(), 'A')}`;
+		return `${dateFns.format(new Date(), 'h')}:${min} ${dateFns.format(
+			new Date(),
+			'A'
+		)}`;
 	}
 
 	timeSlotRender() {
@@ -255,68 +259,68 @@ class Search extends React.Component {
 
 	render() {
 		let expand;
-		if (this.state.expand) {
+		if (this.props.searchExpand) {
 			expand = 'header-search-box-opened';
-		} else {
+		} else if (!this.props.searchExpand) {
 			expand = 'header-search-box-closed';
 		}
 		return (
-			<div className="site-header">
-				<div className={expand}>
-					<div className="close-button">
-						<a
-							onClick={this.clickHandler}
-							data-target="#header-search-box"
-							className="js-toggle-search"
-						>
-							<i className="icon-close" />
-						</a>
-					</div>
-					<div className="content-block-header">
-						<h3 className="slogan-header">
-							<span>Find your table for any occasion</span>
-						</h3>
-					</div>
-					<div
-						id="dtp-picker-59"
-						data-event-prefix="search-in-header::"
-						data-search-selector=".dtp-picker-search-autocomplete"
-						data-test="search-in-header-dtp"
-						className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+			// <div className="site-header">
+			<div className={expand}>
+				<div className="close-button">
+					<a
+						onClick={this.props.expandHandler}
+						data-target="#header-search-box"
+						className="js-toggle-search"
 					>
-						<form autoComplete="off" className="dtp-picker-form">
-							<div className="picker-selectors-container">
-								<div className="party-size-container">
-									<a
-										className="select-label dtp-picker-selector-link"
-										tabIndex="-1"
-									>
-										{this.state.party}
-									</a>
-									{this.partySizeRender()}
-								</div>
-								{this.calendarRender()}
-								<div className="time-container">
-									<a
-										className="select-label dtp-picker-selector-link"
-										tabIndex="-1"
-									>
-										{this.state.time}
-									</a>
-									{this.timeSlotRender()}
-								</div>
+						<i className="icon-close" />
+					</a>
+				</div>
+				<div className="content-block-header">
+					<h3 className="slogan-header">
+						<span>Find your table for any occasion</span>
+					</h3>
+				</div>
+				<div
+					// id="dtp-picker-59"
+					// data-event-prefix="search-in-header::"
+					// data-search-selector=".dtp-picker-search-autocomplete"
+					// data-test="search-in-header-dtp"
+					// className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+				>
+					<form autoComplete="off" className="dtp-picker-form">
+						<div className="picker-selectors-container">
+							<div className="party-size-container">
+								<a
+									className="select-label dtp-picker-selector-link"
+									tabIndex="-1"
+								>
+									{this.state.party}
+								</a>
+								{this.partySizeRender()}
 							</div>
-							<Searchbox />
-							<input
-								type="submit"
-								value="Find a Table"
-								data-test="search-in-header-dtp-submit"
-								className="button dtp-picker-button"
-							/>
-						</form>
-					</div>
+							{this.calendarRender()}
+							<div className="time-container">
+								<a
+									className="select-label dtp-picker-selector-link"
+									tabIndex="-1"
+								>
+									{this.state.time}
+								</a>
+								{this.timeSlotRender()}
+							</div>
+						</div>
+						<Searchbox />
+						<input
+							type="submit"
+							value="Find a Table"
+							data-test="search-in-header-dtp-submit"
+							className="button dtp-picker-button"
+						/>
+					</form>
 				</div>
 			</div>
+			// </div>
 		);
 	}
 }

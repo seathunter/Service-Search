@@ -23,7 +23,7 @@ class TopSearchBar extends React.Component {
 					<ul className="top-bar-selection">
 						<li className="recently-viewed" />
 						<li className="upcoming-reservation-calendar">
-							<div className="menu-wrapper">
+							<div className="topbar-menu-wrapper">
 								<div className="oc-component">
 									<a className="reservation" />
 								</div>
@@ -32,7 +32,7 @@ class TopSearchBar extends React.Component {
 						<User />
 						<li className="top-bar-nav-li">
 							<a className="top-bar-nav-link">
-								<i className="icon-search" />
+								<i onClick={this.props.expandHandler} className="icon-search" />
 							</a>
 						</li>
 					</ul>

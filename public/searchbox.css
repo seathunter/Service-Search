@@ -86,9 +86,10 @@
 	padding-top: 0px;
 	position: absolute;
 	text-size-adjust: 100%;
-	top: 11px;
+	top: 15px;
 	visibility: visible;
-	width: 24px;
+	width: 17px;
+	background-repeat: no-repeat;
 	-webkit-font-smoothing: antialiased;
 }
 
