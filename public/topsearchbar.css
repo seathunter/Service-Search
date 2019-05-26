@@ -2139,6 +2139,16 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.menu-list-link:hover{
+	border-bottom-color: rgb(35, 123, 152);
+	border-left-color: rgb(35, 123, 152);
+	border-right-color: rgb(35, 123, 152);
+	border-top-color: rgb(35, 123, 152);
+	color: rgb(35, 123, 152);
+	text-decoration-color: rgb(35, 123, 152);
+	background-color: rgb(238, 244, 251);
+}
+
 .location-picker-city-list {
 	box-sizing: border-box;
 	color: rgb(51, 51, 51);
