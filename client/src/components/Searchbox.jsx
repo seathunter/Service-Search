@@ -42,11 +42,6 @@ class Searchbox extends React.Component {
 	componentDidMount() {
 		Axios.get('/restaurants').then((result) => {
 			const { data } = result;
-			// const list = [];
-			// data.forEach((rest) => {
-			// 	list.push(rest);
-			// });
-			// this.setState({ restaurants: list });
 			const locations = [];
 			const restaurants = [];
 			data.forEach((info) => {
@@ -70,11 +65,8 @@ class Searchbox extends React.Component {
 	getSuggestions(value) {
 		const inputValue = value.trim().toLowerCase();
 		const inputLength = inputValue.length;
-		// if (inputLength === 0) {
-		// 	result = 0;
-		// }
 
-		if (inputValue === '') {
+		if (inputLength === 0) {
 			return [];
 		}
 
@@ -82,11 +74,9 @@ class Searchbox extends React.Component {
 			return {
 				title: section.title,
 				query: section.query.filter(
-					(q) => q.name.toLowerCase().indexOf(inputValue) !== -1
-				)
+					(q) => q.name.toLowerCase().indexOf(inputValue) !== -1)
 			};
-		});
-		// .filter((section) => section.query.length > 0);
+		}).filter(section => section.query.length > 0);
 	}
 
 	renderSectionTitle(section) {
@@ -94,7 +84,6 @@ class Searchbox extends React.Component {
 	}
 
 	getSectionSuggestions(section) {
-		console.log('this is section', section);
 		return section.query;
 	}
 
