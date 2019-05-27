@@ -26,13 +26,13 @@ const Search = require('./db');
 Search.sync({ force: true })
 	.then(() => {
 		Search.create({
-			name: 'Kinjo',
-			location: 'Russian Hill, San Francisco',
-			cuisine: 'Japanese'
+			restaurants: 'Kinjo',
+			locations: 'Russian Hill, San Francisco',
+			cuisines: 'Japanese'
 		});
 	})
 	.then(() => {
-		const cuisines = [
+		const cuisine = [
 			'Japanese',
 			'Chinese',
 			'New American',
@@ -43,12 +43,12 @@ Search.sync({ force: true })
 			'Taiwanese'
 		];
 		for (let i = 1; i < 100; i++) {
-			const random = Math.floor(Math.random() * cuisines.length);
+			const random = Math.floor(Math.random() * cuisine.length);
 			const restaurant = faker.lorem.word();
 			Search.create({
-				name: restaurant.charAt(0).toUpperCase() + restaurant.slice(1),
-				location: `${faker.address.county()}, ${faker.address.city()}`,
-				cuisine: cuisines[random]
+				restaurants: restaurant.charAt(0).toUpperCase() + restaurant.slice(1),
+				locations: `${faker.address.county()}, ${faker.address.city()}`,
+				cuisines: cuisine[random]
 			});
 		}
 		console.log('Data Have Been Successfully Seeded To Database!');
