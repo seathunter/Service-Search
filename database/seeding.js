@@ -42,7 +42,7 @@ Search.sync({ force: true })
 			'French',
 			'Taiwanese'
 		];
-		for (let i = 1; i < 100; i++) {
+		for (let i = 1; i < 10; i++) {
 			const random = Math.floor(Math.random() * cuisine.length);
 			const restaurant = faker.lorem.word();
 			Search.create({

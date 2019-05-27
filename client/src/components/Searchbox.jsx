@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import _ from 'underscore';
 import Autosuggest from 'react-autosuggest';
 import '../../../public/searchtheme.css';
 import '../../../public/searchbox.css';
@@ -11,7 +12,16 @@ class Searchbox extends React.Component {
 			value: '',
 			suggestions: [],
 			restaurants: [],
-			cuisines: [],
+			cuisines: [
+				{ name: 'Japanese' },
+				{ name: 'Chinese' },
+				{ name: 'New American' },
+				{ name: 'Mexican' },
+				{ name: 'Korean' },
+				{ name: 'Indian' },
+				{ name: 'French' },
+				{ name: 'Taiwanese' }
+			],
 			locations: [],
 			list: []
 		};
@@ -25,6 +35,8 @@ class Searchbox extends React.Component {
 		this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
 			this
 		);
+		this.renderSectionTitle = this.renderSectionTitle.bind(this);
+		this.getSectionSuggestions = this.getSectionSuggestions.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,22 +48,19 @@ class Searchbox extends React.Component {
 			// });
 			// this.setState({ restaurants: list });
 			const locations = [];
-			const cuisines = [];
 			const restaurants = [];
 			data.forEach((info) => {
-				locations.push(info.locations);
-				cuisines.push(info.cuisines);
-				restaurants.push(info.restaurants);
+				locations.push({ name: info.locations });
+				restaurants.push({ name: info.restaurants });
 			});
 			const { list } = this.state;
 			list.push(
-				{ title: locations, query: locations },
-				{ title: cuisines, query: cuisines },
-				{ title: restaurants, query: restaurants }
+				{ title: 'Locations', query: locations },
+				{ title: 'Cuisines', query: this.state.cuisines },
+				{ title: 'Restaurants', query: restaurants }
 			);
 			this.setState({
 				locations,
-				cuisines,
 				restaurants,
 				list
 			});
@@ -65,32 +74,28 @@ class Searchbox extends React.Component {
 		// 	result = 0;
 		// }
 
-		// for (let i = 0; i < this.state.restaurants.length; i++) {
-		// 	let obj = this.state.restaurants[i];
-		// 	for (let key of obj){
-		// 		console.log(obj.key);
-		// 	}
-		// }
-		// for (let x of this.state.restaurants[i]) {
-		// 	// if (this.state.restaurants[i][x].toLowerCase().indexOf(inputValue) !== -1) {
-		// 	// 	result.push(this.state.restaurants[i][x]);
-		// 	// }
-		// 	console.log(this.state.restaurants[i][x]);
-		// }
-		// return inputLength === 0
-		// 	? []
-		// 	: this.state.restaurants.filter((restaurant) => {
-		// 			restaurant.restaurants.toLowerCase().slice(0, inputLength) ===
-		// 				inputValue;
-		// 	  });
+		if (inputValue === '') {
+			return [];
+		}
+
 		return this.state.list.map((section) => {
 			return {
 				title: section.title,
-				query: section.query.filter((q) => {
-					q.toLowerCase().indexOf(inputValue) !== -1;
-				})
+				query: section.query.filter(
+					(q) => q.name.toLowerCase().indexOf(inputValue) !== -1
+				)
 			};
 		});
+		// .filter((section) => section.query.length > 0);
+	}
+
+	renderSectionTitle(section) {
+		return <strong>{section.title}</strong>;
+	}
+
+	getSectionSuggestions(section) {
+		console.log('this is section', section);
+		return section.query;
 	}
 
 	queryHandler(event, { newValue }) {
@@ -104,8 +109,7 @@ class Searchbox extends React.Component {
 	}
 
 	renderSuggestion(suggestion) {
-		console.log('hi');
-		console.log(suggestion);
+		return <span>{suggestion.name}</span>;
 	}
 
 	onSuggestionsFetchRequested({ value }) {
@@ -163,8 +167,10 @@ class Searchbox extends React.Component {
 						onSuggestionsClearRequested={this.onSuggestionsClearRequested}
 						getSuggestionValue={this.getSuggestionValue}
 						renderSuggestion={this.renderSuggestion}
+						getSectionSuggestions={this.getSectionSuggestions}
 						inputProps={inputProps}
-						// multiSection={true}
+						multiSection={true}
+						renderSectionTitle={this.renderSectionTitle}
 					/>
 				</span>
 			</div>
