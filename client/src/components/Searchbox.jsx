@@ -57,22 +57,8 @@ class Searchbox extends React.Component {
 	}
 
 	renderSuggestion(suggestion) {
-		return (
-			// <span className="tt-dropdown-menu">
-			// 	<div className="tt-dataset-Locations"></div>
-			// 	<div className="tt-dataset-Cuisines">
-			// 		<h6 className="tt-header icon-cuisine">
-			// 			<p>Cuisines</p>
-			// 		</h6>
-			// 		<span className="tt-suggestions" style={{ display: 'block' }}>
-
-			// 		</span>
-			// 		<div className="tt-footer"></div>
-			// 	</div>
-			// 	<div className="tt-dataset-Restaurants"></div>
-			// </span>
-			<span>{suggestion.name}</span>
-		);
+		console.log('hi');
+		console.log(suggestion);
 	}
 
 	onSuggestionsFetchRequested({ value }) {
@@ -93,7 +79,7 @@ class Searchbox extends React.Component {
 			style: {
 				position: 'relative',
 				verticalAlign: 'top',
-				backgrounColor: 'transparent'
+				backgrounColor: 'transparent',
 			},
 			id: 'dtp-search-single-box',
 			name: 'searchText',
@@ -131,6 +117,7 @@ class Searchbox extends React.Component {
 						getSuggestionValue={this.getSuggestionValue}
 						renderSuggestion={this.renderSuggestion}
 						inputProps={inputProps}
+						// multiSection={true}
 					/>
 				</span>
 			</div>
