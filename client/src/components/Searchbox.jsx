@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Autosuggest from 'react-autosuggest';
+import '../../../public/searchtheme.css';
 import '../../../public/searchbox.css';
 
 class Searchbox extends React.Component {
@@ -56,7 +57,22 @@ class Searchbox extends React.Component {
 	}
 
 	renderSuggestion(suggestion) {
-		return <span>{suggestion.name}</span>;
+		return (
+			// <span className="tt-dropdown-menu">
+			// 	<div className="tt-dataset-Locations"></div>
+			// 	<div className="tt-dataset-Cuisines">
+			// 		<h6 className="tt-header icon-cuisine">
+			// 			<p>Cuisines</p>
+			// 		</h6>
+			// 		<span className="tt-suggestions" style={{ display: 'block' }}>
+
+			// 		</span>
+			// 		<div className="tt-footer"></div>
+			// 	</div>
+			// 	<div className="tt-dataset-Restaurants"></div>
+			// </span>
+			<span>{suggestion.name}</span>
+		);
 	}
 
 	onSuggestionsFetchRequested({ value }) {
@@ -73,8 +89,7 @@ class Searchbox extends React.Component {
 			placeholder: 'Location, Restaurant, or Cuisine',
 			value,
 			onChange: this.queryHandler,
-			type: 'search',
-			className: 'dtp-picker-search-autocomplete',
+			// className: 'dtp-picker-search-autocomplete',
 			style: {
 				position: 'relative',
 				verticalAlign: 'top',
@@ -84,7 +99,7 @@ class Searchbox extends React.Component {
 			name: 'searchText',
 			dir: 'auto',
 			spellCheck: 'false',
-			autoComplete: 'off',
+			autoComplete: 'off'
 		};
 		return (
 			<div className="picker-search-container autocomplete">

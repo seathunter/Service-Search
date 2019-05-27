@@ -9,7 +9,7 @@ class Calendar extends React.Component {
 			currentMonth: new Date(),
 			currentDate: new Date(),
 			currentDay: new Date(),
-			selectedDay: new Date()
+			selectedDay: this.props.date
 		};
 		this.onDateClick = this.onDateClick.bind(this);
 		this.nextMonth = this.nextMonth.bind(this);
@@ -100,19 +100,19 @@ class Calendar extends React.Component {
 					today = 'today';
 				}
 
-				if (
-					dateFns.format(day, 'M') === dateFns.format(new Date(), 'M') &&
-					dateFns.format(day, 'D') === dateFns.format(new Date(), 'D')
-				) {
-					if (
-						dateFns.format(new Date(), 'H') >= 23 &&
-						dateFns.format(new Date(), 'm') > 30
-					) {
-						pastDatesStyle = 'pastDatesStyle';
-						today = '';
-						currentDay = '';
-					}
-				}
+				// if (
+				// 	dateFns.format(day, 'M') === dateFns.format(new Date(), 'M') &&
+				// 	dateFns.format(day, 'D') === dateFns.format(new Date(), 'D')
+				// ) {
+				// 	if (
+				// 		dateFns.format(new Date(), 'H') >= 23 &&
+				// 		dateFns.format(new Date(), 'm') > 30
+				// 	) {
+				// 		pastDatesStyle = 'pastDatesStyle';
+				// 		today = '';
+				// 		currentDay = '';
+				// 	}
+				// }
 
 				// if (
 				// 	dateFns.format(dateFns.subDays(day, 1), 'M') ===

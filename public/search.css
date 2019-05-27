@@ -67,7 +67,7 @@
 	border-top-right-radius: 0px;
 	border-top-style: none;
 	border-top-width: 0px;
-	bottom: -199.2px;
+	bottom: -129px;
 	box-shadow: rgba(153, 153, 153, 0.4) 0px 2px 8px 0px;
 	box-sizing: border-box;
 	break-after: auto;
@@ -359,9 +359,6 @@
 	color: rgb(0, 0, 0);
 	cursor: default;
 	display: block;
-	font-family: Brandon;
-	font-size: 16px;
-	font-weight: 500;
 	height: 128px;
 	line-height: 16px;
 	margin-bottom: 0px;
@@ -374,7 +371,7 @@
 	padding-top: 16px;
 	text-size-adjust: 100%;
 	visibility: visible;
-	width: auto;
+	width: 100%;
 }
 
 .slogan-header {
@@ -383,27 +380,21 @@
 	cursor: default;
 	display: block;
 	font-family: Brandon;
-	font-size: 46px;
-	font-weight: 600;
+	font-size: 48px;
+	font-weight: 700;
+	font-stretch: 100%;
 	height: auto;
 	line-height: 72px;
 	margin-block-end: 24px;
 	margin-block-start: 0px;
 	margin-bottom: 24px;
-	margin-inline-end: 0px;
-	margin-inline-start: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
-	padding-top: 0px;
 	text-align: center;
 	text-size-adjust: 100%;
 	visibility: visible;
-	width: auto;
+	width: 100%;
+	font-stretch: 100%;
 }
+
 
 .dtp-picker-button {
 	width: 144px;
@@ -1407,6 +1398,7 @@
 	transition-timing-function: ease-in-out; */
 	visibility: visible;
 	width: 159.837px;
+	z-index:2;
 	-webkit-font-smoothing: antialiased;
 }
 

@@ -219,3 +219,40 @@
 	background-color: DodgerBlue !important;
 	color: #ffffff;
 }
+
+
+
+.tt-dropdown-menu {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgb(255, 255, 255);
+	background-image: none;
+	background-origin: padding-box;
+	background-position-x: 0%;
+	background-position-y: 0%;
+	background-repeat-x: ;
+	background-repeat-y: ;
+	background-size: auto;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	box-shadow: rgb(224, 224, 224) 0px 0px 0px 1px;
+	box-sizing: border-box;
+	color: rgb(51, 51, 51);
+	cursor: default;
+	direction: ltr;
+	display: block;
+	font-family: Brandon;
+	font-size: 16px;
+	font-weight: 500;
+	height: 397px;
+	left: 0px;
+	line-height: 16px;
+	position: absolute;
+	right: 0px;
+	text-size-adjust: 100%;
+	top: 46px;
+	visibility: visible;
+	width: 288px;
+	z-index: 100;
+	-webkit-font-smoothing: antialiased;
+}

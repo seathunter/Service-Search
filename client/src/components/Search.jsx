@@ -278,7 +278,7 @@ class Search extends React.Component {
 				</div>
 				<div className="content-block-header">
 					<h3 className="slogan-header">
-						<span>Find your table for any occasion</span>
+						<span className="slogan">Find your table for any occasion</span>
 					</h3>
 				</div>
 				<div
