@@ -10,7 +10,10 @@ class Searchbox extends React.Component {
 		this.state = {
 			value: '',
 			suggestions: [],
-			restaurants: []
+			restaurants: [],
+			cuisines: [],
+			locations: [],
+			list: []
 		};
 		this.queryHandler = this.queryHandler.bind(this);
 		this.getSuggestions = this.getSuggestions.bind(this);
@@ -27,23 +30,67 @@ class Searchbox extends React.Component {
 	componentDidMount() {
 		Axios.get('/restaurants').then((result) => {
 			const { data } = result;
-			const list = [];
-			data.forEach((rest) => {
-				list.push(rest);
+			// const list = [];
+			// data.forEach((rest) => {
+			// 	list.push(rest);
+			// });
+			// this.setState({ restaurants: list });
+			const locations = [];
+			const cuisines = [];
+			const restaurants = [];
+			data.forEach((info) => {
+				locations.push(info.locations);
+				cuisines.push(info.cuisines);
+				restaurants.push(info.restaurants);
 			});
-			this.setState({ restaurants: list });
+			const { list } = this.state;
+			list.push(
+				{ title: locations, query: locations },
+				{ title: cuisines, query: cuisines },
+				{ title: restaurants, query: restaurants }
+			);
+			this.setState({
+				locations,
+				cuisines,
+				restaurants,
+				list
+			});
 		});
 	}
 
 	getSuggestions(value) {
 		const inputValue = value.trim().toLowerCase();
 		const inputLength = inputValue.length;
-		return inputLength === 0
-			? []
-			: this.state.restaurants.filter(
-					(restaurant) =>
-						restaurant.name.toLowerCase().slice(0, inputLength) === inputValue
-			  );
+		// if (inputLength === 0) {
+		// 	result = 0;
+		// }
+
+		// for (let i = 0; i < this.state.restaurants.length; i++) {
+		// 	let obj = this.state.restaurants[i];
+		// 	for (let key of obj){
+		// 		console.log(obj.key);
+		// 	}
+		// }
+		// for (let x of this.state.restaurants[i]) {
+		// 	// if (this.state.restaurants[i][x].toLowerCase().indexOf(inputValue) !== -1) {
+		// 	// 	result.push(this.state.restaurants[i][x]);
+		// 	// }
+		// 	console.log(this.state.restaurants[i][x]);
+		// }
+		// return inputLength === 0
+		// 	? []
+		// 	: this.state.restaurants.filter((restaurant) => {
+		// 			restaurant.restaurants.toLowerCase().slice(0, inputLength) ===
+		// 				inputValue;
+		// 	  });
+		return this.state.list.map((section) => {
+			return {
+				title: section.title,
+				query: section.query.filter((q) => {
+					q.toLowerCase().indexOf(inputValue) !== -1;
+				})
+			};
+		});
 	}
 
 	queryHandler(event, { newValue }) {
@@ -79,7 +126,7 @@ class Searchbox extends React.Component {
 			style: {
 				position: 'relative',
 				verticalAlign: 'top',
-				backgrounColor: 'transparent',
+				backgrounColor: 'transparent'
 			},
 			id: 'dtp-search-single-box',
 			name: 'searchText',
