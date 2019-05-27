@@ -326,7 +326,6 @@ class Location extends React.Component {
 	regionRender() {
 		const city = this.state.selected;
 		const list = this.state[city];
-		console.log(list);
 		const rows = [];
 		for (let i = 0; i < list.length; i++) {
 			rows.push(
@@ -341,7 +340,6 @@ class Location extends React.Component {
 
 	metroSelector(e) {
 		e.preventDefault();
-		console.log(e.target.dataset.city);
 		this.setState({ selected: e.target.dataset.city });
 	}
 

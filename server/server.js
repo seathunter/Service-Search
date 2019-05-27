@@ -25,6 +25,14 @@ app.post('/search', (req, res) => {
 	console.log(req.body.query);
 });
 
+app.get('/restaurants', (req, res) => {
+	console.log('reservation get');
+	Search.findAll({}).then((data) => {
+		// console.log('this is the data', data[0].id);
+		res.status(200).send(data);
+	});
+});
+
 app.get('/search', (req, res) => {
 	Search.findOne({ where: { name: 'Kinjo' } }).then((data) => {
 		res.status(200);
