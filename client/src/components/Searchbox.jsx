@@ -70,17 +70,22 @@ class Searchbox extends React.Component {
 			return [];
 		}
 
-		return this.state.list.map((section) => {
-			return {
-				title: section.title,
-				query: section.query.filter(
-					(q) => q.name.toLowerCase().indexOf(inputValue) !== -1)
-			};
-		}).filter(section => section.query.length > 0);
+		return this.state.list
+			.map((section) => {
+				return {
+					title: section.title,
+					query: section.query.filter(
+						(q) => q.name.toLowerCase().indexOf(inputValue) !== -1
+					)
+				};
+			})
+			.filter((section) => section.query.length > 0);
 	}
 
 	renderSectionTitle(section) {
-		return <strong>{section.title}</strong>;
+		return <h6 className="suggestion-section-title">
+			<p className="section-title">{section.title}</p>
+		</h6>;
 	}
 
 	getSectionSuggestions(section) {
@@ -98,7 +103,11 @@ class Searchbox extends React.Component {
 	}
 
 	renderSuggestion(suggestion) {
-		return <span>{suggestion.name}</span>;
+		return (
+			<div>
+				<p className="suggestion">{suggestion.name}</p>
+			</div>
+		);
 	}
 
 	onSuggestionsFetchRequested({ value }) {
