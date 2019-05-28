@@ -46,15 +46,18 @@ class Search extends React.Component {
 
 	currentTimeMenu() {
 		let min;
-		if (dateFns.format(new Date(), 'm') > 30) {
+		if (dateFns.format(new Date(), 'm') < 30) {
 			min = '30';
-		} else {
-			min = '00';
+			return `${dateFns.format(new Date(), 'h')}:${min} ${dateFns.format(
+				new Date(),
+				'A'
+			)}`;
 		}
-		return `${dateFns.format(new Date(), 'h')}:${min} ${dateFns.format(
-			new Date(),
-			'A'
-		)}`;
+		min = '00';
+		return `${dateFns.format(
+			dateFns.addHours(new Date(), 1),
+			'h'
+		)}:${min} ${dateFns.format(new Date(), 'A')}`;
 	}
 
 	timeSlotRender() {
@@ -154,9 +157,7 @@ class Search extends React.Component {
 				}
 			}
 			if (minNow >= 30) {
-				rows.splice(0, 1);
-			} else if (minNow < 30) {
-				rows.splice(0, 1);
+				rows.splice(0, 2);
 			}
 		}
 		return (

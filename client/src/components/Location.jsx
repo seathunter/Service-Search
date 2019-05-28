@@ -1,5 +1,4 @@
 import React from 'react';
-import Topbar from './TopBar.jsx';
 import '../../../public/location.css';
 
 class Location extends React.Component {
@@ -325,12 +324,11 @@ class Location extends React.Component {
 		metro.splice(0, 2);
 		const rows = [];
 		for (let i = 0; i < metro.length; i++) {
-			let classnames;
 			let selected = '';
 			if (metro[i] === this.state.selected) {
 				selected = 'selected';
 			}
-			classnames = `${selected} menu-list-link`;
+			const classnames = `${selected} menu-list-link`;
 			rows.push(
 				<a
 					onClick={this.metroSelector}

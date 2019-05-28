@@ -45,7 +45,6 @@ class Calendar extends React.Component {
 
 		while (rows.length < 6) {
 			for (let i = 0; i < 7; i++) {
-				// formattedDate = dateFns.format(day, 'D');
 				formattedDate = day;
 				const cloneDay = day;
 				let currentDay = '';
