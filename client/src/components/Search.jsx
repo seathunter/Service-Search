@@ -46,7 +46,7 @@ class Search extends React.Component {
 
 	currentTimeMenu() {
 		let min;
-		if (dateFns.format(new Date(), 'm') >= 30) {
+		if (dateFns.format(new Date(), 'm') > 30) {
 			min = '30';
 		} else {
 			min = '00';
@@ -119,7 +119,8 @@ class Search extends React.Component {
 							{i + 12}:30 AM
 						</option>
 					);
-				} else if (i > 0) {
+				}
+				if (i > 0) {
 					if (i > 12) {
 						rows.push(
 							<option key={i} value={`${i}:00 PM`}>
@@ -129,7 +130,8 @@ class Search extends React.Component {
 								{i - 12}:30 PM
 							</option>
 						);
-					} else if (i < 12) {
+					}
+					if (i < 12) {
 						rows.push(
 							<option key={i} value={`${i}:00 AM`}>
 								{i}:00 AM
@@ -138,7 +140,8 @@ class Search extends React.Component {
 								{i}:30 AM
 							</option>
 						);
-					} else if (i === 12) {
+					}
+					if (i == 12) {
 						rows.push(
 							<option key={i} value={`${i}:00 PM`}>
 								{i}:00 PM
@@ -152,6 +155,8 @@ class Search extends React.Component {
 			}
 			if (minNow >= 30) {
 				rows.splice(0, 1);
+			} else if (minNow < 30) {
+				rows.splcie(0, 1);
 			}
 		}
 		return (
