@@ -156,7 +156,7 @@ class Search extends React.Component {
 			if (minNow >= 30) {
 				rows.splice(0, 1);
 			} else if (minNow < 30) {
-				rows.splcie(0, 1);
+				rows.splice(0, 1);
 			}
 		}
 		return (
