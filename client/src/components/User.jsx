@@ -6,6 +6,28 @@ class User extends React.Component {
 		super(props);
 		this.state = { userExpand: false };
 		this.userExpandHandler = this.userExpandHandler.bind(this);
+		this.setWrapperRef = this.setWrapperRef.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+	}
+
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+
+	setWrapperRef(node) {
+		this.wrapperRef = node;
+	}
+
+	handleClickOutside(event) {
+		if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+			if (this.state.userExpand) {
+				this.setState({ userExpand: !this.state.userExpand });
+			}
+		}
 	}
 
 	userExpandHandler(e) {
@@ -24,7 +46,11 @@ class User extends React.Component {
 			menu = 'user-menu-closed';
 		}
 		return (
-			<li onClick={this.userExpandHandler} className="user-info-container">
+			<li
+				ref={this.setWrapperRef}
+				onClick={this.userExpandHandler}
+				className="user-info-container"
+			>
 				<a className="top-bar-nav-username">Hi, Chris</a>
 				<div className={menu}>
 					<div className={container}>
@@ -48,7 +74,7 @@ class User extends React.Component {
 										</div>
 									</div>
 									<div className="points-bar">
-										<div className="points-bar-earned"></div>
+										<div className="points-bar-earned" />
 									</div>
 									<a className="learn-points">Learn more about points</a>
 								</div>

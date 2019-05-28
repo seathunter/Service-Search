@@ -109,6 +109,7 @@
 	transition-duration: 0.15s, 0.15s, 0.15s, 0s;
 	transition-property: transform, opacity, position, max-height;
 	transition-timing-function: ease-out, ease-out, ease-out, ease;
+	transition: background-color 300ms ease-out;
 	user-select: none;
 	width: 150px;
 	-webkit-font-smoothing: antialiased;
@@ -149,6 +150,7 @@
 	transition-duration: 0.15s, 0.15s, 0.15s, 0s;
 	transition-property: transform, opacity, position, max-height;
 	transition-timing-function: ease-out, ease-out, ease-out, ease;
+	transition: background-color 300ms ease-out;
 	user-select: none;
 	width: 150px;
 	-webkit-font-smoothing: antialiased;
@@ -287,6 +289,12 @@
 	user-select: none;
 	width: 74.4219px;
 	z-index: 100;
+	transition-delay: 0s;
+	transition-property: opacity;
+	transition-timing-function: linear;
+	transition: opacity 2s linear;
+	transition-duration: 0.3s;
+	transition: background-color 300ms ease-out;
 }
 
 .language-selector-menu-closed::before {
@@ -347,6 +355,12 @@
 	user-select: none;
 	width: 74.4219px;
 	z-index: 100;
+	transition-delay: 0s;
+	transition-property: opacity;
+	transition-timing-function: linear;
+	transition: opacity 2s linear;
+	transition-duration: 0.3s;
+	transition: background-color 300ms ease-out;
 	-webkit-font-smoothing: antialiased;
 }
 

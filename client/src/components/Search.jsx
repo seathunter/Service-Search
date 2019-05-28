@@ -22,9 +22,27 @@ class Search extends React.Component {
 		this.partySizeChange = this.partySizeChange.bind(this);
 		this.timeSelectHandler = this.timeSelectHandler.bind(this);
 		this.dateUpdater = this.dateUpdater.bind(this);
-		this.clickHandler = this.clickHandler.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.setWrapperRef = this.setWrapperRef.bind(this);
 	}
 
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+
+	setWrapperRef(node) {
+		this.wrapperRef = node;
+	}
+
+	handleClickOutside(event) {
+		if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+			this.setState({ calendar: !this.state.calendar });
+		}
+	}
 
 	currentTimeMenu() {
 		let min;
@@ -204,7 +222,7 @@ class Search extends React.Component {
 						{this.state.date}
 					</a>
 					<input className="datepicker-opened dtp-picker-select picker__input" />
-					<div className="datepicker-opened">
+					<div ref={this.setWrapperRef} className="datepicker-opened">
 						<Calendar
 							date={this.state.date}
 							dateUpdater={this.dateUpdater}
@@ -282,11 +300,11 @@ class Search extends React.Component {
 					</h3>
 				</div>
 				<div
-					// id="dtp-picker-59"
-					// data-event-prefix="search-in-header::"
-					// data-search-selector=".dtp-picker-search-autocomplete"
-					// data-test="search-in-header-dtp"
-					// className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+				// id="dtp-picker-59"
+				// data-event-prefix="search-in-header::"
+				// data-search-selector=".dtp-picker-search-autocomplete"
+				// data-test="search-in-header-dtp"
+				// className="dtp-picker dtp-lang-en  with-search single-search  initialised"
 				>
 					<form autoComplete="off" className="dtp-picker-form">
 						<div className="picker-selectors-container">
