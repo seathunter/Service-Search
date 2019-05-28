@@ -840,3 +840,18 @@
 	filter: invert(45%) sepia(7%) saturate(4102%) hue-rotate(149deg)
 		brightness(89%) contrast(90%);
 }
+
+.iconLanguageSelector {
+	background-image: url('https://s3-us-west-1.amazonaws.com/exzerone1/worlwide.svg');
+	display: block;
+	height: 14px;
+	width: 20px;
+	content: ' ';
+	top: 8px;
+	right: 50px;
+	position: absolute;
+	filter: invert(96%) sepia(5%) saturate(65%) hue-rotate(181deg) brightness(89%)
+		contrast(95%);
+	background-repeat: no-repeat;
+	stroke-width: 20px;
+}
