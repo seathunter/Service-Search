@@ -4,6 +4,7 @@ import User from './User.jsx';
 import Topbar from './TopBar.jsx';
 import Reservation from './Reservation.jsx';
 import Location from './Location.jsx';
+import logo from '../logo.jsx';
 
 class TopSearchBar extends React.Component {
 	constructor(props) {
@@ -15,7 +16,9 @@ class TopSearchBar extends React.Component {
 		return (
 			<div className="topsearchbar">
 				<div className="top-bar-logo">
-					<a className="logo-pic" />
+					<div className="logo-text">FreeSeat
+						<a className="logo-pic">{logo}</a>
+					</div>
 				</div>
 				<Location />
 				<section className="top-bar-nav">
