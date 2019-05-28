@@ -164,7 +164,6 @@
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
-	/* max-height: 1120px; */
 	min-width: 150px;
 	opacity: 0;
 	overflow-x: hidden;
@@ -352,6 +351,11 @@
 	user-select: none;
 	width: 70.5893px;
 	z-index: 100;
+	transition-delay: 0s;
+	transition-property: opacity;
+	transition-timing-function: linear;
+	transition: opacity 2s linear;
+	transition-duration: 0.3s;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -370,10 +374,10 @@
 	width: 70.5938px;
 }
 
-.main-menu {
+/* .main-menu {
 	background: #fff;
 	border-radius: 3px;
-}
+} */
 
 .main-section {
 	width: 100%;
@@ -406,6 +410,11 @@
 	user-select: none;
 	width: 70.5938px;
 	z-index: 100;
+	transition-delay: 0s;
+	transition-property: opacity;
+	transition-timing-function: linear;
+	transition: opacity 2s linear;
+	transition-duration: 0.3s;
 	-webkit-font-smoothing: antialiased;
 }
 

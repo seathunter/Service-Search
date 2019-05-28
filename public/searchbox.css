@@ -43,8 +43,8 @@
 	display: flex;
 	flex-shrink: 0;
 	float: none;
-	font-size: 16px;
-	font-weight: 500;
+	/* font-size: 16px;
+	font-weight: 500; */
 	height: 48px;
 	line-height: 16px;
 	margin-bottom: 0px;
@@ -99,8 +99,8 @@
 	cursor: default;
 	direction: ltr;
 	display: block;
-	font-size: 16px;
-	font-weight: 500;
+	/* font-size: 16px;
+	font-weight: 500; */
 	height: 46.4px;
 	line-height: 16px;
 	position: relative;
@@ -152,7 +152,7 @@
 	font-variant-east-asian: normal;
 	font-variant-ligatures: normal;
 	font-variant-numeric: normal;
-	font-weight: 400;
+	/* font-weight: 400; */
 	height: 46.6px;
 	letter-spacing: normal;
 	line-height: normal;
@@ -219,3 +219,6 @@
 	background-color: DodgerBlue !important;
 	color: #ffffff;
 }
+
+
+

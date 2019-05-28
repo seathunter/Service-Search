@@ -296,6 +296,28 @@ class Location extends React.Component {
 		this.metroRender = this.metroRender.bind(this);
 		this.metroSelector = this.metroSelector.bind(this);
 		this.regionRender = this.regionRender.bind(this);
+		this.setWrapperRef = this.setWrapperRef.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+	}
+
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+
+	setWrapperRef(node) {
+		this.wrapperRef = node;
+	}
+
+	handleClickOutside(event) {
+		if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+			if (this.state.locationExpand) {
+				this.setState({ locationExpand: !this.state.locationExpand });
+			}
+		}
 	}
 
 	metroRender() {
@@ -326,7 +348,6 @@ class Location extends React.Component {
 	regionRender() {
 		const city = this.state.selected;
 		const list = this.state[city];
-		console.log(list);
 		const rows = [];
 		for (let i = 0; i < list.length; i++) {
 			rows.push(
@@ -336,16 +357,16 @@ class Location extends React.Component {
 				</a>
 			);
 		}
-		return <div className="location-picker-city-list">{rows}</div>
+		return <div className="location-picker-city-list">{rows}</div>;
 	}
 
 	metroSelector(e) {
 		e.preventDefault();
-		console.log(e.target.dataset.city);
 		this.setState({ selected: e.target.dataset.city });
 	}
 
-	clickHandler() {
+	clickHandler(e) {
+		e.preventDefault();
 		this.setState({ locationExpand: !this.state.locationExpand });
 	}
 
@@ -357,8 +378,11 @@ class Location extends React.Component {
 			menuExpand = 'location-menu-container-closed';
 		}
 		return (
-			<nav className="location-picker">
-				<a onClick={this.clickHandler} className="location-toggle-menu">
+			<nav 	ref={this.setWrapperRef} className="location-picker">
+				<a
+					onClick={this.clickHandler}
+					className="location-toggle-menu"
+				>
 					<div className="location-picker-metro">San Francisco Bay Area</div>
 					<div className="location-picker-region">San Francisco</div>
 				</a>
@@ -381,9 +405,7 @@ class Location extends React.Component {
 										/>
 									</div>
 									<div className="lb-wrap">
-										<div className="lb-content-city">
-											{this.metroRender()}
-										</div>
+										<div className="lb-content-city">{this.metroRender()}</div>
 									</div>
 								</div>
 								<div className="menu-section">

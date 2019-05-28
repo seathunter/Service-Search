@@ -9,6 +9,28 @@ class Language extends React.Component {
 			language: false
 		};
 		this.clickHandler = this.clickHandler.bind(this);
+		this.setWrapperRef = this.setWrapperRef.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+	}
+
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+
+	setWrapperRef(node) {
+		this.wrapperRef = node;
+	}
+
+	handleClickOutside(event) {
+		if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+			if (this.state.expand) {
+				this.setState({ expand: !this.state.expand });
+			}
+		}
 	}
 
 	clickHandler(e) {
@@ -33,7 +55,11 @@ class Language extends React.Component {
 			language = 'language-selector-menu-closed';
 		}
 		return (
-			<li onClick={this.clickHandler} className="language-container">
+			<li
+				ref={this.setWrapperRef}
+				onClick={this.clickHandler}
+				className="language-container"
+			>
 				<div className="language-selector">
 					<a className="js-toggle-menu">
 						<div className="language-icon">

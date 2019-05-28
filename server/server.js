@@ -25,6 +25,30 @@ app.post('/search', (req, res) => {
 	console.log(req.body.query);
 });
 
+app.get('/restaurants', (req, res) => {
+	console.log('reservation get');
+	Search.findAll({ attributes: ['restaurants', 'cuisines', 'locations'] }).then((data) => {
+		// console.log('this is the data', data[0].id);
+		res.status(200).send(data);
+	});
+});
+
+app.get('/cuisines', (req, res) => {
+	console.log('reservation get');
+	Search.findAll({ attributes: ['cuisines'] }).then((data) => {
+		// console.log('this is the data', data[0].id);
+		res.status(200).send(data);
+	});
+});
+
+app.get('/locations', (req, res) => {
+	console.log('reservation get');
+	Search.findAll({ attributes: ['locations'] }).then((data) => {
+		// console.log('this is the data', data[0].id);
+		res.status(200).send(data);
+	});
+});
+
 app.get('/search', (req, res) => {
 	Search.findOne({ where: { name: 'Kinjo' } }).then((data) => {
 		res.status(200);

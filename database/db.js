@@ -34,9 +34,9 @@ const Search = sequelize.define(
 			autoIncrement: true,
 			allowNull: false
 		},
-		name: Sequelize.STRING,
-		location: Sequelize.STRING,
-		cuisine: Sequelize.STRING
+		restaurants: Sequelize.STRING,
+		locations: Sequelize.STRING,
+		cuisines: Sequelize.STRING
 	},
 	{
 		freezeTableName: true,

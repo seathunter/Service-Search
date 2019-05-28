@@ -22,13 +22,31 @@ class Search extends React.Component {
 		this.partySizeChange = this.partySizeChange.bind(this);
 		this.timeSelectHandler = this.timeSelectHandler.bind(this);
 		this.dateUpdater = this.dateUpdater.bind(this);
-		this.clickHandler = this.clickHandler.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.setWrapperRef = this.setWrapperRef.bind(this);
 	}
 
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+
+	setWrapperRef(node) {
+		this.wrapperRef = node;
+	}
+
+	handleClickOutside(event) {
+		if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+			this.setState({ calendar: !this.state.calendar });
+		}
+	}
 
 	currentTimeMenu() {
 		let min;
-		if (dateFns.format(new Date(), 'm') >= 30) {
+		if (dateFns.format(new Date(), 'm') > 30) {
 			min = '30';
 		} else {
 			min = '00';
@@ -101,7 +119,8 @@ class Search extends React.Component {
 							{i + 12}:30 AM
 						</option>
 					);
-				} else if (i > 0) {
+				}
+				if (i > 0) {
 					if (i > 12) {
 						rows.push(
 							<option key={i} value={`${i}:00 PM`}>
@@ -111,7 +130,8 @@ class Search extends React.Component {
 								{i - 12}:30 PM
 							</option>
 						);
-					} else if (i < 12) {
+					}
+					if (i < 12) {
 						rows.push(
 							<option key={i} value={`${i}:00 AM`}>
 								{i}:00 AM
@@ -120,7 +140,8 @@ class Search extends React.Component {
 								{i}:30 AM
 							</option>
 						);
-					} else if (i === 12) {
+					}
+					if (i == 12) {
 						rows.push(
 							<option key={i} value={`${i}:00 PM`}>
 								{i}:00 PM
@@ -134,6 +155,8 @@ class Search extends React.Component {
 			}
 			if (minNow >= 30) {
 				rows.splice(0, 1);
+			} else if (minNow < 30) {
+				rows.splcie(0, 1);
 			}
 		}
 		return (
@@ -204,7 +227,7 @@ class Search extends React.Component {
 						{this.state.date}
 					</a>
 					<input className="datepicker-opened dtp-picker-select picker__input" />
-					<div className="datepicker-opened">
+					<div ref={this.setWrapperRef} className="datepicker-opened">
 						<Calendar
 							date={this.state.date}
 							dateUpdater={this.dateUpdater}
@@ -278,15 +301,15 @@ class Search extends React.Component {
 				</div>
 				<div className="content-block-header">
 					<h3 className="slogan-header">
-						<span>Find your table for any occasion</span>
+						<span className="slogan">Find your table for any occasion</span>
 					</h3>
 				</div>
 				<div
-					// id="dtp-picker-59"
-					// data-event-prefix="search-in-header::"
-					// data-search-selector=".dtp-picker-search-autocomplete"
-					// data-test="search-in-header-dtp"
-					// className="dtp-picker dtp-lang-en  with-search single-search  initialised"
+				// id="dtp-picker-59"
+				// data-event-prefix="search-in-header::"
+				// data-search-selector=".dtp-picker-search-autocomplete"
+				// data-test="search-in-header-dtp"
+				// className="dtp-picker dtp-lang-en  with-search single-search  initialised"
 				>
 					<form autoComplete="off" className="dtp-picker-form">
 						<div className="picker-selectors-container">
