@@ -1,8 +1,8 @@
 @font-face {
 	font-family: Brandon;
-	src: url('./Brandon.otf') format('opentype');
+	src: url('https://s3-us-west-1.amazonaws.com/exzerone1/HVD%2BFonts%2B-%2BBrandonText-Medium.otf')
+		format('font/otf');
 }
-
 .lowbar-menu {
 	background-color: #fff !important;
 	height: 2rem;

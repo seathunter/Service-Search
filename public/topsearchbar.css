@@ -154,14 +154,16 @@
 	/* display: block; */
 	float: left;
 	position: relative;
-	/* top: 10px; */
-	width: 156px;
+	top:20px;
+	/* width: 156px;
 	height: 54px;
+	
 	background-repeat: no-repeat;
 	text-align: center;
 	vertical-align: text-top;
 	right:20px;
-	font-size:24px;
+	/* font-size:24px; */
+	font-size: 24px;
 	font-weight: bold;
 	color: #2d333f;
 	bottom:11px;
@@ -169,7 +171,9 @@
 
 .logo-pic {
 	position: relative;
-	top:16px;
+	/* top:16px; */
+	float:right;
+	bottom:16px;
 }
 
 .upcoming-res-link {
