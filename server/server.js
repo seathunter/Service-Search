@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const Search = require('../database/db.js');
 // DB connection
 require('../database/db');
@@ -18,27 +19,34 @@ app.use(
 	})
 );
 
-app.get('/:id', (req, res) => {
-	if (!req.params.id) {
-		res.status(400);
-		res.end();
-	} else {
-		res.sendFile('index.html', { root: path.resolve(__dirname, '../public') });
-	}
+// app.get('/:id', (req, res) => {
+// 	if (!req.params.id) {
+// 		res.status(400);
+// 		res.end();
+// 	} else {
+// 		console.log('this is id', req.params.id);
+// 		res.sendFile('index.html', { root: path.resolve(__dirname, '../public') });
+// 	}
+// });
+
+app.get('/', (req, res) => {
+	res.status(200).send();
 });
 
-app.post('/search', (req, res) => {
-	console.log(req.body.query);
-});
+// app.post('/search', (req, res) => {
+// 	console.log(req.body.query);
+// });
 
-app.get('http://localhost:3030/restaurants', (req, res) => {
+app.get('/restaurants', (req, res) => {
 	console.log('reservation get');
-	Search.findAll({ attributes: ['restaurants', 'cuisines', 'locations'] }).then(
-		(data) => {
+	Search.findAll({ attributes: ['restaurants', 'cuisines', 'locations'] })
+		.then((data) => {
 			// console.log('this is the data', data[0].id);
 			res.status(200).send(data);
-		}
-	);
+		})
+		.catch((err) => {
+			console.log('server err from db', err);
+		});
 });
 
 app.get('/cuisines', (req, res) => {

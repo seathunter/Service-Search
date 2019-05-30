@@ -40,27 +40,31 @@ class Searchbox extends React.Component {
 	}
 
 	componentDidMount() {
-		Axios.get('http://localhost:3030/restaurants').then((result) => {
-			console.log('hi there')
-			const { data } = result;
-			const locations = [];
-			const restaurants = [];
-			data.forEach((info) => {
-				locations.push({ name: info.locations });
-				restaurants.push({ name: info.restaurants });
+		Axios.get('http://localhost:3030/restaurants')
+			.then((result) => {
+				console.log('client result', result);
+				const { data } = result;
+				const locations = [];
+				const restaurants = [];
+				data.forEach((info) => {
+					locations.push({ name: info.locations });
+					restaurants.push({ name: info.restaurants });
+				});
+				const { list } = this.state;
+				list.push(
+					{ title: 'Locations', query: locations },
+					{ title: 'Cuisines', query: this.state.cuisines },
+					{ title: 'Restaurants', query: restaurants }
+				);
+				this.setState({
+					locations,
+					restaurants,
+					list
+				});
+			})
+			.catch((err) => {
+				console.log(err);
 			});
-			const { list } = this.state;
-			list.push(
-				{ title: 'Locations', query: locations },
-				{ title: 'Cuisines', query: this.state.cuisines },
-				{ title: 'Restaurants', query: restaurants }
-			);
-			this.setState({
-				locations,
-				restaurants,
-				list
-			});
-		});
 	}
 
 	getSuggestions(value) {
@@ -84,9 +88,11 @@ class Searchbox extends React.Component {
 	}
 
 	renderSectionTitle(section) {
-		return <h6 className="suggestion-section-title">
-			<p className="section-title">{section.title}</p>
-		</h6>;
+		return (
+			<h6 className="suggestion-section-title">
+				<p className="section-title">{section.title}</p>
+			</h6>
+		);
 	}
 
 	getSectionSuggestions(section) {

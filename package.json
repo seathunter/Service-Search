@@ -10,6 +10,7 @@
 	"scripts": {
 		"react-dev": "webpack -d -w",
 		"build": "webpack -d",
+		"server-dev": "nodemon server/connection.js",
 		"start": "node server/connection.js",
 		"test": "jest --detectOpenHandles",
 		"seeding": "node database/seeding.js"
