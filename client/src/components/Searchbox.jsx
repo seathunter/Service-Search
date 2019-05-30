@@ -42,7 +42,6 @@ class Searchbox extends React.Component {
 	componentDidMount() {
 		Axios.get('http://localhost:3030/restaurants')
 			.then((result) => {
-				console.log('client result', result);
 				const { data } = result;
 				const locations = [];
 				const restaurants = [];
