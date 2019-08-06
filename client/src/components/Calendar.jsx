@@ -99,35 +99,6 @@ class Calendar extends React.Component {
 					today = 'today';
 				}
 
-				// if (
-				// 	dateFns.format(day, 'M') === dateFns.format(new Date(), 'M') &&
-				// 	dateFns.format(day, 'D') === dateFns.format(new Date(), 'D')
-				// ) {
-				// 	if (
-				// 		dateFns.format(new Date(), 'H') >= 23 &&
-				// 		dateFns.format(new Date(), 'm') > 30
-				// 	) {
-				// 		pastDatesStyle = 'pastDatesStyle';
-				// 		today = '';
-				// 		currentDay = '';
-				// 	}
-				// }
-
-				// if (
-				// 	dateFns.format(dateFns.subDays(day, 1), 'M') ===
-				// 		dateFns.format(new Date(), 'M') &&
-				// 	dateFns.format(dateFns.subDays(day, 1), 'D') ===
-				// 		dateFns.format(new Date(), 'D')
-				// ) {
-				// 	// if (
-				// 	// 	days[i - 1].props.children.props.className.indexOf('today') === -1
-				// 	// ) {
-				// 	// 	today = 'today';
-				// 	// 	currentDay = 'selectedDay';
-				// 	// 	// need to somehow pass the new date to the parent component to reflect onto the search bar. Will come back to this;
-				// 	// }
-				// }
-
 				const classNames = `${today} ${hoverDates} ${pastDatesStyle} ${futureMonthStyle} ${pastMonthStyle} calendar-day ${currentDay}`;
 
 				days.push(

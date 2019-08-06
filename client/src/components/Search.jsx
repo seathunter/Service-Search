@@ -289,7 +289,6 @@ class Search extends React.Component {
 			expand = 'header-search-box-closed';
 		}
 		return (
-			// <div className="site-header">
 			<div className={expand}>
 				<div className="close-button">
 					<a
@@ -305,13 +304,7 @@ class Search extends React.Component {
 						<span className="slogan">Find your table for any occasion</span>
 					</h3>
 				</div>
-				<div
-				// id="dtp-picker-59"
-				// data-event-prefix="search-in-header::"
-				// data-search-selector=".dtp-picker-search-autocomplete"
-				// data-test="search-in-header-dtp"
-				// className="dtp-picker dtp-lang-en  with-search single-search  initialised"
-				>
+				<div>
 					<form autoComplete="off" className="dtp-picker-form">
 						<div className="picker-selectors-container">
 							<div className="party-size-container">
