@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS search;
+DROP DATABASE IF EXISTS sec_search;
 
-CREATE DATABASE search;
+CREATE DATABASE sec_search;
 
-use search;
+use sec_search;
 
 CREATE TABLE restaurants (
   id INTEGER NOT NULL AUTO_INCREMENT,

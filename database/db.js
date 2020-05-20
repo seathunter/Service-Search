@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('search', 'root', 'student', {
+
+const sequelize = new Sequelize('sec_search', 'student', 'student', {
 	host: 'localhost',
 	dialect: 'mysql',
 	logging: false
