@@ -34,4 +34,3 @@ Search.sync({ force: true })
 	.catch((err) => {
 		console.error('Error During Data Seeding');
 	});
-

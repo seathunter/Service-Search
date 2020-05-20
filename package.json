@@ -1,12 +1,13 @@
 {
-	"name": "exzerone-search",
-	"version": "1.0.0",
-	"description": "",
-	"author": "",
-	"license": "",
-	"engines": {
-		"node": ">=6.13.0"
-	},
+	"name": "paul-service-search",
+	"version": "2.0.0",
+	"repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaOmegaTeam/Paul-Proxy"
+  },
+	"description": "Search service for SEC",
+	"author": "Paul Ferguson",
+	"license": "ISC",
 	"scripts": {
 		"react-dev": "webpack -d -w",
 		"build": "webpack -d",
