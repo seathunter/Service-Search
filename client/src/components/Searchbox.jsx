@@ -1,6 +1,5 @@
 import React from 'react';
 import Axios from 'axios';
-import _ from 'underscore';
 import Autosuggest from 'react-autosuggest';
 import '../../../public/searchtheme.css';
 import '../../../public/searchbox.css';
@@ -79,11 +78,11 @@ class Searchbox extends React.Component {
 				return {
 					title: section.title,
 					query: section.query.filter(
-						(q) => q.name.toLowerCase().indexOf(inputValue) !== -1
+						q => q.name.toLowerCase().indexOf(inputValue) !== -1
 					)
 				};
 			})
-			.filter((section) => section.query.length > 0);
+			.filter(section => section.query.length > 0);
 	}
 
 	renderSectionTitle(section) {

@@ -29,7 +29,7 @@ Search.sync({ force: true })
 				cuisines: cuisine[random]
 			});
 		}
-		console.log('Data Have Been Successfully Seeded To Database!');
+		console.log('Data Has Been Successfully Seeded To Database!');
 	})
 	.catch((err) => {
 		console.error('Error During Data Seeding');

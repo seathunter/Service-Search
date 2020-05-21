@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const path = require('path');
 const Search = require('../database/db.js');
 // DB connection
 require('../database/db');
@@ -24,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/restaurants', (req, res) => {
-	console.log('reservation get');
+	console.log('/restaurants get');
 	Search.findAll({ attributes: ['restaurants', 'cuisines', 'locations'] })
 		.then((data) => {
 			res.status(200).send(data);
@@ -35,20 +34,21 @@ app.get('/restaurants', (req, res) => {
 });
 
 app.get('/cuisines', (req, res) => {
-	console.log('reservation get');
+	console.log('/cuisines get');
 	Search.findAll({ attributes: ['cuisines'] }).then((data) => {
 		res.status(200).send(data);
 	});
 });
 
 app.get('/locations', (req, res) => {
-	console.log('reservation get');
+	console.log('/locations get');
 	Search.findAll({ attributes: ['locations'] }).then((data) => {
 		res.status(200).send(data);
 	});
 });
 
 app.get('/search', (req, res) => {
+	console.log('/search get');
 	Search.findOne({ where: { name: 'Kinjo' } }).then((data) => {
 		res.status(200);
 		res.send(data);
