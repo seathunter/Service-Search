@@ -66,9 +66,9 @@ class Search extends React.Component {
 		const minNow = dateFns.format(new Date(), 'm');
 
 		if (
-			(hourNow === 23 && minNow > 30) ||
-			dateFns.format(this.state.date, 'M D') !==
-				dateFns.format(new Date(), 'M D')
+			(hourNow === 23 && minNow > 30)
+			|| dateFns.format(this.state.date, 'M D')
+				!== dateFns.format(new Date(), 'M D')
 		) {
 			for (let i = 0; i < 24; i++) {
 				if (i === 0) {
@@ -284,9 +284,9 @@ class Search extends React.Component {
 	render() {
 		let expand;
 		if (this.props.searchExpand) {
-			expand = 'header-search-box-opened';
+			expand = 'header-search-box header-search-box-opened';
 		} else if (!this.props.searchExpand) {
-			expand = 'header-search-box-closed';
+			expand = 'header-search-box header-search-box-closed';
 		}
 		return (
 			<div className={expand}>

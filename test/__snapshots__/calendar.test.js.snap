@@ -29,7 +29,7 @@ exports[`renders correctly when there are no items 1`] = `
             <div
               className="picker-month"
             >
-              May 2019
+              May 2020
             </div>
           </div>
           <div>
@@ -88,7 +88,25 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-04-28T07:00:00.000Z}
+                  data-day={2020-04-26T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  26
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2020-04-27T07:00:00.000Z}
+                  onClick={[Function]}
+                >
+                  27
+                </div>
+              </td>
+              <td>
+                <div
+                  className="  pastDatesStyle   calendar-day "
+                  data-day={2020-04-28T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   28
@@ -97,7 +115,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-04-29T07:00:00.000Z}
+                  data-day={2020-04-29T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   29
@@ -106,7 +124,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-04-30T07:00:00.000Z}
+                  data-day={2020-04-30T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   30
@@ -115,7 +133,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-01T07:00:00.000Z}
+                  data-day={2020-05-01T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   1
@@ -124,16 +142,18 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-02T07:00:00.000Z}
+                  data-day={2020-05-02T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   2
                 </div>
               </td>
+            </tr>
+            <tr>
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-03T07:00:00.000Z}
+                  data-day={2020-05-03T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   3
@@ -142,18 +162,16 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-04T07:00:00.000Z}
+                  data-day={2020-05-04T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   4
                 </div>
               </td>
-            </tr>
-            <tr>
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-05T07:00:00.000Z}
+                  data-day={2020-05-05T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   5
@@ -162,7 +180,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-06T07:00:00.000Z}
+                  data-day={2020-05-06T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   6
@@ -171,7 +189,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-07T07:00:00.000Z}
+                  data-day={2020-05-07T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   7
@@ -180,7 +198,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-08T07:00:00.000Z}
+                  data-day={2020-05-08T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   8
@@ -189,16 +207,18 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-09T07:00:00.000Z}
+                  data-day={2020-05-09T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   9
                 </div>
               </td>
+            </tr>
+            <tr>
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-10T07:00:00.000Z}
+                  data-day={2020-05-10T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   10
@@ -207,18 +227,16 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-11T07:00:00.000Z}
+                  data-day={2020-05-11T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   11
                 </div>
               </td>
-            </tr>
-            <tr>
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-12T07:00:00.000Z}
+                  data-day={2020-05-12T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   12
@@ -227,7 +245,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-13T07:00:00.000Z}
+                  data-day={2020-05-13T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   13
@@ -236,7 +254,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-14T07:00:00.000Z}
+                  data-day={2020-05-14T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   14
@@ -245,7 +263,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-15T07:00:00.000Z}
+                  data-day={2020-05-15T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   15
@@ -254,16 +272,18 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-16T07:00:00.000Z}
+                  data-day={2020-05-16T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   16
                 </div>
               </td>
+            </tr>
+            <tr>
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-17T07:00:00.000Z}
+                  data-day={2020-05-17T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   17
@@ -272,18 +292,16 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-18T07:00:00.000Z}
+                  data-day={2020-05-18T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   18
                 </div>
               </td>
-            </tr>
-            <tr>
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-19T07:00:00.000Z}
+                  data-day={2020-05-19T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   19
@@ -292,7 +310,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-20T07:00:00.000Z}
+                  data-day={2020-05-20T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   20
@@ -300,8 +318,8 @@ exports[`renders correctly when there are no items 1`] = `
               </td>
               <td>
                 <div
-                  className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-21T07:00:00.000Z}
+                  className="today hoverDates    calendar-day "
+                  data-day={2020-05-21T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   21
@@ -309,8 +327,8 @@ exports[`renders correctly when there are no items 1`] = `
               </td>
               <td>
                 <div
-                  className="  pastDatesStyle   calendar-day "
-                  data-day={2019-05-22T07:00:00.000Z}
+                  className=" hoverDates    calendar-day "
+                  data-day={2020-05-22T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   22
@@ -318,17 +336,19 @@ exports[`renders correctly when there are no items 1`] = `
               </td>
               <td>
                 <div
-                  className="today hoverDates    calendar-day "
-                  data-day={2019-05-23T07:00:00.000Z}
+                  className=" hoverDates    calendar-day "
+                  data-day={2020-05-23T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   23
                 </div>
               </td>
+            </tr>
+            <tr>
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-24T07:00:00.000Z}
+                  data-day={2020-05-24T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   24
@@ -337,18 +357,16 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-25T07:00:00.000Z}
+                  data-day={2020-05-25T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   25
                 </div>
               </td>
-            </tr>
-            <tr>
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-26T07:00:00.000Z}
+                  data-day={2020-05-26T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   26
@@ -357,7 +375,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-27T07:00:00.000Z}
+                  data-day={2020-05-27T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   27
@@ -366,7 +384,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-28T07:00:00.000Z}
+                  data-day={2020-05-28T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   28
@@ -375,7 +393,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-29T07:00:00.000Z}
+                  data-day={2020-05-29T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   29
@@ -384,16 +402,18 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-30T07:00:00.000Z}
+                  data-day={2020-05-30T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   30
                 </div>
               </td>
+            </tr>
+            <tr>
               <td>
                 <div
                   className=" hoverDates    calendar-day "
-                  data-day={2019-05-31T07:00:00.000Z}
+                  data-day={2020-05-31T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   31
@@ -402,18 +422,16 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-01T07:00:00.000Z}
+                  data-day={2020-06-01T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   1
                 </div>
               </td>
-            </tr>
-            <tr>
               <td>
                 <div
                   className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-02T07:00:00.000Z}
+                  data-day={2020-06-02T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   2
@@ -422,7 +440,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-03T07:00:00.000Z}
+                  data-day={2020-06-03T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   3
@@ -431,7 +449,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-04T07:00:00.000Z}
+                  data-day={2020-06-04T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   4
@@ -440,7 +458,7 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-05T07:00:00.000Z}
+                  data-day={2020-06-05T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   5
@@ -449,28 +467,10 @@ exports[`renders correctly when there are no items 1`] = `
               <td>
                 <div
                   className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-06T07:00:00.000Z}
+                  data-day={2020-06-06T07:00:00.000Z}
                   onClick={[Function]}
                 >
                   6
-                </div>
-              </td>
-              <td>
-                <div
-                  className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-07T07:00:00.000Z}
-                  onClick={[Function]}
-                >
-                  7
-                </div>
-              </td>
-              <td>
-                <div
-                  className=" hoverDates  futureMonthStyle  calendar-day "
-                  data-day={2019-06-08T07:00:00.000Z}
-                  onClick={[Function]}
-                >
-                  8
                 </div>
               </td>
             </tr>

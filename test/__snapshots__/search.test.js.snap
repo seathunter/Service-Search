@@ -2,7 +2,7 @@
 
 exports[`renders correctly when there are no items 1`] = `
 <div
-  className="header-search-box"
+  className="header-search-box header-search-box-closed"
 >
   <div
     className="close-button"
@@ -19,20 +19,19 @@ exports[`renders correctly when there are no items 1`] = `
   <div
     className="content-block-header"
   >
-    <h3>
-      <span>
+    <h3
+      className="slogan-header"
+    >
+      <span
+        className="slogan"
+      >
         Find your table for any occasion
       </span>
     </h3>
   </div>
-  <div
-    className="dtp-picker dtp-lang-en  with-search single-search  initialised"
-    data-event-prefix="search-in-header::"
-    data-search-selector=".dtp-picker-search-autocomplete"
-    data-test="search-in-header-dtp"
-    id="dtp-picker-59"
-  >
+  <div>
     <form
+      autoComplete="off"
       className="dtp-picker-form"
     >
       <div
@@ -185,7 +184,7 @@ exports[`renders correctly when there are no items 1`] = `
           <a
             className="dtp-picker-selector-link date-label-closed dtp-picker-label"
           >
-            May 23, 2019
+            May 21, 2020
           </a>
           <input
             className="datepicker-closed dtp-picker-select picker__input"
@@ -201,7 +200,7 @@ exports[`renders correctly when there are no items 1`] = `
             className="select-label dtp-picker-selector-link"
             tabIndex="-1"
           >
-            7:00 PM
+            1:00 PM
           </a>
           <select
             aria-label="time"
@@ -345,7 +344,7 @@ exports[`renders correctly when there are no items 1`] = `
         </div>
       </div>
       <div
-        className="picker-search-container"
+        className="picker-search-container autocomplete"
       >
         <div
           className="search-icon"
@@ -353,47 +352,44 @@ exports[`renders correctly when there are no items 1`] = `
         <span
           className="twitter-typehead"
         >
-          <input
-            aria-label="search"
-            autoComplete="off"
-            className="dtp-picker-search-autocomplete tt-hint"
-            readOnly=""
-            spellCheck="false"
-            style={
-              Object {
-                "background": "none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0)",
-                "borderColor": "transparent",
-                "boxShadow": "none",
-                "left": "0px",
-                "opacity": "1",
-                "position": "absolute",
-                "top": "0px",
+          <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-1"
+            className="react-autosuggest__container"
+            role="combobox"
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls="react-autowhatever-1"
+              autoComplete="off"
+              className="react-autosuggest__input"
+              dir="auto"
+              id="dtp-search-single-box"
+              name="searchText"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Location, Restaurant, or Cuisine"
+              spellCheck="false"
+              style={
+                Object {
+                  "backgrounColor": "transparent",
+                  "position": "relative",
+                  "verticalAlign": "top",
+                }
               }
-            }
-            tabIndex="-1"
-            title="Location, Restaurant, or Cuisine"
-            type="text"
-          />
-          <input
-            aria-label="search"
-            autoComplete="off"
-            className="dtp-picker-search-autocomplete tt-input"
-            data-test="search-in-header-dtp-text-input"
-            dir="auto"
-            id="dtp-search-single-box"
-            name="searchText"
-            placeholder="Location, Restaurant, or Cuisine"
-            spellCheck="false"
-            style={
-              Object {
-                "backgrounColor": "transparent",
-                "position": "relative",
-                "verticalAlign": "top",
-              }
-            }
-            title="Location, Restaurant, or Cuisine"
-            type="text"
-          />
+              type="text"
+              value=""
+            />
+            <div
+              className="react-autosuggest__suggestions-container"
+              id="react-autowhatever-1"
+              role="listbox"
+            />
+          </div>
         </span>
       </div>
       <input
