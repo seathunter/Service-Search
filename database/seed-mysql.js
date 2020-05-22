@@ -1,5 +1,5 @@
 const faker = require('faker');
-const Search = require('./db');
+const Search = require('./connect-mysql');
 
 Search.sync({ force: true })
 	.then(() => {

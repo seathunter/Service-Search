@@ -2,9 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const Search = require('../database/db.js');
-// DB connection
-require('../database/db');
+
+const Search = require('../database/connect-mysql');
 
 const app = express();
 
