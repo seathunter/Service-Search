@@ -2,9 +2,9 @@
 	"name": "paul-service-search",
 	"version": "2.0.0",
 	"repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlphaOmegaTeam/Paul-Proxy"
-  },
+		"type": "git",
+		"url": "git+https://github.com/AlphaOmegaTeam/Paul-Proxy"
+	},
 	"description": "Search service for SEC",
 	"author": "Paul Ferguson",
 	"license": "ISC",
@@ -14,7 +14,8 @@
 		"server-dev": "nodemon server/connection.js",
 		"start": "node server/connection.js",
 		"test": "jest --detectOpenHandles",
-		"seeding": "node database/seeding.js"
+		"seeding": "node database/seeding.js",
+		"gen": "node database/data-generator.js"
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
@@ -22,6 +23,7 @@
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"css-loader": "^2.1.1",
+		"csv-write-stream": "^2.0.0",
 		"date-fns": "^1.30.1",
 		"express": "^4.16.4",
 		"faker": "^4.1.0",
