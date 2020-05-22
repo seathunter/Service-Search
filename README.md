@@ -25,17 +25,17 @@ FreeSeats
 > The Instruction is as follows:
 > In Terminal,
 
-1. type in command - \$mysql -u -p root
-2. Enter your password if you have one
-3. type in command - show databases
+- 1. type in command - `\$mysql -u -p root`
+- 1. Enter your password if you have one
+- 1. type in command - `show databases`
    to see your current databases.
-4. type in command - create database search
-5. type in command - use search
-6. Under the server folder, go to db.js.
-7. On line 13, change the third parameter of the function to the password you have set up to your mysql (it is currently 'student');
-8. After all of the steps mentioned above, go ahead and install dependencies.
-9. run command npm run seeding to seed the data to your database
-10. run npm start to start up the server
+- 1. type in command - `create database search`
+- 1. type in command - `use search`
+- 1. Under the server folder, go to db.js.
+- 1. On line 13, change the third parameter of the function to the password you have set up to your mysql (it is currently 'student');
+- 1. After all of the steps mentioned above, go ahead and install dependencies with `npm install`.
+- 1. run command `npm run seeding` to seed the data to your database
+- 1. run `npm start` to start up the server
 
 ## Requirements
 

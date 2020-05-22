@@ -9,7 +9,7 @@ const sequelize = new Sequelize('sec_search', 'student', 'student', {
 sequelize
 	.authenticate()
 	.then(() => {
-		console.log('Connection Has Been Established Successfully');
+		console.log('Connection To MySQL Has Been Established Successfully');
 	})
 	.catch((err) => {
 		console.log(err);
