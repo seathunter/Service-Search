@@ -1,10 +1,12 @@
+/* eslint-disable no-await-in-loop */
 
 const faker = require('faker');
 const path = require('path');
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
 
-const numOfRecords = 100000;
+const numOfRecords = 10000000;
+
 const cuisine = [
 	'Japanese',
 	'Chinese',
@@ -17,47 +19,42 @@ const cuisine = [
 ];
 
 console.log(`Ok: lets add ${numOfRecords} records to /data/data.csv`);
-console.log('Running...');
-console.log('Maybe go put the kettle on');
+console.time('Took');
 
-const writer = csvWriter({
-	headers: ['restaurant', 'location', 'cuisine']
-});
-writer.pipe(fs.createWriteStream(path.join(__dirname, '..', 'data', 'data.csv')));
+// Create the CSV write stream
+const writer = csvWriter({ headers: ['restaurant', 'location', 'cuisine'] });
 
-for (let i = 0; i < numOfRecords; i++) {
-	const random = Math.floor(Math.random() * cuisine.length);
-	writer.write([
-		faker.lorem.word(),
-		`${faker.address.county()}, ${faker.address.city()}`,
-		cuisine[random]
-	]);
-}
-writer.end();
+// Create the write stream to the file
+const writeFile = fs.createWriteStream(path.join(__dirname, '..', 'data', 'data.csv'), {
+	encoding: 'utf8',
+	flags: 'w'
+})
+	.on('open', () => console.log('CSV file open: Running...'));
 
-console.log('Done: Check /data/data.csv');
+// Don't blow up the JS stack
+const drainStream = () => new Promise(res => writeFile.once('drain', res));
 
+// Pipe the writer to the file
+writer.pipe(writeFile);
 
-// Search.sync({ force: true })
-// 	.then(() => {
-// 		Search.create({
-// 			restaurants: 'Kinjo',
-// 			locations: 'Russian Hill, San Francisco',
-// 			cuisines: 'Japanese'
-// 		});
-// 	})
-// 	.then(() => {
-// 		for (let i = 1; i < 100; i++) {
-// 			const random = Math.floor(Math.random() * cuisine.length);
-// 			const restaurant = faker.lorem.word();
-// 			Search.create({
-// 				restaurants: restaurant.charAt(0).toUpperCase() + restaurant.slice(1),
-// 				locations: `${faker.address.county()}, ${faker.address.city()}`,
-// 				cuisines: cuisine[random]
-// 			});
-// 		}
-// 		console.log('Data Has Been Successfully Seeded To Database!');
-// 	})
-// 	.catch((err) => {
-// 		console.error('Error During Data Seeding');
-// 	});
+(async function drainableWrite() {
+	// Loop the content
+	for (let i = 0; i < numOfRecords; i++) {
+		const random = Math.floor(Math.random() * cuisine.length);
+		const canContinue = writer.write([
+			faker.lorem.word(),
+			`${faker.address.county()}, ${faker.address.city()}`,
+			cuisine[random]
+		]);
+		if (!canContinue) {
+			await drainStream();
+		}
+	}
+
+	// Finish this
+	writer.end();
+	writer.on('finish', () => {
+		console.log('Done: Check /data/data.csv');
+		console.timeEnd('Took');
+	});
+}());
