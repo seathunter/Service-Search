@@ -14,7 +14,7 @@
 		"server-dev": "nodemon server/connection.js",
 		"start": "node server/connection.js",
 		"test": "jest --detectOpenHandles",
-		"seeding": "node database/seeding.js",
+		"seeding": "node database/seed-mysql.js",
 		"gen": "node database/data-generator.js"
 	},
 	"dependencies": {

@@ -1,5 +1,5 @@
 const faker = require('faker');
-const Search = require('./db');
+const Search = require('./connect-mysql');
 
 Search.sync({ force: true })
 	.then(() => {
@@ -29,7 +29,7 @@ Search.sync({ force: true })
 				cuisines: cuisine[random]
 			});
 		}
-		console.log('Data Has Been Successfully Seeded To Database!');
+		console.log('Data Has Been Successfully Seeded To The MySQL Database!');
 	})
 	.catch((err) => {
 		console.error('Error During Data Seeding');
