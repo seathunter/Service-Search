@@ -32,6 +32,23 @@ app.get('/restaurants', (req, res) => {
 		});
 });
 
+// Add a Get-restaurant by ID for stress testing the DB
+app.get('/restaurant/:id', (req, res) => {
+	console.log('/restaurant by ID get');
+	Search.findAll({
+		attributes: ['restaurants', 'cuisines', 'locations'],
+		where: {
+			id: req.params.id
+		}
+	})
+		.then((data) => {
+			res.status(200).send(data);
+		})
+		.catch((err) => {
+			console.log('server err from db', err);
+		});
+});
+
 app.get('/cuisines', (req, res) => {
 	console.log('/cuisines get');
 	Search.findAll({ attributes: ['cuisines'] }).then((data) => {
