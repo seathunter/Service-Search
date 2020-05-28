@@ -27,3 +27,5 @@ public/bundle.js
 # Data
 data/*
 
+# Config
+.env
