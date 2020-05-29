@@ -25,5 +25,7 @@ dist/
 public/bundle.js
 
 # Data
-data.csv
+data/*
 
+# Config
+.env

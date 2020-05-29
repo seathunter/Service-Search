@@ -1,14 +1,16 @@
 const express = require('express');
-const morgan = require('morgan');
+require('dotenv').config();
+// const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const Search = require('../database/connect-mysql');
+// const Search = require('../database/connect-mysql');
+const Search = require('../database/connect-postgres');
 
 const app = express();
 
 app.use(cors());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(
@@ -22,8 +24,29 @@ app.get('/', (req, res) => {
 });
 
 app.get('/restaurants', (req, res) => {
-	console.log('/restaurants get');
-	Search.findAll({ attributes: ['restaurants', 'cuisines', 'locations'] })
+	Search.findAll({
+		attributes: {
+			include: []
+		},
+	})
+		.then((data) => {
+			res.status(200).send(data);
+		})
+		.catch((err) => {
+			console.log('server err from db', err);
+		});
+});
+
+// Add a Get-restaurant by ID for stress testing the DB
+app.get('/restaurant/:id', (req, res) => {
+	Search.findAll({
+		attributes: {
+			include: []
+		},
+		where: {
+			id: req.params.id
+		}
+	})
 		.then((data) => {
 			res.status(200).send(data);
 		})

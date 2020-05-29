@@ -1,26 +1,27 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-	process.env.MYSQL_DB,
-	process.env.MYSQL_USR,
-	process.env.MYSQL_PW, {
-		host: process.env.MYSQL_HOST,
-		dialect: 'mysql',
+	process.env.POSTGRES_DB,
+	process.env.POSTGRES_USR,
+	process.env.POSTGRES_PW, {
+		host: process.env.POSTGRES_HOST,
+		dialect: 'postgres',
 		logging: false
 	}
 );
 
+
 sequelize
 	.authenticate()
 	.then(() => {
-		console.log('Connection To MySQL Has Been Established Successfully');
+		console.log('Connection To Postgres Has Been Established Successfully');
 	})
 	.catch((err) => {
 		console.log(err);
 	});
 
 const Search = sequelize.define(
-	'search',
+	'restaurants',
 	{
 		id: {
 			type: Sequelize.INTEGER,
@@ -28,13 +29,13 @@ const Search = sequelize.define(
 			autoIncrement: true,
 			allowNull: false
 		},
-		restaurants: Sequelize.STRING,
-		locations: Sequelize.STRING,
-		cuisines: Sequelize.STRING
+		restaurant: Sequelize.STRING,
+		location: Sequelize.STRING,
+		cuisine: Sequelize.STRING
 	},
 	{
 		freezeTableName: true,
-		tableName: 'search',
+		tableName: 'restaurants',
 		timestamps: false
 	}
 );
