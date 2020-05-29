@@ -1,9 +1,11 @@
 const express = require('express');
+require('dotenv').config();
 // const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const Search = require('../database/connect-mysql');
+// const Search = require('../database/connect-mysql');
+const Search = require('../database/connect-postgres');
 
 const app = express();
 
@@ -22,7 +24,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/restaurants', (req, res) => {
-	Search.findAll({ attributes: ['restaurants', 'cuisines', 'locations'] })
+	Search.findAll({
+		attributes: {
+			include: []
+		},
+	})
 		.then((data) => {
 			res.status(200).send(data);
 		})
@@ -34,7 +40,9 @@ app.get('/restaurants', (req, res) => {
 // Add a Get-restaurant by ID for stress testing the DB
 app.get('/restaurant/:id', (req, res) => {
 	Search.findAll({
-		attributes: ['restaurants', 'cuisines', 'locations'],
+		attributes: {
+			include: []
+		},
 		where: {
 			id: req.params.id
 		}

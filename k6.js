@@ -9,7 +9,10 @@ export const options = {
 };
 
 // MySQL
-const dbRows = 100;
+// const dbRows = 100;
+
+// Postgres
+const dbRows = 10000000;
 
 export default function () {
 	const random = Math.floor(Math.random() * dbRows) + 1;
