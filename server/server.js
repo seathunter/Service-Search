@@ -1,5 +1,4 @@
 const express = require('express');
-require('dotenv').config();
 // const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -23,11 +22,18 @@ app.get('/', (req, res) => {
 	res.status(200).send();
 });
 
+
 app.get('/restaurants', (req, res) => {
+	const randPostgres = Math.floor(Math.random() * 10000000) + 1;
 	Search.findAll({
 		attributes: {
 			include: []
 		},
+		where: {
+			id: randPostgres
+		}
+		// offset: randPostgres,
+		// limit: 1,
 	})
 		.then((data) => {
 			res.status(200).send(data);
