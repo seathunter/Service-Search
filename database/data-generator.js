@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
 
-const numOfRecords = 10000000;
+const numOfRecords = 10e+6;
 
 const cuisine = [
 	'Japanese',
@@ -22,13 +22,10 @@ console.log(`Ok: lets add ${numOfRecords} records to /data/data.csv`);
 console.time('Took');
 
 // Create the CSV write stream
-const writer = csvWriter({ headers: ['restaurant', 'location', 'cuisine'] });
+const writer = csvWriter({ headers: ['id', 'restaurant', 'location', 'cuisine'] });
 
 // Create the write stream to the file
-const writeFile = fs.createWriteStream(path.join(__dirname, '..', 'data', 'data.csv'), {
-	encoding: 'utf8',
-	flags: 'w'
-})
+const writeFile = fs.createWriteStream(path.join(__dirname, '..', 'data', 'data.csv'))
 	.on('open', () => console.log('CSV file open: Running...'));
 
 // Don't blow up the JS stack
@@ -41,8 +38,10 @@ writer.pipe(writeFile);
 	// Loop the content
 	for (let i = 0; i < numOfRecords; i++) {
 		const random = Math.floor(Math.random() * cuisine.length);
+		const restaurant = faker.lorem.word();
 		const canContinue = writer.write([
-			faker.lorem.word(),
+			i + 1,
+			restaurant.charAt(0).toUpperCase() + restaurant.slice(1),
 			`${faker.address.county()}, ${faker.address.city()}`,
 			cuisine[random]
 		]);
