@@ -6,6 +6,6 @@ CREATE TABLE restaurants (
   cuisine VARCHAR
 );
 
-COPY restaurants(restaurant,location,cuisine)
+COPY restaurants(id,restaurant,location,cuisine)
 FROM '/data/data.csv'
 DELIMITER ',' CSV HEADER;
