@@ -1,6 +1,4 @@
 const express = require('express');
-// const morgan = require('morgan');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 // const Search = require('../database/connect-mysql');
@@ -9,14 +7,8 @@ const Search = require('../database/connect-postgres');
 const app = express();
 
 app.use(cors());
-// app.use(morgan('dev'));
 app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(
-	bodyParser.urlencoded({
-		extended: true
-	})
-);
+app.use(express.json());
 
 app.get('/', (req, res) => {
 	res.status(200).send();
