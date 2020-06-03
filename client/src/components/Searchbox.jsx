@@ -28,12 +28,8 @@ class Searchbox extends React.Component {
 		this.getSuggestions = this.getSuggestions.bind(this);
 		this.getSuggestionValue = this.getSuggestionValue.bind(this);
 		this.renderSuggestion = this.renderSuggestion.bind(this);
-		this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(
-			this
-		);
-		this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
-			this
-		);
+		this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
+		this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
 		this.renderSectionTitle = this.renderSectionTitle.bind(this);
 		this.getSectionSuggestions = this.getSectionSuggestions.bind(this);
 	}
@@ -42,6 +38,7 @@ class Searchbox extends React.Component {
 		Axios.get('http://localhost:3030/restaurants')
 			.then((result) => {
 				const { data } = result;
+				console.log(data);
 				const locations = [];
 				const restaurants = [];
 				data.forEach((info) => {
