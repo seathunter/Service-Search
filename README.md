@@ -1,16 +1,28 @@
-# Project Name
+# Alpha Omega: Search Service
 
-> Project description
+> Search service for the AO app.
+> Inherited React client, re-architected server service to be consumed by the AO proxy app.
 
-FreeSeats
+## Preliminary Database Benchmarking
+### Postgres vs Cassandra
+This project was used to explore and benchmark the two DBs locally. In a query by ID drag race Postgres eked out Cassandra, returning four times faster: ~6.01ms vs ~24.2ms. Both were very fast once various basic optimizations have been made like caching common queries, simple configuration and setting up indexes. There were also developer considerations like documentation and community support which leant in Postgresses favour.
 
-## Related Projects
+Given the data in our use case could be classed as non-mission critical there was less requirement for ACID compliance. Our datas shape was also very simple and fits easily within either relational or non-relational DBs, not requiring any joins, but maybe search.As we are to keep to AWS’s TC2.micro tier any scaling will have to be horizontal, lending some credence to Cassandra which although may require more space will scale easier and more reliably than Postgres out of the box.Both technologies are very capable but as the Postgres benchmark read speed beat out Cassandra four times faster on average with a comparatively trivial setup, and so was deemed the proffered choice.
 
-- https://github.com/freeseats/exzerone-search-bar
-- https://github.com/freeseats/slhodak-reviews-and-impressions
-- https://github.com/freeseats/Menu-Related-SideBar
-- https://github.com/freeseats/matthewjdiaz1-photo-service
-  - https://github.com/freeseats/wfong-service-reservations
+## Stress Testing
+This service along with the [proxy](https://github.com/AlphaOmegaTeam/Paul-Proxy) was used to stress test a manually implemented EC2 cluster on AWS to guarantee a fast UX. The goal was to scale horizontally up to 3000RPS with sub 100ms responses and a 0% error rate. 10M rows were seeded to the Postgres DB and stress tested to observe the service oriented architecture under load. This was a great exercise for digging into, diagnosing and configuring the TC2.micro Ubuntu boxes, NginX, Node and Postgres for performance. 
+
+![](https://i.imgur.com/iVTnVQf.png)
+
+
+## Related Service
+
+- https://github.com/AlphaOmegaTeam/Paul-Proxy
+- https://github.com/AlphaOmegaTeam/Evan-Service-Photos
+- https://github.com/AlphaOmegaTeam/Evan-Service-Component
+- https://github.com/AlphaOmegaTeam/Evan-Service-Database
+- https://github.com/AlphaOmegaTeam/Kayla-Service-Reservation
+
 
 ## Table of Contents
 
@@ -21,21 +33,13 @@ FreeSeats
 ## Usage
 
 > Some usage instructions
-> Please create a database called 'search' in mysql prior in running the scripts;
+> Please create a database called 'search' in Postgres prior in running the scripts;
 > The Instruction is as follows:
 > In Terminal,
 
-- 1. type in command - `\$mysql -u -p root`
-- 1. Enter your password if you have one
-- 1. type in command - `show databases`
-   to see your current databases.
-- 1. type in command - `create database search`
-- 1. type in command - `use search`
-- 1. Under the server folder, go to db.js.
-- 1. On line 13, change the third parameter of the function to the password you have set up to your mysql (it is currently 'student');
-- 1. After all of the steps mentioned above, go ahead and install dependencies with `npm install`.
-- 1. run command `npm run seeding` to seed the data to your database
-- 1. run `npm start` to start up the server
+- 1. Install dependencies with `npm install`.
+- 1. Run command `npm run seeding` to seed the data to your database
+- 1. Run `npm start` to start up the server
 
 ## Requirements
 
@@ -57,4 +61,4 @@ npm run react-dev
 npm start
 ```
 
-In Chrome, go to localhost:3030.
+View localhost:3030.
